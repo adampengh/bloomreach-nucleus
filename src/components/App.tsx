@@ -1,9 +1,22 @@
+import ThemeProvider from '@/themes/ThemeProvider';
+import { CssBaseline } from '@mui/material';
+
+
+import {
+  Button
+} from '@mui/material'
+
 
 interface AppProps {}
 
 const App = ({}: AppProps): JSX.Element => {
   return (
-    <div>APP</div>
+    <div>
+      <ThemeProvider>
+        <CssBaseline />
+
+      </ThemeProvider>
+    </div>
   )
 }
 

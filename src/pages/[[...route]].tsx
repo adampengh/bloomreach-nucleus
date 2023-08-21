@@ -9,14 +9,14 @@ import App from '@/components/App'
 const Index: NextPage = (): JSX.Element => {
   return (
     <>
-    <Head>
-      <title>Bloomreach Nucleus</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link rel="icon" href="/favicon.png" />
-    </Head>
-    <main>
-      <App />
-    </main>
+      <Head>
+        <title>Bloomreach Nucleus</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.png" />
+      </Head>
+      <main>
+        <App />
+      </main>
     </>
   )
 }
