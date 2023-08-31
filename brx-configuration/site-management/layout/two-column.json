@@ -1,0 +1,86 @@
+{
+  "name": "two-column",
+  "label": "Two-Column Layout",
+  "description": null,
+  "parameters": {},
+  "type": "xpage",
+  "extends": "base",
+  "components": [
+    {
+      "name": "top",
+      "label": null,
+      "description": null,
+      "parameters": {},
+      "xtype": null,
+      "definition": null,
+      "components": [
+        {
+          "name": "container",
+          "label": "Top",
+          "description": null,
+          "parameters": {},
+          "xtype": "hst.nomarkup",
+          "type": "managed"
+        }
+      ],
+      "type": "static"
+    },
+    {
+      "name": "main",
+      "label": null,
+      "description": null,
+      "parameters": {},
+      "xtype": null,
+      "definition": null,
+      "components": [
+        {
+          "name": "container",
+          "label": "Main",
+          "description": null,
+          "parameters": {},
+          "xtype": "hst.nomarkup",
+          "type": "managed"
+        }
+      ],
+      "type": "static"
+    },
+    {
+      "name": "right",
+      "label": null,
+      "description": null,
+      "parameters": {},
+      "xtype": null,
+      "definition": null,
+      "components": [
+        {
+          "name": "container",
+          "label": "Right",
+          "description": null,
+          "parameters": {},
+          "xtype": "hst.nomarkup",
+          "type": "managed"
+        }
+      ],
+      "type": "static"
+    },
+    {
+      "name": "bottom",
+      "label": null,
+      "description": null,
+      "parameters": {},
+      "xtype": null,
+      "definition": null,
+      "components": [
+        {
+          "name": "container",
+          "label": "Bottom",
+          "description": null,
+          "parameters": {},
+          "xtype": "hst.nomarkup",
+          "type": "managed"
+        }
+      ],
+      "type": "static"
+    }
+  ]
+}

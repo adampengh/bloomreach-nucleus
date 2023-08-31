@@ -26,7 +26,27 @@ const config: StorybookConfig = {
     ${head}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Taviraj:wght@300;400;500;700&family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+      @font-face {
+        font-family: "Bloomreach Sans";
+        src:
+            url(https://www.bloomreach.com/css/fonts/BloomreachSans-Regular.woff2)format("woff2"),
+            url(https://www.bloomreach.com/css/fonts/BloomreachSans-Regular.woff)format("woff");
+        font-weight: 400;
+        font-style: normal;
+        font-display: block
+      }
+      @font-face {
+        font-family: "Bloomreach Sans";
+        src:
+            url(https://www.bloomreach.com/css/fonts/BloomreachSans-Medium.woff2)format("woff2"),
+            url(https://www.bloomreach.com/css/fonts/BloomreachSans-Medium.woff)format("woff");
+        font-weight: 700;
+        font-style: normal;
+        font-display: block
+      }
+    </style>
   `,
   staticDirs: ['../public'],
   typescript: {

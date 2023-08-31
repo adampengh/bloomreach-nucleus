@@ -1,11 +1,15 @@
-import { BloomreachNucleus } from "./schemes";
+import {
+  BloomreachNucleusDark,
+  BloomreachNucleusLight
+} from "./schemes";
 
 interface ThemeMapProps {
   [key: string]: any;
 }
 
 const themeMap: ThemeMapProps = {
-  nucleus: BloomreachNucleus
+  BloomreachNucleusDark: BloomreachNucleusDark,
+  BloomreachNucleusLight: BloomreachNucleusLight
 };
 
 export function themeCreator(theme: string) {

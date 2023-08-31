@@ -1,16 +1,24 @@
 import { alpha, createTheme, lighten, darken, ThemeOptions } from '@mui/material';
 import '@mui/lab/themeAugmentation';
 
-import { colors, typography } from './common';
+import {
+  baseline,
+  breakpoints,
+  colors,
+  typography,
+} from './common';
 
 export const BloomreachNucleusLight: ThemeOptions = createTheme({
+  breakpoints: breakpoints,
   components: {
     MuiCssBaseline: {
       styleOverrides: {
+        ...baseline,
         body: {
+          ...baseline.body,
           backgroundColor: colors.white,
           color: colors.black,
-        }
+        },
       }
     },
     MuiAccordion: {
@@ -52,7 +60,6 @@ export const BloomreachNucleusLight: ThemeOptions = createTheme({
         root: {},
         filled: {
           color: '#fff',
-
         },
         outlined: {},
         standard: {},
@@ -81,11 +88,50 @@ export const BloomreachNucleusLight: ThemeOptions = createTheme({
         root: {},
       }
     },
+    MuiAvatar: {
+      defaultProps: {},
+      styleOverrides: {
+        root: {},
+        colorDefault: {
+          backgroundColor: colors.primary,
+        },
+      }
+    },
+    MuiAvatarGroup: {
+      defaultProps: {},
+      styleOverrides: {
+        root: {},
+      }
+    },
     MuiButton: {
       defaultProps: {
         disableElevation: true,
       }
-    }
+    },
+    MuiButtonBase: {
+      defaultProps: {},
+      styleOverrides: {}
+    },
+    MuiCheckbox: {
+      defaultProps: {},
+      styleOverrides: {
+        root: {
+          padding: '4px'
+        },
+      }
+    },
+    MuiFormControl: {},
+    MuiFormControlLabel: {
+      defaultProps: {},
+      styleOverrides: {
+        root: {
+          marginLeft: '-5px'
+        },
+        label: {
+          fontSize: '13px'
+        },
+      }
+    },
   },
   palette: {
     mode: 'light',

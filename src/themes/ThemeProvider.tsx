@@ -6,11 +6,11 @@ import { StylesProvider } from '@mui/styles';
 export const ThemeContext = createContext((_themeName: string) => {});
 
 const ThemeProviderWrapper = (props: any) => {
-  const [themeName, _setThemeName] = useState('nucleus');
+  const [themeName, _setThemeName] = useState('BloomreachNucleusLight');
 
   useEffect(() => {
     const curThemeName =
-      window.localStorage.getItem('appTheme') || 'nucleus';
+      window.localStorage.getItem('appTheme') || 'BloomreachNucleusLight';
     _setThemeName(curThemeName);
   }, []);
 

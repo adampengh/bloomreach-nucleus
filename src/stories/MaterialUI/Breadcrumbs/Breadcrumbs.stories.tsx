@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Breadcrumbs } from '.';
+import { Breadcrumbs } from '../../../components'
 
 const meta: Meta<typeof Breadcrumbs> = {
   title: 'Material UI/Breadcrumbs',

@@ -7,5 +7,5 @@ export const colors = {
   info: '#00b2db',
   black: '#333333',
   white: '#fafafa',
-  primaryAlt: '#000C57'
+  primaryAlt: '#fff'
 };

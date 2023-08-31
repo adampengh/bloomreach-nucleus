@@ -1,0 +1,28 @@
+.product-price {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: nowrap;
+  font-size: 12px;
+  font-weight: 500;
+  justify-content: flex-end;
+  line-height: 16px;
+
+  span {
+    margin-right: 8px;
+  }
+
+  &__regular {
+    color: #BAC2C9;
+    text-decoration: line-through;
+    font-weight: 600;
+  }
+
+  &__sale {
+    color: #ED565D;
+    font-weight: 600;
+  }
+
+  &__discount {
+    color: #9A9C9F;
+  }
+}

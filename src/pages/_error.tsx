@@ -1,11 +1,35 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
+import { initialize } from '@bloomreach/spa-sdk'
+import axios, { AxiosError } from 'axios'
 import { Montserrat } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+import App from '../components/App';
+import { loadCommerceConfig } from '@/lib/utils'
 
 const montserrat = Montserrat({ subsets: ['latin'] })
 
-const Error: NextPage = () => {
+enum ErrorCode {
+  NOT_FOUND = 'NOT_FOUND',
+  INTERNAL_SERVER_ERROR = 'INTERNAL_SERVER_ERROR',
+  GENERAL_ERROR = 'GENERAL_ERROR',
+}
+
+const ERROR_PAGE_PATH_MAP = {
+  [ErrorCode.NOT_FOUND]: '/404',
+  [ErrorCode.INTERNAL_SERVER_ERROR]: '/500',
+  [ErrorCode.GENERAL_ERROR]: '/error',
+};
+
+
+const Error: NextPage = ({ configuration, page, commerceConfig }: any) => {
+  if (configuration && page) {
+    return <App
+      commerceConfig={commerceConfig}
+      configuration={configuration}
+      page={page}
+    />;
+  }
+
   return (
     <>
       <Head>
@@ -14,11 +38,52 @@ const Error: NextPage = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={`${styles.main} ${montserrat.className}`}>
+      <main className={`${montserrat.className}`}>
         ERROR
       </main>
     </>
   )
+}
+
+Error.getInitialProps = async ({ req: request, res: response, err, asPath }) => {
+  let errorCode: ErrorCode;
+  if (err) {
+    if ((err as AxiosError).isAxiosError) {
+      const axiosError = err as AxiosError;
+      errorCode = axiosError.response?.status === 404 ? ErrorCode.NOT_FOUND : ErrorCode.INTERNAL_SERVER_ERROR;
+    // } else if (err instanceof ProductNotFoundError) {
+    //   errorCode = ErrorCode.NOT_FOUND;
+    } else {
+      errorCode = ErrorCode.GENERAL_ERROR;
+    }
+  } else {
+    errorCode = response?.statusCode === 404 ? ErrorCode.NOT_FOUND : ErrorCode.GENERAL_ERROR;
+  }
+
+  let search = asPath?.split('?')[1] ?? '';
+  if (search) {
+    search = `?${search}`;
+  }
+
+  const path = `${ERROR_PAGE_PATH_MAP[errorCode] ?? ERROR_PAGE_PATH_MAP[ErrorCode.GENERAL_ERROR]}${search}`;
+  const configuration = {
+    endpoint: 'https://profserv02.bloomreach.io/delivery/site/v1/channels/bloomreach-nucleus/pages',
+    path
+  };
+
+  try {
+    const page = await initialize({ ...configuration, request, httpClient: axios as any });
+    // console.log('page', page)
+    const pageJson = page.toJSON();
+    const commerceConfig = loadCommerceConfig(pageJson);
+    return {
+      configuration,
+      page: pageJson,
+      commerceConfig,
+    };
+  } catch (e) {
+    return {};
+  }
 }
 
 export default Error

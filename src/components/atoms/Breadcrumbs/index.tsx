@@ -7,7 +7,7 @@ import {
 } from '@mui/material';
 
 export interface ButtonGroupProps extends MuiMuiBreadcrumbsProps {
-  label: string;
+  label?: string;
 }
 
 export const Breadcrumbs = ({
@@ -16,14 +16,10 @@ export const Breadcrumbs = ({
 }: ButtonGroupProps) =>
   <MuiBreadcrumbs {...rest}>
     <Link underline="hover" color="inherit" href="/">
-      Home
+      <Typography variant='caption'>Home</Typography>
     </Link>
-    <Link
-      underline="hover"
-      color="inherit"
-      href="/material-ui/getting-started/installation/"
-    >
-      Category
+    <Link underline="hover" color="inherit" href="/material-ui/getting-started/installation/">
+      <Typography variant='caption'>Category</Typography>
     </Link>
-    <Typography color="text.primary">Breadcrumb</Typography>
+    <Typography color="text.primary" variant='caption'>Breadcrumb</Typography>
   </MuiBreadcrumbs>
