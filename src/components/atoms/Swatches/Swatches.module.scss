@@ -1,43 +1,46 @@
 .swatches {
   display: block;
 
-  ul {
-    display: flex;
+  &__list {
+    display: grid;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-start;
+    grid-template-columns: repeat(7, 32px);
+    grid-gap: 8px;
     list-style-type: none;
     margin: 0;
     margin-top: 12px;
     padding: 0;
-    li {
-      align-items: center;
-      background: #fff;
-      border: 1px solid #ccc;
-      border-radius: 100%;
-      cursor: pointer;
-      display: flex;
-      height: 32px;
-      justify-content: center;
-      transition: border 0.1s ease;
-      width: 32px;
-      &:not(:last-child) {
-        margin-right: 8px;
-      }
-      &:hover {
-        border: 1px solid #333;
-      }
+    &-item {
+        align-items: center;
+        background: #fff;
+        border: 1px solid #ccc;
+        border-radius: 32px;
+        cursor: pointer;
+        display: flex;
+        height: 32px;
+        justify-content: center;
+        transition: border 0.1s ease;
+        width: 32px;
+        &:not(:last-child) {
+          margin-right: 8px;
+        }
+        &:hover {
+          border: 1px solid #333;
+        }
 
-      &.active {
-        border: 1px solid #333;
-      }
+        &.active {
+          border: 1px solid #333;
+        }
 
-      span {
-        border-radius: 100%;
-        display: block;
-        height: 26px;
-        width: 26px;
-      }
+        span {
+          border-radius: 26px;
+          display: block;
+          height: 26px;
+          width: 26px;
+        }
+
     }
   }
 }

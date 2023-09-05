@@ -8,6 +8,10 @@ import {
   Navigation,
 } from '../../index'
 
+// Icons
+import FmdGoodIcon from '@mui/icons-material/FmdGood';
+import StorefrontIcon from '@mui/icons-material/Storefront';
+
 import styles from './Header.module.scss'
 
 
@@ -47,7 +51,9 @@ export const Header = () => {
             item
             sx={{ marginLeft: 'auto' }}
             className={`${styles['header__utility-nav']}`}>
-            Utility Nav
+            <Link href="/store-locator">
+              <StorefrontIcon />
+            </Link>
           </Grid>
         </Grid>
 

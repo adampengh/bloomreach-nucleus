@@ -6,6 +6,7 @@ export const CONSTANTS = {
 }
 
 // Environment Variables
+export const NEXT_PUBLIC_GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ?? '';
 export const NEXT_PUBLIC_DEBUG_MODE = process.env.NEXT_PUBLIC_DEBUG_MODE ?? 'false';
 export const NEXT_PUBLIC_BRXM_ENDPOINT = process.env.NEXT_PUBLIC_BRXM_ENDPOINT ?? '';
 export const NEXT_PUBLIC_BRXM_DEVELOPMENT_PROJECT_TOKEN = process.env.NEXT_PUBLIC_BRXM_DEVELOPMENT_PROJECT_TOKEN ?? '';

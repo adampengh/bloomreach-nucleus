@@ -12,7 +12,7 @@ export const Navigation = () => {
   }
 
   const { menu: menuRef } = component?.getModels<MenuModels>()
-  const menu = menuRef && page?.getContent<BrMenu>(menuRef)
+  const menu: BrMenu = menuRef && page?.getContent<BrMenu>(menuRef)
   console.log('menu', menu)
 
   if (!menu || !isMenu(menu)) {

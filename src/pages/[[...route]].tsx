@@ -5,6 +5,7 @@ import { Configuration, PageModel, initialize } from '@bloomreach/spa-sdk'
 import axios from 'axios'
 import { APOLLO_STATE_PROP_NAME, CommerceApiClientFactory } from '@bloomreach/connector-components-react';
 import { buildConfiguration, CommerceConfig, deleteUndefined, loadCommerceConfig } from '@/lib/utils'
+import { ChannelConfig, loadChannelConfig } from '@/lib/channel'
 // import { Montserrat } from 'next/font/google'
 // import styles from '@/styles/Home.module.css'
 
@@ -18,6 +19,7 @@ interface IndexPageProps {
   commerceConfig: CommerceConfig;
   [APOLLO_STATE_PROP_NAME]?: any;
   // cookies?: Record<string, string>;
+  channelConfig: ChannelConfig;
 }
 
 const Index: NextPage<any> = ({
@@ -25,6 +27,7 @@ const Index: NextPage<any> = ({
   page,
   commerceConfig,
   [APOLLO_STATE_PROP_NAME]: apolloState,
+  channelConfig,
 }): JSX.Element => {
   return <App
     configuration={configuration}
@@ -32,6 +35,7 @@ const Index: NextPage<any> = ({
     commerceConfig={commerceConfig}
     apolloState={apolloState}
     commerceClientFactory={commerceClientFactory}
+    channelConfig={channelConfig}
   />
 }
 
@@ -49,10 +53,12 @@ Index.getInitialProps = async ({
   const pageJson = page.toJSON();
 
   const commerceConfig = loadCommerceConfig(pageJson, query);
+  const channelConfig = loadChannelConfig(pageJson, query);
 
   const props: IndexPageProps = {
     configuration,
     commerceConfig,
+    channelConfig,
     page: pageJson,
   };
 

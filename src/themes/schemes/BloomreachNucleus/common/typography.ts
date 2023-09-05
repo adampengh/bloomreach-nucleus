@@ -1,4 +1,7 @@
-export const typography: any = {
+import { Palette } from "@mui/material";
+import { TypographyOptions } from "@mui/material/styles/createTypography";
+
+export const typography: TypographyOptions | ((palette: Palette) => TypographyOptions) = {
   fontFamily:
     '"Bloomreach Sans", "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"',
   fontWeightLight: 300,
@@ -44,17 +47,17 @@ export const typography: any = {
     fontSize: "1rem",
   },
   subtitle1: {
-    fontSize: 16,
+    fontSize: 18,
   },
   subtitle2: {
     fontWeight: 400,
-    fontSize: 14,
-  },
-  body1: {
     fontSize: 16,
   },
-  body2: {
+  body1: {
     fontSize: 14,
+  },
+  body2: {
+    fontSize: 12,
   },
   button: {
     fontWeight: 600,

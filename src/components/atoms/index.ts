@@ -1,3 +1,4 @@
+export * from './AddToCartButton'
 export * from './Breadcrumbs'
 export * from './ProductPrice'
 export * from './Swatches'

@@ -8,6 +8,7 @@ interface ChannelParameters {
   discoveryRealm: string;
   graphql_baseurl?: string;
   graphqlTenantName?: string;
+  googleMapsApiKey?: string;
 }
 
 interface Content {

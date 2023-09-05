@@ -5,3 +5,40 @@
 main {
   padding-bottom: 6rem;
 }
+
+.gm-style .gm-style-iw-t {
+  bottom: 24px !important;
+}
+.gm-style .gm-style-iw-c {
+  background-color: red;
+  border-radius: 0;
+  transform: translate3d(8%,-50%,0);
+  padding: 0;
+}
+
+.gm-style-iw-d {
+  padding: 0 !important;
+  max-height: 100% !important;
+  display: flex;
+  overflow: auto !important;
+}
+
+.gm-style-iw-tc {
+
+}
+
+.gm-style .gm-style-iw-tc {
+  transform: rotate(90deg) translate(0, -50%);
+}
+.gm-style .gm-style-iw-tc::after{
+  background-color: red;
+}
+
+.gm-ui-hover-effect {
+  opacity: 1;
+  top: 0 !important;
+  right: 0 !important;
+}
+.gm-ui-hover-effect span {
+  background-color: #fff;
+}

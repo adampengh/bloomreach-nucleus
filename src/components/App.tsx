@@ -10,6 +10,7 @@ import {
   Header,
   Hero,
   StoreListing,
+  StoreLocator,
 } from '@/components';
 
 // Context
@@ -23,6 +24,8 @@ import PageLayout from '@/layouts';
 // Utils
 import { CommerceConfig } from '@/lib/utils';
 import { useMemo } from 'react';
+import { ChannelContextProvider } from '@/context/ChannelContext';
+import { ChannelConfig } from '@/lib/channel';
 
 interface AppProps {
   configuration: any;
@@ -30,6 +33,7 @@ interface AppProps {
   commerceConfig: CommerceConfig;
   commerceClientFactory?: CommerceApiClientFactory;
   apolloState?: string;
+  channelConfig: ChannelConfig;
 }
 
 const App = ({
@@ -38,10 +42,12 @@ const App = ({
   commerceConfig,
   commerceClientFactory,
   apolloState,
+  channelConfig,
 }: AppProps): JSX.Element => {
   const mapping = {
     Hero,
     StoreListing,
+    StoreLocator,
   }
 
   const {
@@ -73,21 +79,23 @@ const App = ({
       apolloState={apolloState}
     >
       <CommerceContextProvider commerceConfig={commerceConfig} commerceClientFactory={factory}>
-        <ThemeProvider>
-          <CssBaseline />
-          <BrPage configuration={{ ...configuration, httpClient: axios as any }} mapping={mapping} page={page}>
-            <BrPageContext.Consumer>
-              {(page) => (
-                <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-                  {page && <Meta page={page} /> }
-                  <Header />
-                  <PageLayout page={page} />
-                  <Footer />
-                </div>
-              )}
-            </BrPageContext.Consumer>
-          </BrPage>
-        </ThemeProvider>
+        <ChannelContextProvider channelConfig={channelConfig}>
+          <ThemeProvider>
+            <CssBaseline />
+            <BrPage configuration={{ ...configuration, httpClient: axios as any }} mapping={mapping} page={page}>
+              <BrPageContext.Consumer>
+                {(page) => (
+                  <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+                    {page && <Meta page={page} /> }
+                    <Header />
+                    <PageLayout page={page} />
+                    <Footer />
+                  </div>
+                )}
+              </BrPageContext.Consumer>
+            </BrPage>
+          </ThemeProvider>
+        </ChannelContextProvider>
       </CommerceContextProvider>
     </CommerceConnectorProvider>
   )
