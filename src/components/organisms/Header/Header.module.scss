@@ -8,10 +8,9 @@
   right: 0;
   z-index: 999;
 
-
   &__container {
     height: 4rem;
-    display: flex;
+    display: flex !important;
     align-items: center;
     align-content: center;
     position: relative;
@@ -34,6 +33,6 @@
   }
 
   &__utility-nav {
-    margin-left: auto;
+    margin-left: auto !important;
   }
 }
