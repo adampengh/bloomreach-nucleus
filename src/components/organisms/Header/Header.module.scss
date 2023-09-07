@@ -23,6 +23,12 @@
     align-items: center;
   }
 
+  &__mobile-trigger {
+    @media screen and (min-width: 1025px) {
+      display: none;
+    }
+  }
+
   &__logo {
     height: 100%;
     display: flex;
@@ -30,6 +36,13 @@
     align-items: center;
     align-content: center;
     padding-left: 12px;
+  }
+
+  &__nav {
+    display: none;
+    @media screen and (min-width: 1025px) {
+      display: flex;
+    }
   }
 
   &__utility-nav {

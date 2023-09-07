@@ -69,7 +69,7 @@ export const Header = () => {
         // }}
       >
         <Grid container className={`${styles['header__inner']}`}>
-          <Grid item className={`${styles['header__nav']}`}>
+          <Grid item className={`${styles['header__mobile-trigger']}`}>
             <IconButton onClick={() => setMobileMenuOpen(true)}>
               <MenuIcon color="primary" fontSize="small" />
             </IconButton>
@@ -97,7 +97,7 @@ export const Header = () => {
               <SearchIcon color="primary" fontSize="small" />
             </IconButton>
             <IconButton onClick={() => setMiniCartOpen(true)}>
-              <Badge badgeContent={4} color="secondary">
+              <Badge badgeContent={4} color="primary">
                 <ShoppingCartOutlinedIcon color="primary" fontSize="small" />
               </Badge>
             </IconButton>
