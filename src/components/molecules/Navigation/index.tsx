@@ -47,7 +47,7 @@ export const Navigation = () => {
                 onClick={(event) => handleActiveMenu(event, index)}
                 href="/collections/women"
                 data-menu="women"
-              >{item.getName()} {item.getChildren().length}</Link>
+              >{item.getName()}</Link>
 
               {item.getChildren().length > 0 && (
                 <Box
