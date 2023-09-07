@@ -3,6 +3,10 @@
   "description": "Bloomreach Nucleus",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=16",
+    "npm": ">=8.0.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -23,6 +27,7 @@
     "@mui/lab": "^5.0.0-alpha.140",
     "@mui/material": "^5.14.5",
     "@mui/styles": "^5.14.5",
+    "@netlify/plugin-nextjs": "^4.40.1",
     "@react-google-maps/api": "^2.19.2",
     "@types/node": "20.5.0",
     "@types/react": "18.2.20",
