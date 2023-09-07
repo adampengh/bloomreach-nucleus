@@ -1,7 +1,17 @@
-import { Palette } from "@mui/material";
 import { TypographyOptions } from "@mui/material/styles/createTypography";
+import { breakpoints } from "./breakpoints";
 
-export const typography: TypographyOptions | ((palette: Palette) => TypographyOptions) = {
+declare module '@mui/material/Typography' {
+  interface TypographyPropsVariantOverrides {
+    serifxxxl: true;
+  }
+}
+
+export interface ExtendedTypographyOptions extends TypographyOptions {
+  serifxxxl?: React.CSSProperties;
+}
+
+export const typography: ExtendedTypographyOptions = {
   fontFamily:
     '"Bloomreach Sans", "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"',
   fontWeightLight: 300,

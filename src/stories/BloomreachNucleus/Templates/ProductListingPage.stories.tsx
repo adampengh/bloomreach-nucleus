@@ -41,7 +41,7 @@ export const Grocery: Story = {
   args: {
     itemsPerRowMobile: 2,
     itemsPerRowTablet: 3,
-    itemsPerRowDesktop: 4,
+    itemsPerRowDesktop: 6,
     variation: 'grocery',
   },
   render: ({ ...args }) =>

@@ -3,8 +3,6 @@ import { BrProps } from '@bloomreach/react-sdk';
 import { Reference } from '@bloomreach/spa-sdk';
 import { GoogleMap, InfoWindowF, MarkerF, useLoadScript } from '@react-google-maps/api';
 import { Button, Link, Typography } from '@mui/material';
-import { ChannelContext } from '../../../context/ChannelContext';
-import { ChannelConfig } from '../../..//lib/channel';
 import _ from 'lodash'
 
 import styles from './StoreLocator.module.scss'
@@ -23,25 +21,23 @@ export const StoreLocator = ({ component, page }: BrProps) => {
   // Component State
   const [activeMarker, setActiveMarker] = useState(-1);
 
+  // BrX Component Parameters
+  // console.log('parameters', component?.getParameters())
+  const {
+    mapHeight = '90vh',
+    mapWidth = '100%',
+    googleMapsApiKey = ''
+  } = component?.getParameters() || {}
+
   // Initialize Google Maps
-  const { googleMapsApiKey = '' } = useContext<ChannelConfig>(ChannelContext) || {}
   const { isLoaded } = useLoadScript({
     id: 'google-map-script',
     googleMapsApiKey: googleMapsApiKey
   })
 
-  if (!component || !page) return null
-
-  // BrX Component Parameters
-  console.log('parameters', component?.getParameters())
-  const {
-    mapHeight = '90vh',
-    mapWidth = '100%',
-  } = component?.getParameters() || {}
-
   // BrX Query Component Model
-  const { pagination: paginationRef } = component.getModels()
-  const pagination = paginationRef && page.getContent(paginationRef)
+  const { pagination: paginationRef } = component?.getModels() || {}
+  const pagination = paginationRef && page?.getContent(paginationRef)
   const items = pagination?.getItems()
   let locations = items?.map((itemRef: Reference) => page?.getContent(itemRef))
   locations = locations?.map((document: any) => document.getData())
@@ -125,7 +121,11 @@ const MarkerDetails = ({location}: any) => {
       { website && (
         <div style={{ marginTop: '1rem' }}>
           <Typography variant="h5">Website</Typography>
-          <Link href={website} underline='hover' sx={{ color: '#fff' }}>
+          <Link
+            href={website}
+            underline='hover'
+            // sx={{ color: '#fff' }}
+          >
             <Typography variant="body1">{website}</Typography>
           </Link>
         </div>
@@ -133,14 +133,18 @@ const MarkerDetails = ({location}: any) => {
       { address?.phone && (
         <div style={{ marginTop: '1rem' }}>
           <Typography variant="h5">Telephone</Typography>
-          <Link href={`tel:${address?.phone}`} underline='hover' sx={{ color: '#fff' }}>
+          <Link
+            href={`tel:${address?.phone}`}
+            underline='hover'
+            // sx={{ color: '#fff' }}
+          >
             <Typography variant="body1" >{address.phone}</Typography>
           </Link>
         </div>
       )}
       { googleMapsLink &&
         <Button
-          color='inherit'
+          // color='inherit'
           href={googleMapsLink}
           size='small'
           sx={{ marginTop: 3}}

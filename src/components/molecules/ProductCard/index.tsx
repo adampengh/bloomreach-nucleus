@@ -9,7 +9,7 @@ export const ProductCard = ({
 }: {
   variation: string
 }) => {
-  console.log('variation', variation)
+  // console.log('variation', variation)
   let ProductCardVariant
   switch (variation) {
     case 'grocery':
@@ -20,7 +20,7 @@ export const ProductCard = ({
       ProductCardVariant = ProductCardRetail
   }
 
-  console.log('ProductCardVariant', ProductCardVariant)
+  // console.log('ProductCardVariant', ProductCardVariant)
 
   return (
     <article className={`${styles['product-card']}`}>

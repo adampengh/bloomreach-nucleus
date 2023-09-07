@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 
 // Material UI Components
-import { Button, ButtonGroup, Input } from '@mui/material'
+import { Button, ButtonGroup, Input, useTheme } from '@mui/material'
 
 // Material UI Icons
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 
 export const AddToCartButton = () => {
+  const theme = useTheme()
   const [quantity, setQuantity] = useState(0)
   return (
     <>
@@ -16,7 +17,7 @@ export const AddToCartButton = () => {
           size='small'
           variant='contained'
           onClick={() => setQuantity(1)}
-          sx={{ width: '137px', height: '32px', borderRadius: '50px' }}
+          sx={{ width: '137px', height: '34.5px', borderRadius: '50px' }}
         >Add To Cart</Button>
       :
         <ButtonGroup
@@ -35,13 +36,19 @@ export const AddToCartButton = () => {
           <Input
             onChange={(e) => setQuantity(parseInt(e.target.value))}
             value={quantity}
+            disableUnderline
             sx={{
-              padding: '0 10px',
               width: 'auto',
               textAlign: 'center',
               maxWidth: '48px',
               fontSize: '16px',
               fontWeight: 'bold',
+              justifyContent: 'center',
+              borderTop: `1px solid ${theme.palette.primary.main}`,
+              borderBottom: `1px solid ${theme.palette.primary.main}`,
+              '& input': {
+                textAlign: 'center',
+              }
             }} />
           <Button
             onClick={() => setQuantity(quantity + 1)}

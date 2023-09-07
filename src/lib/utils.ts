@@ -4,10 +4,9 @@ import sanitizeHTML from 'sanitize-html';
 import {
   CONSTANTS,
   NEXT_PUBLIC_BRXM_ENDPOINT,
-  NEXT_PUBLIC_BRXM_DEVELOPMENT_PROJECT_TOKEN,
   NEXT_PUBLIC_DEBUG_MODE,
   NEXT_PUBLIC_BR_MULTI_TENANT_SUPPORT,
-} from "@/lib/constants";
+} from "../lib/constants";
 
 export interface CommerceConfig {
   graphqlServiceUrl: string;
@@ -45,22 +44,23 @@ export const buildConfiguration = (
   query: ParsedUrlQuery,
   endpoint: string = NEXT_PUBLIC_BRXM_ENDPOINT,
 ) => {
-  console.log('buildCongiguration [path]', path)
-  console.log('buildCongiguration [query]', query)
+  // console.log('buildCongiguration [path]', path)
+  // console.log('buildCongiguration [query]', query)
 
   // Read a token and server id from the query string
   const authorizationToken = query[CONSTANTS.PREVIEW_TOKEN_KEY] as string;
-  const serverId = query[CONSTANTS.PREVIEW_SERVER_ID_KEY] as string;
   const endpointParameter = query[CONSTANTS.PREVIEW_ENDPOINT] as string;
+  const serverId = query[CONSTANTS.PREVIEW_SERVER_ID_KEY] as string;
+
+  console.log('buildCongiguration [authorizationToken]', authorizationToken)
+  console.log('buildCongiguration [endpointParameter]', endpointParameter)
+  console.log('buildCongiguration [serverId]', serverId)
 
   const configuration: ConfigurationBuilder = {
     endpoint: endpointParameter || endpoint,
-    path: path.split("?")[0],
-    debug: Boolean(NEXT_PUBLIC_DEBUG_MODE),
-    ...(NEXT_PUBLIC_BRXM_DEVELOPMENT_PROJECT_TOKEN
-      ? { authorizationToken: NEXT_PUBLIC_BRXM_DEVELOPMENT_PROJECT_TOKEN }
-      : {...(authorizationToken  ? { authorizationToken }  : {})}
-    ),
+    path: path,
+    // debug: Boolean(NEXT_PUBLIC_DEBUG_MODE),
+    ...(authorizationToken ? { authorizationToken } : {}),
     ...(serverId ? { serverId } : {}),
   }
 
@@ -116,12 +116,13 @@ export const notEmpty = <T>(value: T | null | undefined): value is T => {
   return !!value;
 }
 
+export const isBrowser = () => typeof window !== 'undefined';
+
 export const isLoading = (loading: boolean): boolean => {
   const ssrMode = typeof window === 'undefined';
   // In SSR phase, ignore the `loading` param returned by Apollo client's hooks.
   return ssrMode ? false : loading;
 }
-
 
 const getBrAccountName = (pageModel: PageModel, query?: ParsedUrlQuery): string | undefined => {
   if (process.env.NEXT_PUBLIC_BR_ACCOUNT_NAME) {

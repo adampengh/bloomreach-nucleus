@@ -1,18 +1,11 @@
 /**
  * This is where all types for the components are declared
  */
-interface ChannelParameters {
-  discoveryAccountId: string;
-  discoveryDomainKey?: string;
-  discoveryViewId?: string;
-  discoveryRealm: string;
-  graphql_baseurl?: string;
-  graphqlTenantName?: string;
-  googleMapsApiKey?: string;
-}
 
-interface Content {
-  value: string;
+interface BrxComponentWrapper {
+  document: import('@bloomreach/spa-sdk').Document;
+  component: import('@bloomreach/spa-sdk').Component;
+  page: import('@bloomreach/spa-sdk').Page;
 }
 
 interface BannerDocument {
@@ -21,6 +14,19 @@ interface BannerDocument {
   image?: import('@bloomreach/spa-sdk').Reference;
   link?: import('@bloomreach/spa-sdk').Reference;
   title?: string;
+}
+
+interface ChannelParameters {
+  discoveryAccountId: string;
+  discoveryDomainKey?: string;
+  discoveryViewId?: string;
+  discoveryRealm: string;
+  graphql_baseurl?: string;
+  graphqlTenantName?: string;
+}
+
+interface Content {
+  value: string;
 }
 
 interface ContentDocument {

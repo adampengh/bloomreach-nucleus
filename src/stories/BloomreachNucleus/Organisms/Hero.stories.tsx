@@ -1,4 +1,4 @@
-import { Hero } from '../../../../components'
+import { Hero } from '../../../components'
 import { Meta, StoryObj } from '@storybook/react';
 import { initialize } from '@bloomreach/spa-sdk';
 import axios from 'axios';
@@ -15,9 +15,7 @@ const meta: Meta<typeof Hero> = {
   tags: ['autodocs'],
   title: 'Bloomreach Nucleus/Organisms/Hero',
   argTypes: {},
-  args: {
-    isStoryBook: true,
-  },
+  args: {},
 }
 export default meta;
 type Story = StoryObj<typeof Hero>

@@ -19,7 +19,7 @@ export default {
     },
     variant: {
       description: 'Applies the theme typography styles.',
-      options: ['body1', 'body2', 'button', 'caption', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'inherit', 'overline', 'subtitle1', 'subtitle2'],
+      options: ['body1', 'body2', 'button', 'caption', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'inherit', 'overline', 'subtitle1', 'subtitle2', 'serifxxxl'],
       control: { type: 'select' }
     },
   },
@@ -118,5 +118,13 @@ export const Subtitle2 = {
     variant: 'subtitle2',
     component: 'p',
     text: 'Everyone has the right to freedom of thought, conscience and religion; this right includes freedom to change his religion or belief, and freedom, either alone or in community with others and in public or private, to manifest his religion or belief in teaching, practice, worship and observance. Everyone has the right to freedom of opinion and expression; this right includes freedom to hold opinions without interference and to seek, receive and impart information and ideas through any media and regardless of frontiers. Everyone has the right to rest and leisure, including reasonable limitation of working hours and periodic holidays with pay.',
+  }
+};
+
+export const SerifXXXL = {
+  args: {
+    variant: 'serifxxxl',
+    component: 'h1',
+    text: 'Everyone has the right to freedom of thought, conscience and religion.',
   }
 };

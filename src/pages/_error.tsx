@@ -5,7 +5,6 @@ import axios, { AxiosError } from 'axios'
 import { Montserrat } from 'next/font/google'
 import App from '../components/App';
 import { loadCommerceConfig } from '@/lib/utils'
-import { loadChannelConfig } from '@/lib/channel'
 
 const montserrat = Montserrat({ subsets: ['latin'] })
 
@@ -27,7 +26,6 @@ const Error: NextPage = ({ configuration, page, commerceConfig, channelConfig }:
     return <App
       commerceConfig={commerceConfig}
       configuration={configuration}
-      channelConfig={channelConfig}
       page={page}
     />;
   }
@@ -78,12 +76,10 @@ Error.getInitialProps = async ({ req: request, res: response, err, asPath }) => 
     // console.log('page', page)
     const pageJson = page.toJSON();
     const commerceConfig = loadCommerceConfig(pageJson);
-    const channelConfig = loadChannelConfig(pageJson);
     return {
       configuration,
       page: pageJson,
       commerceConfig,
-      channelConfig,
     };
   } catch (e) {
     return {};

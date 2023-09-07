@@ -1,6 +1,8 @@
+import { useMemo } from 'react';
 import axios from 'axios';
 import { BrPage, BrPageContext } from '@bloomreach/react-sdk';
 import { PageModel } from '@bloomreach/spa-sdk';
+import { Cookies, CookiesProvider } from 'react-cookie';
 
 // Components
 import { CssBaseline } from '@mui/material';
@@ -8,9 +10,7 @@ import { Meta } from '@/components/Meta';
 import {
   Footer,
   Header,
-  Hero,
-  StoreListing,
-  StoreLocator,
+  ScrollToTopButton,
 } from '@/components';
 
 // Context
@@ -22,10 +22,8 @@ import ThemeProvider from '@/themes/ThemeProvider';
 import PageLayout from '@/layouts';
 
 // Utils
+import { BrxComponentMapping } from './BrxComponentMapping';
 import { CommerceConfig } from '@/lib/utils';
-import { useMemo } from 'react';
-import { ChannelContextProvider } from '@/context/ChannelContext';
-import { ChannelConfig } from '@/lib/channel';
 
 interface AppProps {
   configuration: any;
@@ -33,7 +31,7 @@ interface AppProps {
   commerceConfig: CommerceConfig;
   commerceClientFactory?: CommerceApiClientFactory;
   apolloState?: string;
-  channelConfig: ChannelConfig;
+  cookies?: Record<string, string>;
 }
 
 const App = ({
@@ -42,14 +40,8 @@ const App = ({
   commerceConfig,
   commerceClientFactory,
   apolloState,
-  channelConfig,
+  cookies,
 }: AppProps): JSX.Element => {
-  const mapping = {
-    Hero,
-    StoreListing,
-    StoreLocator,
-  }
-
   const {
     graphqlServiceUrl,
     connector,
@@ -71,18 +63,20 @@ const App = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [graphqlServiceUrl, connector, accountEnvId, defaultRequestHeaders, defaultAnonymousCredentials]);
 
+  const reactCookies = cookies ? new Cookies(cookies) : undefined;
+
   return (
-    <CommerceConnectorProvider
-      connector={connector}
-      graphqlServiceUrl={graphqlServiceUrl}
-      commerceClientFactory={factory}
-      apolloState={apolloState}
-    >
-      <CommerceContextProvider commerceConfig={commerceConfig} commerceClientFactory={factory}>
-        <ChannelContextProvider channelConfig={channelConfig}>
+    <CookiesProvider cookies={reactCookies}>
+      <CommerceConnectorProvider
+        connector={connector}
+        graphqlServiceUrl={graphqlServiceUrl}
+        commerceClientFactory={factory}
+        apolloState={apolloState}
+      >
+        <CommerceContextProvider commerceConfig={commerceConfig} commerceClientFactory={factory}>
           <ThemeProvider>
             <CssBaseline />
-            <BrPage configuration={{ ...configuration, httpClient: axios as any }} mapping={mapping} page={page}>
+            <BrPage configuration={{ ...configuration, httpClient: axios as any }} mapping={BrxComponentMapping} page={page}>
               <BrPageContext.Consumer>
                 {(page) => (
                   <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
@@ -90,14 +84,15 @@ const App = ({
                     <Header />
                     <PageLayout page={page} />
                     <Footer />
+                    { !page?.isPreview() && <ScrollToTopButton /> }
                   </div>
                 )}
               </BrPageContext.Consumer>
             </BrPage>
           </ThemeProvider>
-        </ChannelContextProvider>
-      </CommerceContextProvider>
-    </CommerceConnectorProvider>
+        </CommerceContextProvider>
+      </CommerceConnectorProvider>
+    </CookiesProvider>
   )
 }
 

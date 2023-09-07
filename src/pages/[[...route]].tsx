@@ -1,11 +1,11 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
+import axios from 'axios'
+import cookie from 'cookie';
 import App from '@/components/App'
 import { Configuration, PageModel, initialize } from '@bloomreach/spa-sdk'
-import axios from 'axios'
 import { APOLLO_STATE_PROP_NAME, CommerceApiClientFactory } from '@bloomreach/connector-components-react';
 import { buildConfiguration, CommerceConfig, deleteUndefined, loadCommerceConfig } from '@/lib/utils'
-import { ChannelConfig, loadChannelConfig } from '@/lib/channel'
 // import { Montserrat } from 'next/font/google'
 // import styles from '@/styles/Home.module.css'
 
@@ -18,8 +18,7 @@ interface IndexPageProps {
   page: PageModel;
   commerceConfig: CommerceConfig;
   [APOLLO_STATE_PROP_NAME]?: any;
-  // cookies?: Record<string, string>;
-  channelConfig: ChannelConfig;
+  cookies?: Record<string, string>;
 }
 
 const Index: NextPage<any> = ({
@@ -27,7 +26,7 @@ const Index: NextPage<any> = ({
   page,
   commerceConfig,
   [APOLLO_STATE_PROP_NAME]: apolloState,
-  channelConfig,
+  cookies,
 }): JSX.Element => {
   return <App
     configuration={configuration}
@@ -35,7 +34,7 @@ const Index: NextPage<any> = ({
     commerceConfig={commerceConfig}
     apolloState={apolloState}
     commerceClientFactory={commerceClientFactory}
-    channelConfig={channelConfig}
+    cookies={cookies}
   />
 }
 
@@ -45,26 +44,25 @@ Index.getInitialProps = async ({
   asPath: path,
   query,
 }) => {
-  // console.log("[getServerSideProps]: path=", path);
-  // console.log("[getServerSideProps]: query=", query);
+  console.log("[getServerSideProps]: path=", path);
+  console.log("[getServerSideProps]: query=", query);
 
   const configuration = buildConfiguration(path ?? '/', query)
   const page = await initialize({ ...configuration, request, httpClient: axios as any });
   const pageJson = page.toJSON();
-
   const commerceConfig = loadCommerceConfig(pageJson, query);
-  const channelConfig = loadChannelConfig(pageJson, query);
-
   const props: IndexPageProps = {
     configuration,
     commerceConfig,
-    channelConfig,
     page: pageJson,
   };
 
   if (!request || !response) {
     return props;
   }
+
+  const cookies = cookie.parse(request.headers.cookie ?? '');
+  props.cookies = cookies;
 
   const { graphqlServiceUrl, connector, brAccountName: accountEnvId } = commerceConfig;
   const defaultRequestHeaders = undefined;

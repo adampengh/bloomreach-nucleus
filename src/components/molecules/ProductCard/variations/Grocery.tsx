@@ -1,38 +1,44 @@
 import React from 'react'
 
 // Bloomreach Nucleus
-import { ProductPrice } from '../../../index'
+import { AddToCartButton, ProductPrice } from '../../../index'
 
 // Material UI
-import { Link } from '@mui/material'
+import { Chip, Grid, Link, List, ListItem, Typography } from '@mui/material'
 
 import styles from './Grocery.module.scss'
 
 export const ProductCardGrocery = () => {
   return (
-    <article className={`${styles['product-card']}`}>
+    <>
       <Link href="#" className={`${styles['product-card__link']}`}>
-        <div className={`${styles['product-card__image']}`}>
-          <span className={`${styles['product-card__image--primary']}`}>
+        <div>
+          <span>
             <img src="/assets/images/placeholders/Image-1x1.jpg" alt="Product" />
           </span>
-          <div className={`${styles['product-card__image-badge']}`}>
-            <span>NEW</span>
-          </div>
         </div>
       </Link>
 
-      <section className={`${styles['product-card__details']}`}>
-        <p className={`${styles['product-card__details-badge']}`}>BEST SELLER</p>
-        <h3 className={`${styles['product-card__title']}`}>
-          Stretch Secret Wash shirt in small dot organic cotton
-        </h3>
-        <ProductPrice />
-        <div className={`${styles['product-card__promotions']}`}>
-          <p>Extra 10% Off Sales Styles with Code 10OFF</p>
-        </div>
-        <p>Petite, Regular, Tall</p>
-      </section>
-    </article>
+      <Grid container spacing={1}>
+        <Grid item>
+          <Typography variant='body2'>
+            Great Value Mini Pretzel Twists, 16 oz
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Grid container columnSpacing={0.5}>
+            <Grid item>
+              <Chip label="Pickup" size="small" variant="outlined" />
+            </Grid>
+            <Grid item>
+              <Chip label="Delivery" size="small" variant="outlined" />
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid item>
+          <AddToCartButton />
+        </Grid>
+      </Grid>
+    </>
   )
 }

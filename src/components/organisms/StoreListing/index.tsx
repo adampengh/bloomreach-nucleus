@@ -22,7 +22,7 @@ export const StoreListing = ({ component, page }: BrProps) => {
 
   // Sort alphabetically by address/state
   documents = documents?.sort((a: LocationProps, b: LocationProps) => {
-    console.log('a:b', a.address?.state?.selectionValues?.[0]?.key?.localeCompare(b.address?.state?.selectionValues?.[0]?.key))
+    // console.log('a:b', a.address?.state?.selectionValues?.[0]?.key?.localeCompare(b.address?.state?.selectionValues?.[0]?.key))
     return a.address?.state?.selectionValues?.[0]?.key?.localeCompare(b.address?.state?.selectionValues?.[0]?.key)
   })
 
@@ -40,7 +40,6 @@ export const StoreListing = ({ component, page }: BrProps) => {
               <Divider />
               <Grid container spacing={2}>
                 {value?.map((document: any, index: number) => {
-                  console.log('document', document)
                   const { title, address, googleMapsLink } = document
                   return (
                     <Grid key={index} item xs={6} lg={3}>

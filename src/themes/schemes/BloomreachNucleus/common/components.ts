@@ -1,5 +1,5 @@
 import { Components, Theme } from '@mui/material';
-import { baseline, colors } from './';
+import { baseline, breakpoints, colors } from './';
 
 export const components: Components<Omit<Theme, 'components'>> = {
   MuiCssBaseline: {
@@ -84,7 +84,7 @@ export const components: Components<Omit<Theme, 'components'>> = {
     styleOverrides: {
       root: {},
       colorDefault: {
-        backgroundColor: colors.primary,
+        // backgroundColor: colors.primary,
       },
     }
   },
@@ -117,6 +117,14 @@ export const components: Components<Omit<Theme, 'components'>> = {
       },
     }
   },
+  MuiChip: {
+    defaultProps: {},
+    styleOverrides: {
+      sizeSmall: {
+        fontSize: '11px',
+      }
+    }
+  },
   MuiFormControl: {},
   MuiFormControlLabel: {
     defaultProps: {},
@@ -127,6 +135,33 @@ export const components: Components<Omit<Theme, 'components'>> = {
       label: {
         fontSize: '13px'
       },
+    }
+  },
+  MuiTypography: {
+    defaultProps: {},
+    styleOverrides: {
+      // h3: {
+      //   fontSize: '28px',
+      //   [`@media (min-width: ${breakpoints.values.md}px)`]: {
+      //     fontSize: '64px',
+      //     lineHeight: '72px',
+      //   },
+      // },
+      // @ts-ignore
+      serifxxxl: {
+        fontFamily: "Taviraj",
+        fontSize: '24px',
+        lineHeight: '44px',
+        fontWeight: 400,
+        [`@media (min-width: ${breakpoints.values.md}px)`]: {
+          fontSize: '48px',
+          lineHeight: '56px',
+        },
+        [`@media (min-width: ${breakpoints.values.lg}px)`]: {
+          fontSize: '64px',
+          lineHeight: '72px',
+        },
+      }
     }
   },
 }
