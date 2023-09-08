@@ -1,15 +1,14 @@
 import React from "react";
-import { Page, TYPE_CONTAINER_NO_MARKUP } from "@bloomreach/spa-sdk";
+import { Page } from "@bloomreach/spa-sdk";
 
 // Layouts
-import { OneColumn } from "./OneColumn";
-import { TwoColumn } from "./TwoColumn";
+import { OneColumn } from "./xpages/OneColumn";
+import { TwoColumn } from "./xpages/TwoColumn";
 
 const PageLayout = ({ page }: { page?: Page }) => {
   if (!page) return null
 
   const layout = page.getComponent().getName() || 'one-column';
-  console.log('Page Layout:', layout)
   switch (layout) {
     case ('one-column' || 'store-locator'):
       return <OneColumn />;

@@ -6,6 +6,7 @@ interface BrxComponentWrapper {
   document: import('@bloomreach/spa-sdk').Document;
   component: import('@bloomreach/spa-sdk').Component;
   page: import('@bloomreach/spa-sdk').Page;
+  isStorybook?: boolean;
 }
 
 interface BannerDocument {
@@ -74,4 +75,21 @@ interface PageDocument {
   description: string;
   preventIndexing: boolean;
   ogCompound: OpenGraphCompound;
+}
+
+interface PageProps {
+  configuration: Omit<Configuration, 'httpClient'>;
+  page?: PageModel;
+  commerceConfig?: CommerceConfig;
+  [APOLLO_STATE_PROP_NAME]?: any;
+  cookies?: Record<string, string>;
+}
+
+interface ProductListingPageProps {
+  configuration: Omit<Configuration, 'httpClient'>;
+  page?: PageModel;
+  commerceConfig?: CommerceConfig;
+  [APOLLO_STATE_PROP_NAME]?: any;
+  cookies?: Record<string, string>;
+  query?: import('querystring').ParsedUrlQuery;
 }

@@ -1,0 +1,99 @@
+[
+  {
+    "name": "spaUrl",
+    "valueType": "string",
+    "required": true,
+    "hidden": false,
+    "overlay": false,
+    "defaultValue": "",
+    "displayName": "spaUrl",
+    "system": false,
+    "config": null
+  },
+  {
+    "name": "externalLocale",
+    "valueType": "string",
+    "required": true,
+    "hidden": false,
+    "overlay": false,
+    "defaultValue": "en_US",
+    "displayName": "External locale",
+    "system": false,
+    "config": null
+  },
+  {
+    "name": "discoveryAccountId",
+    "valueType": "string",
+    "required": true,
+    "hidden": false,
+    "overlay": false,
+    "defaultValue": "",
+    "displayName": "Discovery Account ID",
+    "system": false,
+    "config": null
+  },
+  {
+    "name": "discoveryDomainKey",
+    "valueType": "string",
+    "required": false,
+    "hidden": false,
+    "overlay": false,
+    "defaultValue": "",
+    "displayName": "Discovery Domain Key",
+    "system": false,
+    "config": null
+  },
+  {
+    "name": "discoveryViewId",
+    "valueType": "string",
+    "required": false,
+    "hidden": false,
+    "overlay": false,
+    "defaultValue": "",
+    "displayName": "Discovery View ID",
+    "system": false,
+    "config": null
+  },
+  {
+    "name": "discoveryRealm",
+    "valueType": "string",
+    "required": true,
+    "hidden": false,
+    "overlay": false,
+    "defaultValue": "PRODUCTION",
+    "displayName": "Discovery Realm",
+    "system": false,
+    "config": {
+      "value": [
+        "PRODUCTION",
+        "STAGING"
+      ],
+      "structuredValues": null,
+      "valueListProvider": null,
+      "sourceId": null,
+      "type": "dropdown"
+    }
+  },
+  {
+    "name": "graphql_baseurl",
+    "valueType": "string",
+    "required": false,
+    "hidden": false,
+    "overlay": false,
+    "defaultValue": "",
+    "displayName": "GraphQL Base URL",
+    "system": false,
+    "config": null
+  },
+  {
+    "name": "graphqlTenantName",
+    "valueType": "string",
+    "required": false,
+    "hidden": true,
+    "overlay": false,
+    "defaultValue": "",
+    "displayName": "GraphQL Tenant Name",
+    "system": false,
+    "config": null
+  }
+]

@@ -1,0 +1,25 @@
+{
+  "id": "bloomreach-nucleus",
+  "name": "Bloomreach Nucleus",
+  "projectName": null,
+  "projectState": null,
+  "branch": null,
+  "branchOf": null,
+  "externalPreviewEnabled": true,
+  "externalPreviewToken": "a7c3c1ab-e467-4517-ab3e-747afd720bfd",
+  "contentRootPath": "/content/documents/bloomreach-nucleus",
+  "icon": "data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjQgMzQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPG1ldGFkYXRhPgogICAgPHJkZjpSREYKICAgICAgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIgogICAgICB4bWxuczpkYz0iaHR0cHM6Ly93d3cuZHVibGluY29yZS5vcmcvc3BlY2lmaWNhdGlvbnMvZHVibGluLWNvcmUvZGNtaS10ZXJtcy8iPgogICAgICA8cmRmOkRlc2NyaXB0aW9uPgogICAgICAgIDxkYzpjcmVhdG9yPgogICAgICAgICAgPHJkZjpCYWc+CiAgICAgICAgICAgIDxyZGY6bGk+Qmxvb21yZWFjaDwvcmRmOmxpPgogICAgICAgICAgPC9yZGY6QmFnPgogICAgICAgIDwvZGM6Y3JlYXRvcj4KICAgICAgPC9yZGY6RGVzY3JpcHRpb24+CiAgICA8L3JkZjpSREY+CiAgPC9tZXRhZGF0YT4KICA8c3R5bGU+CiAgICAuYmFkZ2UgewogICAgICBmb250LWZhbWlseTogJ0FyaWFsIE5hcnJvdycsIEFyaWFsLCBzYW5zLXNlcmlmOwogICAgICBmb250LXNpemU6IDIwcHg7CiAgICAgIGZvbnQtd2VpZ2h0OiA2MDA7CiAgICAgIGZvbnQtc3RyZXRjaDogY29uZGVuc2VkOwogICAgICBhbGlnbm1lbnQtYmFzZWxpbmU6IG1pZGRsZTsKICAgICAgZG9taW5hbnQtYmFzZWxpbmU6IG1pZGRsZTsKICAgICAgdGV4dC1hbmNob3I6IG1pZGRsZTsKICAgIH0KICA8L3N0eWxlPgogIDxyZWN0IHg9IjEiIHk9IjEiIHdpZHRoPSI2MiIgaGVpZ2h0PSIzMiIgcng9IjMiIHN0cm9rZT0iIzE0N0FDOCIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSIjRTdGMUY5Ii8+CiAgPHRleHQgeD0iMzIiIHk9IjE4IiBmaWxsPSIjMTQ3QUM4IiBjbGFzcz0iYmFkZ2UiPmVuX1VTPC90ZXh0Pgo8L3N2Zz4=",
+  "locale": "en_US",
+  "devices": [],
+  "defaultDevice": "default",
+  "responseHeaders": null,
+  "linkurlPrefix": null,
+  "cdnHost": null,
+  "remoteHostProtection": false,
+  "parameters": {
+    "smDomainKey": "",
+    "externalLocale": "en_US",
+    "smAccountId": "6528",
+    "spaUrl": "https://bloomreach-nucleus.netlify.app/"
+  }
+}

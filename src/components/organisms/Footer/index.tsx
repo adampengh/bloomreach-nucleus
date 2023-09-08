@@ -1,77 +1,20 @@
-import React from 'react';
-
-import styles from './Footer.module.scss';
-import { Container, Grid, Link, List, ListItem, Typography } from '@mui/material';
+import React, { useContext } from 'react';
+import { BrComponent, BrPageContext} from '@bloomreach/react-sdk'
 import { Logo } from '../../../components';
+import { Container, Grid, Link, List, ListItem, Typography } from '@mui/material';
+import { FooterMenu } from './FooterMenu';
+import styles from './Footer.module.scss';
 
 export const Footer = () => {
+  const page = useContext(BrPageContext)
   return (
-    <footer className={`${styles['footer']}`}>
+    <footer className={`${styles['footer']} ${page?.isPreview() ? 'has-edit-button' : ''}`}>
       <Container maxWidth='xl' sx={{ py: 3}}>
         <Grid container>
-          <Grid item xs={6} lg={3}>
-            <List>
-              <ListItem>
-                <Typography variant="body1" component="h2"><strong>Help</strong></Typography>
-              </ListItem>
-              <ListItem>
-                <Link href="#" underline="hover">Track Order</Link>
-              </ListItem>
-              <ListItem>
-                <Link href="#" underline="hover">Returns & Exchanges</Link>
-              </ListItem>
-              <ListItem>
-                <Link href="#" underline="hover">Shipping</Link>
-              </ListItem>
-              <ListItem>
-                <Link href="#" underline="hover">International Orders</Link>
-              </ListItem>
-              <ListItem>
-                <Link href="#" underline="hover">Contact Us</Link>
-              </ListItem>
-            </List>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <List>
-              <ListItem>
-                <Typography variant="body1" component="h2"><strong>Quick Links</strong></Typography>
-              </ListItem>
-              <ListItem>
-                <Link href="/store-locator" underline="hover">Find a Store</Link>
-              </ListItem>
-              <ListItem>
-                <Link href="#" underline="hover">My Account</Link>
-              </ListItem>
-              <ListItem>
-                <Link href="#" underline="hover">Rewards</Link>
-              </ListItem>
-              <ListItem>
-                <Link href="#" underline="hover">Daily Deals</Link>
-              </ListItem>
-              <ListItem>
-                <Link href="#" underline="hover">Gift Cards</Link>
-              </ListItem>
-            </List>
-          </Grid>
-          <Grid item xs={6} lg={3}>
-            <List>
-              <ListItem>
-                <Typography variant="body1" component="h2"><strong>Company</strong></Typography>
-              </ListItem>
-              <ListItem>
-                <Link href="#" underline="hover">About Us</Link>
-              </ListItem>
-              <ListItem>
-                <Link href="#" underline="hover">Careers</Link>
-              </ListItem>
-              <ListItem>
-                <Link href="#" underline="hover">Terms of Use</Link>
-              </ListItem>
-              <ListItem>
-                <Link href="#" underline="hover">Privacy Policy</Link>
-              </ListItem>
-            </List>
-          </Grid>
+          <BrComponent path="footerMenu">
+            <FooterMenu />
+          </BrComponent>
+
           <Grid item xs={12} lg={3} sx={{ p: 2 }}>
             <Logo />
           </Grid>

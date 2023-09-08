@@ -1,33 +1,27 @@
 // export * from './Grocery'
 // export * from './Retail'
 
-import { ProductCardGrocery, ProductCardRetail } from './variations'
+import { ProductCardGrocery, ProductCardPacificHome, ProductCardRetail } from './variations'
 import styles from './ProductCard.module.scss'
+import { ItemsByCategory_findItemsByCategory_items } from '@bloomreach/connector-components-react'
 
 export const ProductCard = ({
-  variation
+  product,
+  variation,
 }: {
+  product?: ItemsByCategory_findItemsByCategory_items
   variation: string
 }) => {
-  // console.log('variation', variation)
-  let ProductCardVariant
-  switch (variation) {
-    case 'grocery':
-      ProductCardVariant = ProductCardGrocery
-    case 'retail':
-      ProductCardVariant = ProductCardRetail
-    default:
-      ProductCardVariant = ProductCardRetail
-  }
-
-  // console.log('ProductCardVariant', ProductCardVariant)
+  // console.log('ProductCard', variation)
+  console.log('product', product)
 
   return (
     <article className={`${styles['product-card']}`}>
       {
         {
           'grocery': <ProductCardGrocery />,
-          'retail': <ProductCardRetail />
+          'retail': <ProductCardRetail />,
+          'pacific-home': <ProductCardPacificHome product={product} />
         }[variation]
       }
     </article>

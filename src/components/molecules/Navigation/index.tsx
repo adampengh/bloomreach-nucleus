@@ -45,7 +45,7 @@ export const Navigation = () => {
             <li key={index} className={`${styles['nav__list-item']}`}>
               <Link
                 onClick={(event) => handleActiveMenu(event, index)}
-                href="/collections/women"
+                href={item.getUrl()}
                 data-menu="women"
               >{item.getName()}</Link>
 
@@ -64,7 +64,7 @@ export const Navigation = () => {
                             </ListItem>
                             {subItem.getChildren().map((subSubItem: MenuItem, j: number) => (
                               <ListItem key={j}>
-                                <Link href="/collections/men/all">{subSubItem.getName()}</Link>
+                                <Link href={subSubItem?.getUrl()}>{subSubItem.getName()}</Link>
                               </ListItem>
                             ))}
                           </List>

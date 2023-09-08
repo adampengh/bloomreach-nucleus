@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import axios from 'axios';
-import { BrPage, BrPageContext } from '@bloomreach/react-sdk';
+import { BrComponent, BrPage, BrPageContext } from '@bloomreach/react-sdk';
 import { PageModel } from '@bloomreach/spa-sdk';
 import { Cookies, CookiesProvider } from 'react-cookie';
 
@@ -81,9 +81,13 @@ const App = ({
                 {(page) => (
                   <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
                     {page && <Meta page={page} /> }
-                    <Header />
+                    <BrComponent path="Header">
+                      <Header />
+                    </BrComponent>
                     <PageLayout page={page} />
-                    <Footer />
+                    <BrComponent path="Footer">
+                      <Footer />
+                    </BrComponent>
                     { !page?.isPreview() && <ScrollToTopButton /> }
                   </div>
                 )}
