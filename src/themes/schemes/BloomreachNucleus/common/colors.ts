@@ -6,6 +6,6 @@ export const colors = {
   error: '#FF1943',
   info: '#00b2db',
   black: '#333333',
-  white: '#fafafa',
+  white: '#ffffff',
   primaryAlt: '#fff'
 };

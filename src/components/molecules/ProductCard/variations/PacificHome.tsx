@@ -15,15 +15,23 @@ export const ProductCardPacificHome = ({
   product?: ItemsByCategory_findItemsByCategory_items
 }) => {
   const theme = useTheme()
-  console.log('theme', theme)
+  // console.log('theme', theme)
   const onSale = product?.customAttrs?.map((attr) => attr?.values?.[0] === 'true' ? true : false)[0]
+
+  let productUrlName = product?.displayName?.toLowerCase().replace(/ /g, '-')
+  // console.log('productUrlName', productUrlName)
+
+  let href = `/p/${product?.itemId.id}/${productUrlName}`
+  if (product?.itemId?.code) {
+    href += `?selectedSku=${product?.itemId?.code}`
+  }
 
   return (
     <>
-      <Link href="#" className={`${styles['product-card__link']}`}>
+      <Link href={href} className={`${styles['product-card__link']}`}>
         <div className={`${styles['product-card__image']}`}>
           <span className={`${styles['product-card__image--primary']}`}>
-            <img src={product?.imageSet?.original?.link?.href || ''} alt="Product" />
+            <img src={`${product?.imageSet?.original?.link?.href}?$328V1$` || ''} alt="Product" />
           </span>
           {/* <span className={`${styles['product-card__image--secondary']}`}>
             <img src="/assets/images/placeholders/Image-3x4_alt.jpg" alt="Product" />

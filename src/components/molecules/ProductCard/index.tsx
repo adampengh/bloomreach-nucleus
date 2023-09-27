@@ -13,7 +13,7 @@ export const ProductCard = ({
   variation: string
 }) => {
   // console.log('ProductCard', variation)
-  console.log('product', product)
+  // console.log('product', product)
 
   return (
     <article className={`${styles['product-card']}`}>

@@ -1,9 +1,12 @@
 import App, { AppContext, AppInitialProps } from 'next/app';
+import Head from 'next/head';
 import { AppTreeType } from 'next/dist/shared/lib/utils';
+import { ReactElement } from 'react';
 
 import '@/styles/styles.scss'
 import '@/styles/fonts.scss'
-import Head from 'next/head';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 export default class MyApp extends App {
   static AppTree: AppTreeType;
@@ -21,6 +24,7 @@ export default class MyApp extends App {
   render(): JSX.Element {
     // console.log('[App]: AppProps=', this.props);
     const { Component, pageProps } = this.props;
+    const getLayout = Component.getLayout ?? ((page: ReactElement) => page);
     return (
       <>
         <Head>
@@ -30,6 +34,7 @@ export default class MyApp extends App {
 
           <title key="title">Bloomreach Nucleus</title>
         </Head>
+        {/* {getLayout(<Component {...pageProps} />)} */}
         <Component {...pageProps} />
       </>
     )

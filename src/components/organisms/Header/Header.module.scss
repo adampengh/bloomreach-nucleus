@@ -6,7 +6,8 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 999;
+  z-index: 1;
+  width: 100vw;
 
   &__container {
     height: 4rem;
@@ -19,11 +20,14 @@
   &__inner {
     // background: rgba(red, 0.1);
     display: flex;
+    flex-wrap: nowrap;
     justify-content: flex-start;
     align-items: center;
   }
 
   &__mobile-trigger {
+    width: 64px;
+    margin-right: 0.5rem;
     @media screen and (min-width: 1025px) {
       display: none;
     }
@@ -46,5 +50,7 @@
 
   &__utility-nav {
     margin-left: auto !important;
+    display: flex;
+    justify-content: flex-end;
   }
 }

@@ -29,7 +29,7 @@ export const FooterMenu = () => {
             </ListItem>
             {item.getChildren().map((subItem: MenuItem, i: number) => (
               <ListItem key={i}>
-                <Link href="#" underline="hover">{subItem.getName()}</Link>
+                <Link href={subItem.getUrl()} underline="hover">{subItem.getName()}</Link>
               </ListItem>
             ))}
           </List>

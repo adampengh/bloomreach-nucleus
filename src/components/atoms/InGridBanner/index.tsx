@@ -14,7 +14,7 @@ export const InGridBanner = ({ document, component }: BrxComponentWrapper) => {
     alt_description,
     urls,
   } = JSON.parse(unsplashImage)
-  console.log('urls', urls)
+  // console.log('urls', urls)
 
   return (
     <img src={urls?.full} alt={alt_description} />

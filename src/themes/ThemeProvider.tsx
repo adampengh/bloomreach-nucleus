@@ -1,6 +1,6 @@
 import { useState, createContext, useEffect } from 'react';
 import { ThemeProvider } from '@mui/material';
-import { themeCreator } from '@/themes';
+import { themeCreator } from '../themes';
 import { StylesProvider } from '@mui/styles';
 
 export const ThemeContext = createContext((_themeName: string) => {});

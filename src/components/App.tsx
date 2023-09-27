@@ -5,25 +5,25 @@ import { PageModel } from '@bloomreach/spa-sdk';
 import { Cookies, CookiesProvider } from 'react-cookie';
 
 // Components
-import { CssBaseline } from '@mui/material';
-import { Meta } from '@/components/Meta';
+import { Container, CssBaseline } from '@mui/material';
+import { Meta } from '../components/Meta';
 import {
   Footer,
   Header,
   ScrollToTopButton,
-} from '@/components';
+} from '../components';
 
 // Context
 import { CommerceApiClientFactory, CommerceConnectorProvider } from '@bloomreach/connector-components-react';
-import { CommerceContextProvider } from '@/context/CommerceContext';
-import ThemeProvider from '@/themes/ThemeProvider';
+import { CommerceContextProvider } from '../context/CommerceContext';
+import ThemeProvider from '../themes/ThemeProvider';
 
 // Layouts
-import PageLayout from '@/layouts';
+import PageLayout from '../layouts';
 
 // Utils
 import { BrxComponentMapping } from './BrxComponentMapping';
-import { CommerceConfig } from '@/lib/utils';
+import { CommerceConfig } from '../lib/utils';
 
 interface AppProps {
   configuration: any;
@@ -58,7 +58,6 @@ const App = ({
       connector,
       defaultRequestHeaders,
       defaultAnonymousCredentials,
-      false,
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [graphqlServiceUrl, connector, accountEnvId, defaultRequestHeaders, defaultAnonymousCredentials]);
@@ -84,7 +83,9 @@ const App = ({
                     <BrComponent path="Header">
                       <Header />
                     </BrComponent>
-                    <PageLayout page={page} />
+                    <Container maxWidth={false} disableGutters sx={{ pb: '100px' }}>
+                      <PageLayout page={page} />
+                    </Container>
                     <BrComponent path="Footer">
                       <Footer />
                     </BrComponent>

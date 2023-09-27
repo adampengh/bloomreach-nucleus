@@ -1,7 +1,9 @@
 import { Hero } from '../../../components'
 import { Meta, StoryObj } from '@storybook/react';
-import { initialize } from '@bloomreach/spa-sdk';
+import { Component, initialize } from '@bloomreach/spa-sdk';
 import axios from 'axios';
+import { BrComponent, BrComponentContext, BrPage } from '@bloomreach/react-sdk';
+import WithBrxComponentWrapper from '../../../lib/withBrxComponentWrapper';
 
 const configuration = {
   endpoint: 'https://profserv02.bloomreach.io/delivery/site/v1/channels/bloomreach-nucleus/pages',
@@ -28,5 +30,20 @@ export const Default: Story = {
     })
   ],
   render: (args, { loaded: { page }}) =>
-    <Hero {...args} page={page} />,
+    <BrPage configuration={configuration} mapping={{}} page={page}>
+      <BrComponent path="top">
+        <BrComponentContext.Consumer>
+          {(componentContext) => {
+            const container = componentContext?.getChildren()?.find((child) => child.getName() === 'container')
+            const containerItems = container?.getChildren()
+            const component = containerItems?.find((child) => child.getName().includes('hero'))
+            const { document: documentRef } = component?.getModels<any>()
+            const document = page?.getContent(documentRef)
+            return (<>
+              { component && document && <Hero {...args} document={document} component={component} /> }
+            </>)
+          }}
+        </BrComponentContext.Consumer>
+      </BrComponent>
+    </BrPage>
 };

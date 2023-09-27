@@ -16,7 +16,7 @@
 
 import React from 'react';
 import { CommerceApiClientFactory } from '@bloomreach/connector-components-react';
-import { CommerceConfig } from '@/lib/utils';
+import { CommerceConfig } from '../lib/utils';
 
 interface CommerceContextProps {
   connector?: string;

@@ -8,7 +8,7 @@ import { TwoColumn } from "./xpages/TwoColumn";
 const PageLayout = ({ page }: { page?: Page }) => {
   if (!page) return null
 
-  const layout = page.getComponent().getName() || 'one-column';
+  const layout = page?.getComponent()?.getName() || 'one-column';
   switch (layout) {
     case ('one-column' || 'store-locator'):
       return <OneColumn />;

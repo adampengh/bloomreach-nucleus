@@ -1,30 +1,21 @@
-import { useContext, useMemo } from 'react';
+import { useMemo } from 'react';
 import Head from 'next/head'
 import { NextPage } from 'next'
 import axios, { AxiosError } from 'axios'
 import cookie from 'cookie';
-import { Cookies, CookiesProvider } from 'react-cookie';
-
-// Components
-import { Breadcrumbs, Footer, Header, ProductGrid } from '@/components';
-import { Container, CssBaseline, Grid, Typography } from '@mui/material';
-
-// Context
-import { CommerceContext, CommerceContextProvider } from '@/context/CommerceContext';
+import { Cookies } from 'react-cookie';
 
 // Utils
-import { APOLLO_STATE_PROP_NAME, CommerceApiClientFactory, CommerceConnectorProvider, useProductGridCategory } from '@bloomreach/connector-components-react';
+import { APOLLO_STATE_PROP_NAME, CommerceApiClientFactory } from '@bloomreach/connector-components-react';
 import { initialize } from '@bloomreach/spa-sdk'
-import { BrComponent, BrPage } from '@bloomreach/react-sdk';
-import { BrxComponentMapping } from '@/components/BrxComponentMapping';
-import { buildConfiguration, deleteUndefined, loadCommerceConfig } from '@/lib/utils'
-import ThemeProvider from '@/themes/ThemeProvider';
+import { buildConfiguration, deleteUndefined, loadCommerceConfig } from '../../lib/utils'
+import { BaseLayout } from '@/layouts/abstract/base';
+import { ProductListingLayout } from '@/layouts/ProductListingLayout';
 
 
 let commerceClientFactory: CommerceApiClientFactory;
 
-
-const ProductListingPage:NextPage<any> = ({
+const ProductListingPage: NextPage<any> = ({
   configuration,
   page,
   commerceConfig,
@@ -32,16 +23,6 @@ const ProductListingPage:NextPage<any> = ({
   cookies,
   query,
 }): JSX.Element => {
-  console.log('ProductListingPage')
-  // console.log('configuration', configuration)
-  // console.log('page', page)
-  console.log('commerceConfig', commerceConfig)
-  // console.log('query', query)
-
-  const { category } = query
-  const categoryId = category?.[0]
-  console.log('categoryId', categoryId)
-
   const {
     graphqlServiceUrl,
     connector,
@@ -56,14 +37,11 @@ const ProductListingPage:NextPage<any> = ({
       connector,
       defaultRequestHeaders,
       defaultAnonymousCredentials,
-      false,
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [graphqlServiceUrl, connector, accountEnvId, defaultRequestHeaders, defaultAnonymousCredentials]);
 
   const reactCookies = cookies ? new Cookies(cookies) : undefined;
-
-
 
   return (
     <>
@@ -71,56 +49,21 @@ const ProductListingPage:NextPage<any> = ({
         <title>PLP | Bloomreach Nucleus</title>
       </Head>
 
-      <CookiesProvider cookies={reactCookies}>
-        <CommerceConnectorProvider
-          connector={connector}
-          graphqlServiceUrl={graphqlServiceUrl}
-          commerceClientFactory={factory}
-          apolloState={apolloState}
-        >
-          <CommerceContextProvider commerceConfig={commerceConfig} commerceClientFactory={factory}>
-            <ThemeProvider>
-              <CssBaseline />
-              <BrPage configuration={{ ...configuration, httpClient: axios as any }} mapping={BrxComponentMapping} page={page}>
-                <BrComponent path="Header">
-                  <Header />
-                </BrComponent>
-
-                <Container maxWidth={false} disableGutters>
-                  <BrComponent path="top" />
-                </Container>
-                <Container maxWidth='xl' sx={{ py: 4 }}>
-                  <Grid container spacing={4}>
-                    <Grid item xs={12}>
-                      <Breadcrumbs />
-                    </Grid>
-                    <Grid item xs={12}>
-                      <BrComponent path="main" />
-                    </Grid>
-                    <Grid item xs={12}>
-                      <Typography variant="h2" align='center' component='h1'>Category</Typography>
-                    </Grid>
-                    <Grid item xs={12}>
-                      <ProductGrid
-                        variation='retail'
-                        categoryId={categoryId}
-                        query={query}
-                      />
-                    </Grid>
-                    <Grid item xs={12}>
-                      <BrComponent path="bottom" />
-                    </Grid>
-                  </Grid>
-                </Container>
-
-                <BrComponent path="Footer">
-                  <Footer />
-                </BrComponent>
-              </BrPage>
-            </ThemeProvider>
-          </CommerceContextProvider>
-        </CommerceConnectorProvider>
-      </CookiesProvider>
+      <BaseLayout
+        configuration={configuration}
+        page={page}
+        commerceConfig={commerceConfig}
+        apolloState={apolloState}
+        reactCookies={reactCookies}
+        graphqlServiceUrl={graphqlServiceUrl}
+        connector={connector}
+        factory={factory}
+        query={query}
+      >
+        <ProductListingLayout
+          query={query}
+        />
+      </BaseLayout>
     </>
   )
 }
@@ -133,7 +76,7 @@ ProductListingPage.getInitialProps = async ({
   query,
 }) => {
   // console.log("[getServerSideProps]: path=", path);
-  console.log("[getServerSideProps]: query=", query);
+  // console.log("[getServerSideProps]: query=", query);
 
   const configuration = buildConfiguration(path ?? '/', query)
   let page: any = {};
@@ -149,12 +92,9 @@ ProductListingPage.getInitialProps = async ({
   } catch(err) {
     if ((err as AxiosError).isAxiosError) {
       const axiosError = err as AxiosError;
-      // console.error('axiosError')
       configuration.path = '/404'
-      // console.log('configuration', configuration)
       const fallbackPage = await initialize({ ...configuration, request, httpClient: axios as any });
       pageJson = fallbackPage.toJSON();
-      // console.log('page', page)
     } else {
       console.error('err', err)
     }
@@ -181,7 +121,6 @@ ProductListingPage.getInitialProps = async ({
     connector,
     defaultRequestHeaders,
     defaultAnonymousCredentials,
-    true,
   );
 
   // Apollo client will go thru all components on the page and perform queries necessary.

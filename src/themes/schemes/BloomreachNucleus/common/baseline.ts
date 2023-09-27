@@ -1,8 +1,9 @@
 export const baseline = {
   body: {
-    webkitFontSmoothing: 'auto',
-    overflowX: 'hidden',
+    overflowX: 'hidden !important',
     fontSize: '14px',
+    paddingRight: '0 !important',
+    paddingLeft: '0 !important',
   },
   button: {
     background: 'transparent',
@@ -13,8 +14,6 @@ export const baseline = {
   img: {
     maxWidth: '100%',
     maxHeight: '100%',
-    // width: 'auto',
-    height: 'auto',
   },
   svg: {
     maxWidth: '100%',

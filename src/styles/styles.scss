@@ -2,6 +2,11 @@
   position: relative;
 }
 
+html,
+body {
+  -webkit-font-smoothing: auto;
+}
+
 main {
   min-height: 1000px;
 }

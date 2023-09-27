@@ -4,7 +4,8 @@ import { initialize } from '@bloomreach/spa-sdk'
 import axios, { AxiosError } from 'axios'
 import { Montserrat } from 'next/font/google'
 import App from '../components/App';
-import { loadCommerceConfig } from '@/lib/utils'
+import { loadCommerceConfig } from '../lib/utils'
+import { NEXT_PUBLIC_BRXM_ENDPOINT } from '@/lib/constants'
 
 const montserrat = Montserrat({ subsets: ['latin'] })
 
@@ -23,6 +24,7 @@ const ERROR_PAGE_PATH_MAP = {
 
 const Error: NextPage = ({ configuration, page, commerceConfig, channelConfig }: any) => {
   if (configuration && page) {
+    // console.log('ERROR render App=')
     return <App
       commerceConfig={commerceConfig}
       configuration={configuration}
@@ -50,6 +52,7 @@ Error.getInitialProps = async ({ req: request, res: response, err, asPath }) => 
   if (err) {
     if ((err as AxiosError).isAxiosError) {
       const axiosError = err as AxiosError;
+      // console.log('axiosError', axiosError)
       errorCode = axiosError.response?.status === 404 ? ErrorCode.NOT_FOUND : ErrorCode.INTERNAL_SERVER_ERROR;
     // } else if (err instanceof ProductNotFoundError) {
     //   errorCode = ErrorCode.NOT_FOUND;
@@ -60,14 +63,17 @@ Error.getInitialProps = async ({ req: request, res: response, err, asPath }) => 
     errorCode = response?.statusCode === 404 ? ErrorCode.NOT_FOUND : ErrorCode.GENERAL_ERROR;
   }
 
+  // console.log('ERROR errorCode=', errorCode)
+
   let search = asPath?.split('?')[1] ?? '';
   if (search) {
     search = `?${search}`;
   }
 
   const path = `${ERROR_PAGE_PATH_MAP[errorCode] ?? ERROR_PAGE_PATH_MAP[ErrorCode.GENERAL_ERROR]}${search}`;
+  // console.log('ERROR path=', path)
   const configuration = {
-    endpoint: 'https://profserv02.bloomreach.io/delivery/site/v1/channels/bloomreach-nucleus/pages',
+    endpoint: NEXT_PUBLIC_BRXM_ENDPOINT,
     path
   };
 
@@ -76,12 +82,14 @@ Error.getInitialProps = async ({ req: request, res: response, err, asPath }) => 
     // console.log('page', page)
     const pageJson = page.toJSON();
     const commerceConfig = loadCommerceConfig(pageJson);
+    // console.log('ERROR page=', page.getComponent().getName())
     return {
       configuration,
       page: pageJson,
       commerceConfig,
     };
   } catch (e) {
+    console.log('ERROR e=', e)
     return {};
   }
 }

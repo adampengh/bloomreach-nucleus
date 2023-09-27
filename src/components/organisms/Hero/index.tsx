@@ -1,9 +1,10 @@
 import React from 'react'
 import { Container } from '@mui/material'
-import { UnsplashImage } from '../../atoms'
+import { UnsplashImage } from '@/components'
 
 export const Hero = ({ document, component }: BrxComponentWrapper) => {
   if (!document || !component) return null
+  // console.log('Hero document=', document)
 
   // Component Parameters
   const { maxWidth = false } = component.getParameters()

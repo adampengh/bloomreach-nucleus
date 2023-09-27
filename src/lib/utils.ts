@@ -52,16 +52,17 @@ export const buildConfiguration = (
   const endpointParameter = query[CONSTANTS.PREVIEW_ENDPOINT] as string;
   const serverId = query[CONSTANTS.PREVIEW_SERVER_ID_KEY] as string;
 
-  console.log('buildCongiguration [authorizationToken]', authorizationToken)
-  console.log('buildCongiguration [endpointParameter]', endpointParameter)
-  console.log('buildCongiguration [serverId]', serverId)
+  // console.log('buildCongiguration [authorizationToken]', authorizationToken)
+  // console.log('buildCongiguration [endpointParameter]', endpointParameter)
+  // console.log('buildCongiguration [serverId]', serverId)
 
   const configuration: ConfigurationBuilder = {
-    endpoint: endpointParameter || endpoint,
+    endpoint: endpoint,
     path: path,
     // debug: Boolean(NEXT_PUBLIC_DEBUG_MODE),
-    ...(authorizationToken ? { authorizationToken } : {}),
-    ...(serverId ? { serverId } : {}),
+    // ...(authorizationToken ? { authorizationToken } : {}),
+    // ...(serverId ? { serverId } : {}),
+    // debug: true,
   }
 
   return configuration

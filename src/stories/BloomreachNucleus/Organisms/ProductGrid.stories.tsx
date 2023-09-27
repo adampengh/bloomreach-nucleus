@@ -31,8 +31,11 @@ type Story = StoryObj<typeof ProductGrid>
 
 
 export const Default: Story = {
-  render: ({ ...args }) =>
-    <ProductGrid {...args} />,
+  render: ({ ...args }) => {
+    return (
+      <ProductGrid {...args} />
+    )
+  }
 };
 
 export const Grocery: Story = {

@@ -1,13 +1,41 @@
-import Image from "next/image";
 import React from "react";
+import Image from "next/image";
+import { BrProps } from "@bloomreach/react-sdk";
+import { ImageSet } from "@bloomreach/spa-sdk";
+import { Link } from "@mui/material";
 
-export const Logo = () => {
+interface LogoComponentProps {
+  height?: number;
+  width?: number;
+}
+
+export const Logo = ({ component, page }: BrProps) => {
+  if (!component || !page) return null;
+
+  // Component parameters
+  const {
+    height = 32,
+    width = 200,
+  } = component?.getParameters<LogoComponentProps>() || {};
+  const { logo: logoRef } = component?.getModels<any>() || {};
+
+  if (!logoRef) {
+    return page?.isPreview() ? <div style={{ display: 'block', width: '100%' }} /> : null;
+  };
+  const logo = logoRef && page?.getContent<ImageSet>(logoRef)?.getOriginal();
+
   return (
-    <Image
-      src="/assets/images/bloomreach-logo-dark.svg"
-      alt="Bloomreach Logo"
-      width={200}
-      height={32}
-    />
+    <>
+      {logo && (
+        <Link href="/" display={'flex'} alignItems={'center'}>
+          <Image
+            src={logo.getUrl()}
+            alt="Bloomreach Logo"
+            width={width}
+            height={height}
+          />
+        </Link>
+      )}
+    </>
   )
 }

@@ -1,4 +1,5 @@
 import type { StorybookConfig } from '@storybook/nextjs';
+import path from 'path';
 
 const config: StorybookConfig = {
   stories: [
@@ -22,7 +23,7 @@ const config: StorybookConfig = {
   docs: {
     autodocs: 'tag',
   },
-  previewHead: (head) => `
+  previewHead: async (head) => `
     ${head}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -54,13 +55,28 @@ const config: StorybookConfig = {
     checkOptions: {},
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
-      allowSyntheticDefaultImports: false,
-      esModuleInterop: false,
+      // allowSyntheticDefaultImports: false,
+      // esModuleInterop: false,
       shouldExtractLiteralValuesFromEnum: true,
       shouldRemoveUndefinedFromOptional: true,
       propFilter: (prop) =>
         prop.parent ? !/node_modules\/(?!@mui)/.test(prop.parent.fileName) : true,
     }
+  },
+  async webpackFinal(config, { configType }) {
+    if (config?.resolve?.alias) {
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        "@/components": path.resolve(__dirname, "../src/components"),
+        "@/context": path.resolve(__dirname, "../src/context"),
+        "@/layouts": path.resolve(__dirname, "../src/layouts"),
+        "@/lib": path.resolve(__dirname, "../src/lib"),
+        "@/pages": path.resolve(__dirname, "../src/pages"),
+        "@/styles": path.resolve(__dirname, "../src/styles"),
+        "@/theme": path.resolve(__dirname, "../src/theme"),
+      }
+    }
+    return config
   },
 };
 

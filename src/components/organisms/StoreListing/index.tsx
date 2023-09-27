@@ -20,20 +20,30 @@ export const StoreListing = ({ component, page }: BrProps) => {
   let documents = items?.map((itemRef: Reference) => page?.getContent(itemRef))
   documents = documents?.map((document: any) => document.getData())
 
-  // Sort alphabetically by address/state
+  // Sort alphabetically by Country
+  documents = documents?.sort((a: LocationProps, b: LocationProps) => {
+    // console.log('a:b', a.address?.state?.selectionValues?.[0]?.key?.localeCompare(b.address?.state?.selectionValues?.[0]?.key))
+    return a.address?.country?.selectionValues?.[0]?.label?.localeCompare(b.address?.country?.selectionValues?.[0]?.label)
+  })
+
+  // Sort alphabetically by State
   documents = documents?.sort((a: LocationProps, b: LocationProps) => {
     // console.log('a:b', a.address?.state?.selectionValues?.[0]?.key?.localeCompare(b.address?.state?.selectionValues?.[0]?.key))
     return a.address?.state?.selectionValues?.[0]?.key?.localeCompare(b.address?.state?.selectionValues?.[0]?.key)
   })
 
-  // Group locations by state
-  let groupByState = documents && _.groupBy(documents, 'address.state.selectionValues[0].label')
+
+  // Group locations by Country
+  let groupByCountry = documents && _.groupBy(documents, 'address.country.selectionValues[0].label')
+
+  // console.log('groupByCountry', groupByCountry)
+  // let groupByState = documents && _.groupBy(documents, 'address.state.selectionValues[0].label')
 
   return (
     <Container maxWidth={'lg'}>
       <Typography variant='h2' component='h1' sx={{ my: 3}}>Store Listing</Typography>
       <Grid container spacing={6}>
-        {Object.entries(groupByState).map(([key, value]: any) => {
+        {Object.entries(groupByCountry).map(([key, value]: any) => {
           return (
             <Grid item xs={12} key={key}>
               <Typography variant='h3' component='h3' sx={{ marginBottom: 2}}>{key}</Typography>
@@ -46,13 +56,14 @@ export const StoreListing = ({ component, page }: BrProps) => {
                       { title && <Typography variant="h5">{title}</Typography> }
                       { address &&
                         <div>
-                          <Typography variant="body2">{address?.address1}</Typography>
-                          <Typography variant="body2">{address?.address2}</Typography>
-                          <Typography variant="body2">
+                          <Typography variant="body1">{address?.address1}</Typography>
+                          <Typography variant="body1">{address?.address2}</Typography>
+                          <Typography variant="body1">
                             {address?.city && <span>{address?.city}</span>}
                             , {address?.state?.selectionValues?.[0]?.key}
                             {address?.postalCode && <span> {address.postalCode}</span>}
                           </Typography>
+                          <Typography variant="body1">{address?.country?.selectionValues?.[0].label}</Typography>
                         </div>
                       }
 

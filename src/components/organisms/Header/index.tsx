@@ -1,33 +1,31 @@
 import React, { useContext, useEffect, useRef, useState } from "react"
-import { BrComponent, BrPage, BrPageContext } from "@bloomreach/react-sdk"
-import { isBrowser } from "../../../lib/utils"
+import { BrComponent, BrPageContext } from "@bloomreach/react-sdk"
 import styles from './Header.module.scss'
 
 // Nucleus Components
 import {
   Logo,
+  MiniCart,
   Navigation,
   PromoBar,
 } from '../../index'
+import { MobileMenu } from "./MobileMenu"
 
 // Material UI Components
 import {
   useTheme,
   Badge,
-  Box,
   Container,
-  Drawer,
   Grid,
   IconButton,
   Link,
 } from "@mui/material"
 
 // Material UI Icons
-import CloseIcon from '@mui/icons-material/Close';
 import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import StorefrontIcon from '@mui/icons-material/Storefront';
+import { Search } from "./Search"
 
 
 export const Header = () => {
@@ -37,18 +35,22 @@ export const Header = () => {
   const headerRef = useRef<any>(null)
 
   // State
-  const [desktopMenuOpen, setDesktopMenuOpen] = useState<boolean>(false);
+  const [isClient, setIsClient] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [miniCartOpen, setMiniCartOpen] = useState(false);
 
+
   useEffect(() => {
-    if (!isBrowser() || page?.isPreview()) return;
+    setIsClient(true)
+  }, [])
+
+  useEffect(() => {
+    if (!isClient || page?.isPreview()) return;
 
     const headerHeight = headerRef.current?.offsetHeight
-    console.log(headerHeight)
     document.body.style.paddingTop = `${headerHeight}px`
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [isClient])
 
   return (
     <header
@@ -74,28 +76,30 @@ export const Header = () => {
               <MenuIcon color="primary" fontSize="small" />
             </IconButton>
           </Grid>
+
+          {/* Logo */}
           <Grid item className={`${styles['header__logo']}`}
             sx={{
+              minWidth: '100px',
               maxWidth: '160px',
               [theme.breakpoints.up('sm')]: {
                 maxWidth: '320px',
               }
             }}
           >
-            <Link href="/" lineHeight={1}>
-              <Logo />
-            </Link>
+            <BrComponent path="logo" />
           </Grid>
+
+          {/* Navigation */}
           <Grid item className={`${styles['header__nav']}`}>
             <BrComponent path="menu">
               <Navigation />
             </BrComponent>
           </Grid>
+
+          {/* Utility Nav */}
           <Grid item className={`${styles['header__utility-nav']}`}>
-            <IconButton
-              onClick={() => setMiniCartOpen(true)}>
-              <SearchIcon color="primary" fontSize="small" />
-            </IconButton>
+            <Search />
             <IconButton onClick={() => setMiniCartOpen(true)}>
               <Badge badgeContent={4} color="primary">
                 <ShoppingCartOutlinedIcon color="primary" fontSize="small" />
@@ -106,56 +110,17 @@ export const Header = () => {
       </Container>
 
       {/* Mobile Menu */}
-      <Drawer
-        anchor={'left'}
-        ModalProps={{ keepMounted: true }}
-        open={mobileMenuOpen}
-        onClose={() => setMobileMenuOpen(false)}
-      >
-        <Box
-          sx={{ width: '100vw', maxWidth: 320, padding: '1rem' }}
-          role="presentation"
-          className={`${styles['qorpak-header__mobile-menu']}`}
-        >
-          <IconButton
-            onClick={() => setMobileMenuOpen(false)}
-            sx={{
-              position: 'absolute',
-              top: 0,
-              right: 0,
-            }}
-          >
-            <CloseIcon color="primary" />
-          </IconButton>
-          <h2>Mobile Menu</h2>
-        </Box>
-      </Drawer>
+      <BrComponent path="menu">
+        <MobileMenu
+          mobileMenuOpen={mobileMenuOpen}
+          setMobileMenuOpen={setMobileMenuOpen} />
+      </BrComponent>
 
       {/* Mini-Cart */}
-      <Drawer
-        anchor={'right'}
-        ModalProps={{ keepMounted: true }}
-        open={miniCartOpen}
-        onClose={() => setMiniCartOpen(false)}
-      >
-        <Box
-          sx={{ width: '100vw', maxWidth: 320, padding: '1rem' }}
-          role="presentation"
-          className={`${styles['qorpak-header__mobile-menu']}`}
-        >
-          <IconButton
-            onClick={() => setMiniCartOpen(false)}
-            sx={{
-              position: 'absolute',
-              top: 0,
-              right: 0,
-            }}
-          >
-            <CloseIcon color="primary" />
-          </IconButton>
-          <h2>Cart</h2>
-        </Box>
-      </Drawer>
+      <MiniCart
+        miniCartOpen={miniCartOpen}
+        setMiniCartOpen={setMiniCartOpen} />
+
     </header>
   )
 }

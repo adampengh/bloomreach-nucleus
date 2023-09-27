@@ -5,7 +5,7 @@
 interface BrxComponentWrapper {
   document: import('@bloomreach/spa-sdk').Document;
   component: import('@bloomreach/spa-sdk').Component;
-  page: import('@bloomreach/spa-sdk').Page;
+  page?: import('@bloomreach/spa-sdk').Page;
   isStorybook?: boolean;
 }
 
@@ -92,4 +92,14 @@ interface ProductListingPageProps {
   [APOLLO_STATE_PROP_NAME]?: any;
   cookies?: Record<string, string>;
   query?: import('querystring').ParsedUrlQuery;
+}
+
+interface ProductDetailPageProps {
+  configuration: Omit<Configuration, 'httpClient'>;
+  page?: PageModel;
+  commerceConfig?: CommerceConfig;
+  [APOLLO_STATE_PROP_NAME]?: any;
+  cookies?: Record<string, string>;
+  query?: import('querystring').ParsedUrlQuery;
+  productId?: string;
 }

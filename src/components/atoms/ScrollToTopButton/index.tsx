@@ -7,19 +7,23 @@ import VerticalAlignTopIcon from '@mui/icons-material/VerticalAlignTop';
 
 export const ScrollToTopButton = () => {
   const [show, setShow] = useState(false)
-  const isBrowser = () => typeof window !== 'undefined'; //The approach recommended by Next.js
+  const [isClient, setIsClient] = useState(false)
 
   function scrollToTop() {
-      if (!isBrowser()) return;
+      if (!isClient) return;
       window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
 
   const { scrollYProgress } = useScroll();
   useEffect(() => {
     return scrollYProgress.on('change', (latestValue) => {
       (latestValue > 0.1) ? setShow(true) : setShow(false)
     });
-  });
+  }, [isClient, scrollYProgress]);
 
   return (
     <Button

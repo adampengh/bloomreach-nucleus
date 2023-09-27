@@ -1,3 +1,4 @@
+export * from './CategoryHeading'
 export * from './Facets'
 export * from './Logo'
 export * from './Navigation'

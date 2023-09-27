@@ -1,28 +1,18 @@
-import { NextPage } from 'next'
-import axios from 'axios'
-import cookie from 'cookie';
-import { Configuration, PageModel, initialize } from '@bloomreach/spa-sdk'
+import { NextPage } from 'next';
+import Head from 'next/head'
 import { APOLLO_STATE_PROP_NAME, CommerceApiClientFactory } from '@bloomreach/connector-components-react';
-import { buildConfiguration, CommerceConfig, deleteUndefined, loadCommerceConfig } from '../lib/utils'
+import { initialize } from '@bloomreach/spa-sdk';
+import axios, { AxiosError } from 'axios';
+import cookie from 'cookie';
+import { buildConfiguration, deleteUndefined, loadCommerceConfig } from '../../lib/utils';
 import { useMemo } from 'react';
-import { BaseLayout } from '@/layouts/abstract/base';
 import { Cookies } from 'react-cookie';
-import PageLayout from '@/layouts';
-import { BrPageContext } from '@bloomreach/react-sdk';
-
+import { ProductDetailLayout } from '@/layouts/ProductDetailLayout';
+import { BaseLayout } from '@/layouts/abstract/base';
 
 let commerceClientFactory: CommerceApiClientFactory;
 
-interface IndexPageProps {
-  configuration: Omit<Configuration, 'httpClient'>;
-  page: PageModel;
-  commerceConfig: CommerceConfig;
-  [APOLLO_STATE_PROP_NAME]?: any;
-  cookies?: Record<string, string>;
-  query?: any;
-}
-
-const Index: NextPage<IndexPageProps> = ({
+const ProductDetailPage: NextPage<any> = ({
   configuration,
   page,
   commerceConfig,
@@ -52,40 +42,61 @@ const Index: NextPage<IndexPageProps> = ({
   const reactCookies = cookies ? new Cookies(cookies) : undefined;
 
   return (
-    <BaseLayout
-      configuration={configuration}
-      page={page}
-      commerceConfig={commerceConfig}
-      apolloState={apolloState}
-      reactCookies={reactCookies}
-      graphqlServiceUrl={graphqlServiceUrl}
-      connector={connector}
-      factory={factory}
-      query={query}
-    >
-      <BrPageContext.Consumer>
-        {(pageContext) => (
-          <PageLayout page={pageContext} />
-        )}
-      </BrPageContext.Consumer>
-    </BaseLayout>
+    <>
+      <Head>
+        <title>PDP | Bloomreach Nucleus</title>
+      </Head>
+      <BaseLayout
+        configuration={configuration}
+        page={page}
+        commerceConfig={commerceConfig}
+        apolloState={apolloState}
+        reactCookies={reactCookies}
+        graphqlServiceUrl={graphqlServiceUrl}
+        connector={connector}
+        factory={factory}
+        query={query}
+      >
+        <ProductDetailLayout query={query} />
+      </BaseLayout>
+    </>
   )
 }
 
-Index.getInitialProps = async ({ req: request, res: response, asPath: path, query }) => {
-  // console.log("[getInitialProps]: path=", path);
-  // console.log("[getInitialProps]: query=", query);
+ProductDetailPage.getInitialProps = async ({
+  req: request,
+  res: response,
+  asPath: path,
+  query,
+}) => {
+  // console.log("[getServerSideProps]: path=", path);
+  // console.log("[getServerSideProps]: query=", query);
 
   const configuration = buildConfiguration(path ?? '/', query)
-  const page = await initialize({ ...configuration, request, httpClient: axios as any });
-  const pageJson = page.toJSON();
-  const commerceConfig = loadCommerceConfig(pageJson, query);
-  const props: IndexPageProps = {
+  let page: any = {};
+  let pageJson = {};
+  const props: ProductDetailPageProps = {
     configuration,
-    commerceConfig,
-    page: pageJson,
     query,
-  };
+  }
+
+  try {
+    page = await initialize({ ...configuration, request, httpClient: axios as any });
+    pageJson = page.toJSON();
+  } catch(err) {
+    if ((err as AxiosError).isAxiosError) {
+      const axiosError = err as AxiosError;
+      configuration.path = '/404'
+      const fallbackPage = await initialize({ ...configuration, request, httpClient: axios as any });
+      pageJson = fallbackPage.toJSON();
+    } else {
+      // console.error('err', err)
+    }
+  } finally {
+    props.page = pageJson
+  }
+  const commerceConfig = loadCommerceConfig(props.page, query);
+  props.commerceConfig = commerceConfig
 
   if (!request || !response) {
     return props;
@@ -123,4 +134,4 @@ Index.getInitialProps = async ({ req: request, res: response, asPath: path, quer
   return props;
 };
 
-export default Index
+export default ProductDetailPage;
