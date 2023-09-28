@@ -1,9 +1,7 @@
-// export * from './Grocery'
-// export * from './Retail'
-
-import { ProductCardGrocery, ProductCardPacificHome, ProductCardRetail } from './variations'
-import styles from './ProductCard.module.scss'
 import { ItemsByCategory_findItemsByCategory_items } from '@bloomreach/connector-components-react'
+import { ProductCardGrocery, ProductCardPacificHome, ProductCardRetail } from './variations'
+
+import styles from './ProductCard.module.scss'
 
 export const ProductCard = ({
   product,
@@ -17,13 +15,11 @@ export const ProductCard = ({
 
   return (
     <article className={`${styles['product-card']}`}>
-      {
-        {
-          'grocery': <ProductCardGrocery />,
-          'retail': <ProductCardRetail />,
-          'pacific-home': <ProductCardPacificHome product={product} />
-        }[variation]
-      }
+      {{
+        'grocery': <ProductCardGrocery />,
+        'retail': <ProductCardRetail />,
+        'pacific-home': <ProductCardPacificHome product={product} />
+      }[variation]}
     </article>
   )
 }

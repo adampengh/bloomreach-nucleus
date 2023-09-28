@@ -4,7 +4,7 @@ import { Container, Grid } from "@mui/material";
 
 export const TwoColumn = ({ layout }: { layout?: string }) => {
   return (
-    <main data-page-layout="two-column">
+    <main data-page-layout="xpage-two-column">
       <BrComponent path="top">
         <Container maxWidth={false} disableGutters>
           <BrComponent />

@@ -39,8 +39,8 @@ export const Navigation = () => {
       setShowMegaMenu(false);
     }}>
       <nav className={`${styles['nav']}`}>
-        <ul className={`${styles['nav__list']}`}>
           <BrManageMenuButton menu={menu} />
+        <ul className={`${styles['nav__list']}`}>
           {menu?.getItems().map((item: MenuItem, index: number) =>
             <li key={index} className={`${styles['nav__list-item']}`}>
               <Link

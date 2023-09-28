@@ -1,114 +1,55 @@
-import React, { useContext, useMemo } from 'react'
-import { CommerceContext } from '../context/CommerceContext'
-import {useProductGridCategory } from '@bloomreach/connector-components-react'
+import React from 'react'
 import { BrComponent } from '@bloomreach/react-sdk'
-import { useCookies } from 'react-cookie'
 
-import { Backdrop, CircularProgress, Container, Grid } from '@mui/material'
+import { Container, Grid } from '@mui/material'
 import { CategoryHeading, ProductGrid } from '@/components'
 
 export const ProductListingLayout = ({
   query,
 }: any) => {
-  // console.log('query', query)
   const { category: categoryArray } = query
   const categoryId = categoryArray?.[0]
+  const variation = 'pacific-home'
 
-
-  const [cookies] = useCookies(['_br_uid_2']);
-  const {
-    connector,
-    discoveryAccountId,
-    discoveryAuthKey,
-    discoveryConnector,
-    discoveryCustomAttrFields,
-    discoveryCustomVarAttrFields,
-    discoveryCustomVarListPriceField,
-    discoveryCustomVarPurchasePriceField,
-    discoveryDomainKey,
-    discoveryViewId,
-    brEnvType,
-  } = useContext(CommerceContext);
-
-
-
-  const SEARCH_TYPE = 'category'
-  const LIMIT = 24;
-  const params: any = useMemo(() => {
-    const defaults: any = {
-      discoveryAccountId,
-      discoveryAuthKey,
-      discoveryDomainKey,
-      customAttrFields: discoveryCustomAttrFields,
-      customVariantAttrFields: discoveryCustomVarAttrFields,
-      customVariantListPriceField: discoveryCustomVarListPriceField,
-      customVariantPurchasePriceField: discoveryCustomVarPurchasePriceField,
-      // facetFieldFilters: filters,
-      pageSize: LIMIT,
-      connector: discoveryConnector,
-      // offset: limit * (page - 1),
-      brUid2: cookies._br_uid_2,
-      // discoveryViewId: view || discoveryViewId,
-      brEnvType,
-    };
-    if (SEARCH_TYPE === 'category') {
-      return {
-        ...defaults,
-        categoryId: categoryId || ' ', // workaround for "All categories"
-      };
-    }
-
-    return {
-      ...defaults,
-      searchText: query,
-    };
-  }, [
-    discoveryAccountId,
-    discoveryAuthKey,
-    discoveryDomainKey,
-    // sortFields,
-    discoveryCustomAttrFields,
-    discoveryCustomVarAttrFields,
-    discoveryCustomVarListPriceField,
-    discoveryCustomVarPurchasePriceField,
-    // filters,
-    // limit,
-    discoveryConnector,
-    // page,
-    cookies._br_uid_2,
-    // view,
-    // discoveryViewId,
-    SEARCH_TYPE,
-    query,
-    categoryId,
-    brEnvType,
-  ]);
-
-  // Fetch Product Details via GraphQL
-  const [onLoadMore, results, loading, searchError] = useProductGridCategory(params as any);
+  const DEFAULTS = {
+    'grocery': {
+      itemsPerRowMobile: 2,
+      itemsPerRowTablet: 4,
+      itemsPerRowDesktop: 5,
+      columnSpacing: '24px',
+      rowSpacing: '24px',
+    },
+    'retail': {
+      itemsPerRowMobile: 2,
+      itemsPerRowTablet: 3,
+      itemsPerRowDesktop: 3,
+      columnSpacing: '48px',
+      rowSpacing: '48px',
+    },
+    'pacific-home': {
+      itemsPerRowMobile: 2,
+      itemsPerRowTablet: 3,
+      itemsPerRowDesktop: 3,
+      columnSpacing: '48px',
+      rowSpacing: '48px',
+    },
+  }
 
   return (
-    <>
+    <div data-page-layout="product-listing-layout">
       <Container maxWidth={false} disableGutters>
         <BrComponent path="top" />
       </Container>
       <Container maxWidth='xl' sx={{ pt: 3, pb: 10 }}>
         <Grid container spacing={1}>
-          <CategoryHeading
-            categoryId={categoryId}
-            connector={connector}
-          />
+          <CategoryHeading categoryId={categoryId} />
           <Grid item xs={12}>
-          {loading ? (
-            <Backdrop sx={{ color: '#fff', zIndex: '99999' }} open={true}>
-              <CircularProgress color="inherit" />
-            </Backdrop>
-          ) : (
             <ProductGrid
-              variation='pacific-home'
-              results={results}
+              categoryId={categoryId}
+              query={query}
+              variation={variation}
+              {...DEFAULTS[variation]}
             />
-          )}
           </Grid>
           <BrComponent path="bottom">
             <Grid item xs={12}>
@@ -117,6 +58,6 @@ export const ProductListingLayout = ({
           </BrComponent>
         </Grid>
       </Container>
-    </>
+    </div>
   )
 }

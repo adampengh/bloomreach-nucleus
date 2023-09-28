@@ -1,18 +1,19 @@
-import React, { useContext } from 'react';
-import { BrComponent, BrPageContext} from '@bloomreach/react-sdk'
+import React from 'react';
+import { BrComponent} from '@bloomreach/react-sdk'
 import { Container, Grid, Typography } from '@mui/material';
 import { FooterMenu } from './FooterMenu';
 
 import styles from './Footer.module.scss';
 
 export const Footer = () => {
-  const page = useContext(BrPageContext)
   return (
-    <footer className={`${styles['footer']} ${page?.isPreview() ? 'has-edit-button' : ''}`}>
+    <footer className={`${styles['footer']}`}>
       <Container maxWidth='xl' sx={{ py: 3}}>
         <Grid container>
           <BrComponent path="footerMenu">
-            <FooterMenu />
+            <Grid item xs={12} lg={9}>
+              <FooterMenu />
+            </Grid>
           </BrComponent>
           <Grid item xs={12} lg={3} sx={{ p: 2, minWidth: '50px' }}>
             <BrComponent path="footerLogo" />

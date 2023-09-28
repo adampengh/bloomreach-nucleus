@@ -19,10 +19,10 @@ export const FooterMenu = () => {
   }
 
   return (
-    <>
+    <Grid container sx={{ position: 'relative' }}>
       <BrManageMenuButton menu={menu} />
       {menu?.getItems().map((item: MenuItem, index: number) => (
-        <Grid item xs={6} lg={3} key={index}>
+        <Grid item xs={6} lg={4} key={index}>
           <List>
             <ListItem>
               <Typography variant="body1" component="h2"><strong>{item.getName()}</strong></Typography>
@@ -35,6 +35,6 @@ export const FooterMenu = () => {
           </List>
         </Grid>
       ))}
-    </>
+    </Grid>
   )
 }

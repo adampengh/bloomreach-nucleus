@@ -5,17 +5,12 @@ import { ItemsByCategory_findItemsByCategory_items } from '@bloomreach/connector
 import { ProductPrice } from '../../../index'
 
 // Material UI
-import { useTheme, Link } from '@mui/material'
+import { useTheme, Link, Typography } from '@mui/material'
 
 import styles from './PacificHome.module.scss'
 
-export const ProductCardPacificHome = ({
-  product,
-}: {
-  product?: ItemsByCategory_findItemsByCategory_items
-}) => {
+export const ProductCardPacificHome = ({product}: {product?: ItemsByCategory_findItemsByCategory_items}) => {
   const theme = useTheme()
-  // console.log('theme', theme)
   const onSale = product?.customAttrs?.map((attr) => attr?.values?.[0] === 'true' ? true : false)[0]
 
   let productUrlName = product?.displayName?.toLowerCase().replace(/ /g, '-')
@@ -45,11 +40,14 @@ export const ProductCardPacificHome = ({
       </Link>
 
       <section className={`${styles['product-card__details']}`}>
-        <p className={`${styles['product-card__details-badge']}`}>BEST SELLER</p>
-        <h3 className={`${styles['product-card__title']}`}>
+        <Typography className={`${styles['product-card__details-badge']}`}>BEST SELLER</Typography>
+        <Typography variant='h3' className={`${styles['product-card__title']}`}>
           {product?.displayName}
-        </h3>
-        <ProductPrice />
+        </Typography>
+        <ProductPrice
+          listPrice={product?.listPrice?.moneyAmounts?.[0]?.amount}
+          purchasePrice={product?.purchasePrice?.moneyAmounts?.[0]?.amount}
+        />
       </section>
     </>
   )

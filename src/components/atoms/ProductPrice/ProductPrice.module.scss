@@ -1,8 +1,9 @@
 .product-price {
+  $parent: &;
   display: flex;
   flex-direction: row-reverse;
   flex-wrap: nowrap;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
   justify-content: flex-end;
   line-height: 16px;
@@ -12,14 +13,20 @@
   }
 
   &__regular {
-    color: #BAC2C9;
-    text-decoration: line-through;
+    color: #333;
     font-weight: 600;
   }
 
   &__sale {
     color: #ED565D;
     font-weight: 600;
+    + #{$parent} {
+      &__regular {
+        color: #BAC2C9;
+        text-decoration: line-through;
+        font-weight: 600;
+      }
+    }
   }
 
   &__discount {

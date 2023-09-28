@@ -70,7 +70,7 @@ export const ProductDetailLayout = ({
   const [item, loading, error] = useProductDetail(params);
 
   return (
-    <>
+    <div data-page-layout="product-detail-layout">
       <Container maxWidth='xl' sx={{ pt: 3, pb: 10 }}>
         <Grid container spacing={1}>
           <Grid item xs={12}>
@@ -96,6 +96,6 @@ export const ProductDetailLayout = ({
           </BrComponent>
         </Grid>
       </Container>
-    </>
+    </div>
   )
 }
