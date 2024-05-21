@@ -18,14 +18,9 @@ export const Accordion = ({
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header"
-        >
-          <Typography>Accordion 1</Typography>
-        </AccordionSummary>
+        >What is your return policy?</AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
         </AccordionDetails>
       </MuiAccordion>
       <MuiAccordion>
@@ -33,14 +28,9 @@ export const Accordion = ({
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
           id="panel2a-header"
-        >
-          <Typography>Accordion 2</Typography>
-        </AccordionSummary>
+        >How long does it take to receive my refund?</AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
         </AccordionDetails>
       </MuiAccordion>
       <MuiAccordion disabled>
@@ -48,9 +38,7 @@ export const Accordion = ({
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel3a-content"
           id="panel3a-header"
-        >
-          <Typography>Disabled Accordion</Typography>
-        </AccordionSummary>
+        >Disabled Accordion</AccordionSummary>
       </MuiAccordion>
     </div>
   );

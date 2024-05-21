@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import { Page } from '@bloomreach/spa-sdk';
 // import { getCookieConsentValue } from 'react-cookie-consent';

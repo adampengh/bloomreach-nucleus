@@ -17,12 +17,15 @@ export const Logo = ({ component, page }: BrProps) => {
     height = 32,
     width = 200,
   } = component?.getParameters<LogoComponentProps>() || {};
+  // console.log('height', height)
+  // console.log(component?.getModels<any>())
   const { logo: logoRef } = component?.getModels<any>() || {};
 
   if (!logoRef) {
     return page?.isPreview() ? <div style={{ display: 'block', width: '100%' }} /> : null;
   };
   const logo = logoRef && page?.getContent<ImageSet>(logoRef)?.getOriginal();
+  // console.log('logo', logo)
 
   return (
     <>

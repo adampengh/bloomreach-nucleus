@@ -1,11 +1,11 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
-import { initialize } from '@bloomreach/spa-sdk'
 import axios, { AxiosError } from 'axios'
+import { initialize } from '@bloomreach/spa-sdk'
 import { Montserrat } from 'next/font/google'
-import App from '../components/App';
-import { loadCommerceConfig } from '../lib/utils'
+import { loadCommerceConfig } from '@/lib/utils'
 import { NEXT_PUBLIC_BRXM_ENDPOINT } from '@/lib/constants'
+import App from '../components/App';
 
 const montserrat = Montserrat({ subsets: ['latin'] })
 

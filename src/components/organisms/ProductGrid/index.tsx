@@ -9,6 +9,8 @@ import { useProductGridCategory } from '@bloomreach/connector-components-react';
 import { PLP_SORT_OPTIONS } from '@/lib/constants';
 import { useRouter } from 'next/router';
 
+import { InGridBanner } from '../../atoms/InGridBanner';
+
 interface ProductGridProps {
   categoryId: string;
   columnSpacing?: string;
@@ -54,10 +56,13 @@ export const ProductGrid = ({
   const [cookies] = useCookies(['_br_uid_2']);
   const { push } = useRouter();
 
+  // In-Grid Banners
+  const inGridBannersContainerItem = component?.getChildren()?.filter((child: any) => child.getName().includes('plp-in-grid'))
+  const inGridBanners = inGridBannersContainerItem?.[0].getChildren()?.[0]?.getChildren()
+  inGridBanners?.forEach((banner: any) => console.log('banner', banner.getParameters()))
 
-  const inGridBanners = component?.getChildren()?.filter((child: any) => child.getName().includes('in-grid-banner'))
   const inGridBannerDetails = inGridBanners?.map((banner: any) => {
-    const parameters = banner.getChildren()?.[0].getChildren()?.[0]?.getParameters();
+    const parameters = banner.getParameters();
     if (!parameters) return
     return {
       columnSpan: parameters?.columnSpan,
@@ -144,9 +149,9 @@ export const ProductGrid = ({
 
   useMemo(() => {
     if (currentPageNumber !== 1) return
-    // console.log('results', results)
+    console.log('results', results)
     inGridBanners?.forEach((banner: any) => {
-      const parameters = banner.getChildren()?.[0].getChildren()?.[0]?.getParameters();
+      const parameters = banner.getParameters();
       if (parameters?.document || page?.isPreview()) {
         results?.items.splice(parameters?.desktopPosition - 1, 0, banner)
       }
@@ -209,6 +214,20 @@ export const ProductGrid = ({
             <Facets facetResult={results?.facetResult} />
           </Grid>
           <Grid item lg={showFacets ? 9 : 12} zeroMinWidth>
+            {/* In Experience Manager (Preview), show the container above the product grid */}
+            {page?.isPreview() &&
+              <Grid container columnSpacing={columnSpacing} rowSpacing={rowSpacing}>
+                <Grid
+                  item
+                  xs={12 / itemsPerRowMobile}
+                  sm={12 / itemsPerRowTablet}
+                  md={12 / (itemsPerRowDesktop / Number(1))}
+                >
+                  <BrComponent path={'plp-in-grid'} />
+                </Grid>
+              </Grid>
+            }
+
             <Grid container columnSpacing={columnSpacing} rowSpacing={rowSpacing}>
               {results?.items?.map((item: any, index: number) => {
                 if (item?.__typename === 'Item') {
@@ -226,39 +245,42 @@ export const ProductGrid = ({
                     </Grid>
                   )
                 } else {
+                  const { document: documentRef } = item?.getModels();
+                  const document = documentRef && page?.getContent(documentRef);
+                  if (!document) {
+                    return (
+                      <Grid
+                        item
+                        xs={12 / itemsPerRowMobile}
+                        sm={12 / itemsPerRowTablet}
+                        md={12 / (itemsPerRowDesktop / Number(1))}
+                      >
+                        <BrComponent path={'plp-in-grid'} />
+                      </Grid>
+                    )
+                  }
                   return (
-                    <BrComponent path={item?.getName()} key={index}>
-                      <BrComponentContext.Consumer>
-                        {(component) => {
-                          const {columnSpan = 1 } = component?.getChildren()?.[0].getChildren()?.[0]?.getParameters() || {}
-                          return (
-                            <>
-                              {page?.isPreview() ?
-                                <Grid
-                                  item
-                                  xs={12 / itemsPerRowMobile}
-                                  sm={12 / itemsPerRowTablet}
-                                  md={12 / (itemsPerRowDesktop / Number(columnSpan))}
-                                >
-                                  <div style={{ display: 'block' }}>
-                                    <BrComponent />
-                                  </div>
-                                </Grid>
-                              :
-                                <Grid
-                                  item
-                                  xs={12 / itemsPerRowMobile}
-                                  sm={12 / itemsPerRowTablet}
-                                  md={12 / (itemsPerRowDesktop / Number(columnSpan))}
-                                >
-                                  <BrComponent />
-                                </Grid>
-                              }
-                            </>
-                          )
-                        }}
-                      </BrComponentContext.Consumer>
-                    </BrComponent>
+                    <>
+                      <BrComponent path='plp-in-grid'>
+                        <BrComponentContext.Consumer>
+                          {(component) => {
+                            const components = component?.getChildren()?.[0].getChildren()?.filter((component) => {
+                              return component.getParameters()?.desktopPosition === index + 1
+                            })
+                            return (
+                              <Grid
+                                item
+                                xs={12 / itemsPerRowMobile}
+                                sm={12 / itemsPerRowTablet}
+                                md={12 / (itemsPerRowDesktop / Number(1))}
+                              >
+                                <InGridBanner component={components?.[0]} page={page} />
+                              </Grid>
+                            )
+                          }}
+                        </BrComponentContext.Consumer>
+                      </BrComponent>
+                    </>
                   )
                 }
               })}

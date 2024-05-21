@@ -4,7 +4,7 @@
 
 interface BrxComponentWrapper {
   document: import('@bloomreach/spa-sdk').Document;
-  component: import('@bloomreach/spa-sdk').Component;
+  component?: import('@bloomreach/spa-sdk').Component;
   page?: import('@bloomreach/spa-sdk').Page;
   isStorybook?: boolean;
 }

@@ -4,13 +4,15 @@
   &__list {
     display: flex;
     padding: 0;
+    padding-left: 2rem;
     padding-right: 1rem;
     &-item {
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 500;
       padding: 0 1rem;
       a {
         text-decoration: none;
+        cursor: pointer;
       }
     }
   }
@@ -27,6 +29,7 @@
     top: 100%;
     transform: translateX(-50%);
     width: 100vw;
+    // z-index: 998;
     &[data-menu-status="show"] {
       height: 480px;
     }
@@ -75,6 +78,7 @@
             margin: 0;
             padding: 0;
             text-decoration: none;
+            cursor: pointer;
           }
         }
       }
@@ -102,21 +106,24 @@
 
     &-promos {
       flex-basis: calc((100% / 6) * 2);
-      div {
-        display: grid;
-        grid-gap: 24px;
-        grid-template-columns: 1fr 1fr;
-        margin-top: 12px;
+      margin-left: auto;
+      font-size: 0;
 
-        img {
-          max-width: 100%;
-        }
+      // img {
+      //   max-width: 100%;
+      // }
 
-        a {
-          margin: 0;
-          padding: 0;
-        }
-      }
+      // a {
+      //   margin: 0;
+      //   padding: 0;
+      // }
+
+      // div {
+      //   display: grid;
+      //   grid-gap: 24px;
+      //   grid-template-columns: 1fr 1fr;
+      //   margin-top: 12px;
+      // }
     }
   }
 }

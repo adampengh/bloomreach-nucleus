@@ -22,7 +22,7 @@ import ThemeProvider from '../themes/ThemeProvider';
 import PageLayout from '../layouts';
 
 // Utils
-import { BrxComponentMapping } from './BrxComponentMapping';
+import { BrxComponentMapping } from '../lib/BrxComponentMapping';
 import { CommerceConfig } from '../lib/utils';
 
 interface AppProps {

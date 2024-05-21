@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react'
 import { BrComponentContext, BrManageMenuButton, BrPageContext } from '@bloomreach/react-sdk'
 import { Menu as BrMenu, MenuItem, isMenu } from '@bloomreach/spa-sdk'
-import { Box, ClickAwayListener, Link, List, ListItem, Typography } from '@mui/material';
+import { Box, ClickAwayListener, Grid, Link, List, ListItem, Typography } from '@mui/material';
 
 import styles from './Navigation.module.scss'
 
-export const Navigation = () => {
+export const Navigation = ({ top }: any) => {
   const [showMegaMenu, setShowMegaMenu] = useState<boolean>(false);
   const [activeMenu, setActiveMenu] = useState<number>(-1);
   const handleActiveMenu = (event: any, menu: any) => {
@@ -39,12 +39,12 @@ export const Navigation = () => {
       setShowMegaMenu(false);
     }}>
       <nav className={`${styles['nav']}`}>
-          <BrManageMenuButton menu={menu} />
+        <BrManageMenuButton menu={menu} />
         <ul className={`${styles['nav__list']}`}>
           {menu?.getItems().map((item: MenuItem, index: number) =>
             <li key={index} className={`${styles['nav__list-item']}`}>
               <Link
-                onClick={(event) => handleActiveMenu(event, index)}
+                onClick={(event) => item.getChildren().length > 0 ? handleActiveMenu(event, index) : null}
                 href={item.getUrl()}
                 data-menu="women"
               >{item.getName()}</Link>
@@ -73,16 +73,12 @@ export const Navigation = () => {
                     ))}
 
                     {/* Mega Menu Banners */}
-                    <Box className={`${styles['nav__mega-menu-promos']}`}>
-                      <Typography variant='h3'>New Styles</Typography>
-                      <Box>
-                        <Link href="/collections/men/shirts">
-                          <img src="https://via.placeholder.com/300x400" alt="" />
-                        </Link>
-                        <Link href="/collections/men/shirts">
-                          <img src="https://via.placeholder.com/300x400" alt="" />
-                        </Link>
-                      </Box>
+                    <Box  className={`${styles['nav__mega-menu-promos']}`}>
+                      {item.getName()}
+                      {{
+                        'Furniture': <FurniturePromos />,
+                        'Décor & Pillows': <DecorPromos />
+                      }[item.getName()]}
                     </Box>
                   </Box>
                 </Box>
@@ -98,5 +94,74 @@ export const Navigation = () => {
         />
       </nav>
     </ClickAwayListener>
+  )
+}
+
+const FurniturePromos = () => {
+  return (
+    <>
+      <Typography variant='h3'>Furniture Trends</Typography>
+      <Grid container spacing={1} sx={{ mt: 1 }}>
+        <Grid item xs={6}>
+          <Box>
+            <Link href="/collections/men/shirts">
+              <img src="https://via.placeholder.com/240x360" alt="" />
+            </Link>
+          </Box>
+        </Grid>
+        <Grid item xs={6}>
+          <Box>
+            <Link href="/collections/men/shirts">
+              <img src="https://via.placeholder.com/240x360" alt="" />
+            </Link>
+          </Box>
+        </Grid>
+      </Grid>
+    </>
+  )
+}
+
+const DecorPromos = () => {
+  return (
+    <>
+      <Typography variant='h3'>Décor Ideas for Your Home</Typography>
+      <Grid container spacing={1} sx={{ mt: 1 }}>
+        <Grid item xs={6}>
+          <Box>
+            <Link href="/collections/men/shirts">
+              <img src="https://via.placeholder.com/240x120" alt="" />
+            </Link>
+          </Box>
+        </Grid>
+        <Grid item xs={6}>
+          <Box>
+            <Link href="/collections/men/shirts">
+              <img src="https://via.placeholder.com/240x120" alt="" />
+            </Link>
+          </Box>
+        </Grid>
+        <Grid item xs={4}>
+          <Box>
+            <Link href="/collections/men/shirts">
+              <img src="https://via.placeholder.com/160x120" alt="" />
+            </Link>
+          </Box>
+        </Grid>
+        <Grid item xs={4}>
+          <Box>
+            <Link href="/collections/men/shirts">
+              <img src="https://via.placeholder.com/160x120" alt="" />
+            </Link>
+          </Box>
+        </Grid>
+        <Grid item xs={4}>
+          <Box>
+            <Link href="/collections/men/shirts">
+              <img src="https://via.placeholder.com/160x120" alt="" />
+            </Link>
+          </Box>
+        </Grid>
+      </Grid>
+    </>
   )
 }

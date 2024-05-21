@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useRef, useState } from "react"
-import { BrComponent, BrPageContext } from "@bloomreach/react-sdk"
+import React, { createRef, useContext, useEffect, useRef, useState } from "react"
+import { BrComponent, BrComponentContext, BrPageContext } from "@bloomreach/react-sdk"
 import styles from './Header.module.scss'
 
 // Nucleus Components
@@ -24,7 +24,6 @@ import {
 // Material UI Icons
 import MenuIcon from '@mui/icons-material/Menu';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-import StorefrontIcon from '@mui/icons-material/Storefront';
 import { Search } from "./Search"
 
 
@@ -32,20 +31,19 @@ export const Header = () => {
   const page = useContext(BrPageContext)
   const theme = useTheme();
 
-  const headerRef = useRef<any>(null)
+  const headerRef = createRef<HTMLElement>()
 
   // State
   const [isClient, setIsClient] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [miniCartOpen, setMiniCartOpen] = useState(false);
 
-
   useEffect(() => {
     setIsClient(true)
   }, [])
 
   useEffect(() => {
-    if (!isClient || page?.isPreview()) return;
+    if (!isClient) return;
 
     const headerHeight = headerRef.current?.offsetHeight
     document.body.style.paddingTop = `${headerHeight}px`
@@ -56,9 +54,9 @@ export const Header = () => {
     <header
       className={styles.header}
       ref={headerRef}
-      style={ page?.isPreview() ? {position: 'relative'} : {position: 'fixed'}}
+      // style={ page?.isPreview() ? {position: 'relative'} : {position: 'fixed'}}
     >
-      <PromoBar  />
+      <PromoBar />
       <Container maxWidth="xl" className={styles['header__container']}
         // sx={{
         //   background: {
@@ -78,17 +76,31 @@ export const Header = () => {
           </Grid>
 
           {/* Logo */}
-          <Grid item className={`${styles['header__logo']}`}
-            sx={{
-              minWidth: '100px',
-              maxWidth: '160px',
-              [theme.breakpoints.up('sm')]: {
-                maxWidth: '320px',
-              }
-            }}
-          >
+          <Grid item xs={12} lg={3} sx={{ p: 0, minWidth: '50px' }} className={`${styles['header__logo']}`}>
             <BrComponent path="logo" />
           </Grid>
+          {/* <Grid item className={`${styles['header__logo']}`}>
+            <BrComponent path="logo">
+              <BrComponentContext.Consumer>
+                  {(component) => {
+                    const containerParams = component?.getParameters();
+                    return (
+                      <div
+                        style={{
+                          minWidth: containerParams?.minWidth ?? '100px',
+                          maxWidth: containerParams?.maxWidth ?? '320px',
+                          [`@media (minWidth: ${theme.breakpoints.values.sm}px)`]: {
+                            maxWidth: containerParams?.mobileMaxWidth ?? '320px',
+                          }
+                        }}
+                      >
+                        <BrComponent />
+                      </div>
+                    )
+                  }}
+              </BrComponentContext.Consumer>
+            </BrComponent>
+          </Grid> */}
 
           {/* Navigation */}
           <Grid item className={`${styles['header__nav']}`}>

@@ -11,6 +11,14 @@ main {
   min-height: 1000px;
 }
 
+.app-root {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-content: stretch;
+  align-items: stretch;
+}
+
 /* Google Maps Overrides */
 .gm-style .gm-style-iw-t {
   bottom: 24px !important;

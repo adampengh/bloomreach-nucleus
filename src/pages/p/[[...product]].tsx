@@ -4,10 +4,11 @@ import { APOLLO_STATE_PROP_NAME, CommerceApiClientFactory } from '@bloomreach/co
 import { initialize } from '@bloomreach/spa-sdk';
 import axios, { AxiosError } from 'axios';
 import cookie from 'cookie';
-import { buildConfiguration, deleteUndefined, loadCommerceConfig } from '../../lib/utils';
+import { deleteUndefined, loadCommerceConfig } from '@/lib/utils';
+import { buildConfiguration } from '@/lib/BrxConfiguration';
 import { useMemo } from 'react';
 import { Cookies } from 'react-cookie';
-import { ProductDetailLayout } from '@/layouts/ProductDetailLayout';
+import { ProductDetailLayout } from '@/layouts/pages/ProductDetailLayout';
 import { BaseLayout } from '@/layouts/abstract/base';
 
 let commerceClientFactory: CommerceApiClientFactory;
@@ -70,7 +71,7 @@ ProductDetailPage.getInitialProps = async ({
   query,
 }) => {
   // console.log("[getServerSideProps]: path=", path);
-  // console.log("[getServerSideProps]: query=", query);
+  console.log("[getServerSideProps]: query=", query);
 
   const configuration = buildConfiguration(path ?? '/', query)
   let page: any = {};

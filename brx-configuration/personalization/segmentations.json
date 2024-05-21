@@ -1,0 +1,80 @@
+[
+  {
+    "name": "Gender",
+    "segments": [
+      {
+        "name": "Gender: Female",
+        "id": "female"
+      },
+      {
+        "name": "Gender: Male",
+        "id": "Male"
+      }
+    ],
+    "id": "gender"
+  },
+  {
+    "name": "Size",
+    "segments": [
+      {
+        "name": "Size: Small",
+        "id": "size-small"
+      },
+      {
+        "name": "Size: Large",
+        "id": "size-large"
+      }
+    ],
+    "id": "size"
+  },
+  {
+    "name": "Color",
+    "segments": [
+      {
+        "name": "Color: Red",
+        "id": "color-red"
+      },
+      {
+        "name": "Color: Blue",
+        "id": "color-blue"
+      }
+    ],
+    "id": "color"
+  },
+  {
+    "name": "Color/Size",
+    "segments": [
+      {
+        "name": "Color/Size: Small/Red",
+        "id": "small-red"
+      },
+      {
+        "name": "Color/Size: Small/Blue",
+        "id": "small-blue"
+      },
+      {
+        "name": "Color/Size: Large/Red",
+        "id": "large-red"
+      },
+      {
+        "name": "Color/Size: Large/Blue",
+        "id": "large-blue"
+      }
+    ],
+    "id": "color-size"
+  },
+  {
+    "name": "Category Preference",
+    "segments": [
+      {
+        "name": "Category: Furniture",
+        "id": "category-furniture"
+      },
+      {
+        "name": "Category: Bed & Bath",
+        "id": "category-bed-bath"
+      }
+    ],
+    "id": "category-preference"
+  }
+]

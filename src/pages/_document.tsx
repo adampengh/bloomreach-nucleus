@@ -2,14 +2,19 @@ import Document, { Html, Head, Main, NextScript } from 'next/document'
 
 class MyDocument extends Document {
   render() {
-    // console.log('[MyDocument.render()]: props=', this.props);
+    const nextInlineScriptSource = NextScript.getInlineScriptSource;
+    NextScript.getInlineScriptSource = (props: any) => {
+      let brxmPage = JSON.stringify(props['__NEXT_DATA__'].props.pageProps.page)
+      brxmPage = brxmPage.replace(/\/page\//g, 'page/');
+      brxmPage = JSON.parse(brxmPage);
+
+      props['__NEXT_DATA__'].props.pageProps.page = brxmPage;
+      return nextInlineScriptSource(props);
+    };
+
     return (
       <Html>
-        <Head>
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" />
-          <link href="https://fonts.googleapis.com/css2?family=Taviraj:wght@300;400;500;700&family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet" />
-        </Head>
+        <Head />
         <body>
           <Main />
           <NextScript />

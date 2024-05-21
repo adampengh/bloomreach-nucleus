@@ -1,4 +1,4 @@
-import { AddToCartButton } from '../../../components'
+import { AddToCartButton } from '@/components'
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof AddToCartButton> = {

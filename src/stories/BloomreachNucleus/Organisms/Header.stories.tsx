@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { BrComponent, BrPage } from '@bloomreach/react-sdk';
 import axios from 'axios';
-import { Header } from '../../../components'
+import { Header, Logo } from '@/components'
 
 const configuration = {
   endpoint: 'https://profserv02.bloomreach.io/delivery/site/v1/channels/bloomreach-nucleus/pages./footer',
@@ -22,7 +22,7 @@ type Story = StoryObj<typeof Header>
 
 export const Default: Story = {
   render: () =>
-    <BrPage configuration={configuration} mapping={{}}>
+    <BrPage configuration={configuration} mapping={{ Logo }}>
       <BrComponent path="Header">
         <Header />
       </BrComponent>

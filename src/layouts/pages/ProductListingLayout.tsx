@@ -2,7 +2,7 @@ import React from 'react'
 import { BrComponent } from '@bloomreach/react-sdk'
 
 import { Container, Grid } from '@mui/material'
-import { CategoryHeading, ProductGrid } from '@/components'
+import { CategoryHeading, ProductGrid, ProductGridAlternate } from '@/components'
 
 export const ProductListingLayout = ({
   query,
@@ -38,7 +38,7 @@ export const ProductListingLayout = ({
   return (
     <div data-page-layout="product-listing-layout">
       <Container maxWidth={false} disableGutters>
-        <BrComponent path="top" />
+        <BrComponent path="plp-top" />
       </Container>
       <Container maxWidth='xl' sx={{ pt: 3, pb: 10 }}>
         <Grid container spacing={1}>
@@ -50,13 +50,17 @@ export const ProductListingLayout = ({
               variation={variation}
               {...DEFAULTS[variation]}
             />
+            {/* <ProductGridAlternate
+              categoryId={categoryId}
+              query={query}
+              variation={variation}
+              {...DEFAULTS[variation]}
+            /> */}
           </Grid>
-          <BrComponent path="bottom">
-            <Grid item xs={12}>
-              <BrComponent />
-            </Grid>
-          </BrComponent>
         </Grid>
+      </Container>
+      <Container maxWidth={false} disableGutters>
+        <BrComponent path="plp-bottom" />
       </Container>
     </div>
   )

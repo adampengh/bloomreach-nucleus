@@ -9,8 +9,16 @@ import {
 } from './common';
 
 export const BloomreachNucleusDark: ThemeOptions = createTheme({
-  breakpoints: breakpoints,
-  components: components,
-  palette: palette,
-  typography: typography,
+  breakpoints: {
+    ...breakpoints
+  },
+  components: {
+    ...components
+  },
+  palette: {
+    ...palette
+  },
+  typography: {
+    ...typography
+  },
 })

@@ -1,5 +1,6 @@
 export * from './AddToCartButton'
 export * from './Breadcrumbs'
+export * from './Image'
 export * from './InGridBanner'
 export * from './ProductPrice'
 export * from './ScrollToTopButton'

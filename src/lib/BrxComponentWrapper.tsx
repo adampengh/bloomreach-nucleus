@@ -1,16 +1,22 @@
 import React from 'react';
 import { BrManageContentButton } from '@bloomreach/react-sdk'
-import { Component as BrComponent, Page } from '@bloomreach/spa-sdk'
+import { Component as BrComponent, Page, Document } from '@bloomreach/spa-sdk'
 import { Container } from '@mui/material'
 
-interface WithBrxComponentProps {
+export type BrxComponentProps = {
   component: BrComponent | null;
   page: Page;
   children: any;
 }
 
-const WithBrxComponentWrapper = (Component: any): any => {
-  return function WithBrxComponent({ component, page, children }: WithBrxComponentProps) {
+export type BrxComponentWrapperProps = {
+  document: Document | null;
+  component: BrComponent | null;
+  page: Page;
+}
+
+const BrxComponentWrapper = (Component: any): any => {
+  return function BrxComponent({ component, page, children }: BrxComponentProps) {
     if (!component || !page) return null
 
     // Component Parameters
@@ -37,7 +43,7 @@ const WithBrxComponentWrapper = (Component: any): any => {
     return (
       <Container maxWidth={false} disableGutters>
         {page.isPreview() ? (
-          <div className={`${page.isPreview() && 'has-edit-button'}`}>
+          <div className='has-edit-button'>
             <BrManageContentButton
               content={document}
               documentTemplateQuery={`${parameters['document-template-query']}`}
@@ -68,4 +74,4 @@ const WithBrxComponentWrapper = (Component: any): any => {
   }
 }
 
-export default WithBrxComponentWrapper
+export default BrxComponentWrapper

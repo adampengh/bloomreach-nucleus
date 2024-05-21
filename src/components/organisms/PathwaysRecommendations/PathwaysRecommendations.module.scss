@@ -7,29 +7,33 @@
   // Arrows
   // ================================================
   &__arrow {
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 1);
     display: block;
     height: 36px;
     transition: all 0.3s ease;
     width: 36px;
     z-index: 1;
+    top: 40%;
+    transform: translateY(-50%);
+    opacity: 0.75;
     &:hover {
-        background-color: rgba(255, 255, 255, 1);
+      background-color: rgba(255, 255, 255, 1);
+      opacity: 1;
     }
     svg {
-        height: 36px;
-        width: 36px;
+      height: 36px;
+      width: 36px;
     }
     &::before {
-        display: none;
+      display: none;
     }
 
     &-prev {
-      left: 12px;
+      left: 16px;
     }
 
     &-next {
-      right: 12px;
+      right: 16px;
     }
   }
 }

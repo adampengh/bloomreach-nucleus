@@ -1,6 +1,10 @@
 import {
+  BaseLight,
+  BaseDark,
   BloomreachNucleusDark,
-  BloomreachNucleusLight
+  BloomreachNucleusLight,
+  CrewLight,
+  CrewDark,
 } from "./schemes";
 
 interface ThemeMapProps {
@@ -8,8 +12,12 @@ interface ThemeMapProps {
 }
 
 const themeMap: ThemeMapProps = {
+  BaseLight,
+  BaseDark,
   BloomreachNucleusDark: BloomreachNucleusDark,
-  BloomreachNucleusLight: BloomreachNucleusLight
+  BloomreachNucleusLight: BloomreachNucleusLight,
+  CrewLight,
+  CrewDark,
 };
 
 export function themeCreator(theme: string) {

@@ -1,31 +1,37 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from './';
+// import { Button } from '@mui/material'
 
 const meta: Meta<typeof Button> = {
   title: 'Material UI/Button',
   component: Button,
   tags: ['autodocs'],
   args: {
-    label: 'Button',
-    color: 'primary',
     variant: 'contained',
     disableElevation: true,
   },
-  argTypes: {
-    label: {
-      control: { type: 'text' },
-    },
-  }
+  argTypes: {}
 }
 
 export default meta;
 type Story = StoryObj<typeof Button>
 
-export const Default: Story = {
-  render: ({
-    label='Button',
-    ...args
-  }) => (
-    <Button label={label} {...args} />
+export const Primary: Story = {
+  args: {
+    children: 'Primary',
+    color: 'primary',
+  },
+  render: ({...args}) => (
+    <Button {...args}>{args.children}</Button>
+  ),
+}
+
+export const Secondary: Story = {
+  args: {
+    children: 'Secondary',
+    color: 'secondary',
+  },
+  render: ({...args}) => (
+    <Button {...args}>{args.children}</Button>
   ),
 }

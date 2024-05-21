@@ -28,11 +28,11 @@ export default class MyApp extends App {
     return (
       <>
         <Head>
-          <meta charSet="utf-8" />
-          <meta key="description" name="description" content="Example NextJS SPA for brX SaaS" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta charSet='utf-8' />
+          <meta key='description' name='description' content='Example NextJS SPA for brX SaaS' />
+          <meta name='viewport' content='width=device-width, initial-scale=1' />
 
-          <title key="title">Bloomreach Nucleus</title>
+          <title key='title'>Bloomreach Nucleus</title>
         </Head>
         {/* {getLayout(<Component {...pageProps} />)} */}
         <Component {...pageProps} />

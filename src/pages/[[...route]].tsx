@@ -1,15 +1,15 @@
-import { NextPage } from 'next'
 import axios from 'axios'
 import cookie from 'cookie';
-import { Configuration, PageModel, initialize } from '@bloomreach/spa-sdk'
-import { APOLLO_STATE_PROP_NAME, CommerceApiClientFactory } from '@bloomreach/connector-components-react';
-import { buildConfiguration, CommerceConfig, deleteUndefined, loadCommerceConfig } from '../lib/utils'
+import { NextPage } from 'next'
 import { useMemo } from 'react';
-import { BaseLayout } from '@/layouts/abstract/base';
 import { Cookies } from 'react-cookie';
+import { APOLLO_STATE_PROP_NAME, CommerceApiClientFactory } from '@bloomreach/connector-components-react';
+import { Configuration, PageModel, initialize } from '@bloomreach/spa-sdk'
+import { CommerceConfig, deleteUndefined, loadCommerceConfig } from '@/lib/utils'
+import { buildConfiguration } from '@/lib/BrxConfiguration';
+import { BaseLayout } from '@/layouts/abstract/base';
 import PageLayout from '@/layouts';
 import { BrPageContext } from '@bloomreach/react-sdk';
-
 
 let commerceClientFactory: CommerceApiClientFactory;
 
@@ -22,6 +22,7 @@ interface IndexPageProps {
   query?: any;
 }
 
+
 const Index: NextPage<IndexPageProps> = ({
   configuration,
   page,
@@ -30,7 +31,6 @@ const Index: NextPage<IndexPageProps> = ({
   cookies,
   query,
 }): JSX.Element => {
-
   const {
     graphqlServiceUrl,
     connector,
@@ -63,6 +63,7 @@ const Index: NextPage<IndexPageProps> = ({
       factory={factory}
       query={query}
     >
+      {/* <Counter /> */}
       <BrPageContext.Consumer>
         {(pageContext) => (
           <PageLayout page={pageContext} />
@@ -73,7 +74,7 @@ const Index: NextPage<IndexPageProps> = ({
 }
 
 Index.getInitialProps = async ({ req: request, res: response, asPath: path, query }) => {
-  // console.log("[getInitialProps]: path=", path);
+  // console.log("[...route] getInitialProps: path=", path);
   // console.log("[getInitialProps]: query=", query);
 
   const configuration = buildConfiguration(path ?? '/', query)
@@ -102,8 +103,10 @@ Index.getInitialProps = async ({ req: request, res: response, asPath: path, quer
   commerceClientFactory = new CommerceApiClientFactory(
     graphqlServiceUrl,
     connector,
+    accountEnvId,
     defaultRequestHeaders,
     defaultAnonymousCredentials,
+    true,
   );
 
   // Apollo client will go thru all components on the page and perform queries necessary.

@@ -5,7 +5,6 @@ import {
   CONSTANTS,
   NEXT_PUBLIC_BRXM_ENDPOINT,
   NEXT_PUBLIC_DEBUG_MODE,
-  NEXT_PUBLIC_BR_MULTI_TENANT_SUPPORT,
 } from "../lib/constants";
 
 export interface CommerceConfig {
@@ -14,59 +13,17 @@ export interface CommerceConfig {
   discoveryAccountId?: string;
   discoveryAuthKey?: string;
   discoveryDomainKey?: string;
-  discoveryViewId?: string;
-  discoveryCatalogViews?: string;
+  discoveryViewId?: string | null;
+  discoveryCatalogViews?: string | null;
   discoveryCustomAttrFields?: string[];
   discoveryCustomVarAttrFields?: string[];
-  discoveryCustomVarListPriceField?: string;
-  discoveryCustomVarPurchasePriceField?: string;
+  discoveryCustomVarListPriceField?: string | null;
+  discoveryCustomVarPurchasePriceField?: string | null;
   brEnvType?: string;
   brAccountName?: string;
 }
 
-type BuildConfigurationOptions = {
-  endpoint: string | (string | null)[];
-  baseUrl: string;
-};
-type ConfigurationBuilder = Omit<Configuration & Partial<BuildConfigurationOptions>, 'httpClient'>;
-
 export const DUMMY_BR_UID_2_FOR_PREVIEW = 'uid%3D0000000000000%3Av%3D11.5%3Ats%3D1428617911187%3Ahc%3D55';
-
-/**
- * Function to build the BrX configuration object
- * @param path {string} the path of the request URL
- * @param query {ParsedUrlQuery} the query string of the request URL
- * @param endpoint {string}
- * @returns {ConfigurationBuilder}
- */
-export const buildConfiguration = (
-  path: string,
-  query: ParsedUrlQuery,
-  endpoint: string = NEXT_PUBLIC_BRXM_ENDPOINT,
-) => {
-  // console.log('buildCongiguration [path]', path)
-  // console.log('buildCongiguration [query]', query)
-
-  // Read a token and server id from the query string
-  const authorizationToken = query[CONSTANTS.PREVIEW_TOKEN_KEY] as string;
-  const endpointParameter = query[CONSTANTS.PREVIEW_ENDPOINT] as string;
-  const serverId = query[CONSTANTS.PREVIEW_SERVER_ID_KEY] as string;
-
-  // console.log('buildCongiguration [authorizationToken]', authorizationToken)
-  // console.log('buildCongiguration [endpointParameter]', endpointParameter)
-  // console.log('buildCongiguration [serverId]', serverId)
-
-  const configuration: ConfigurationBuilder = {
-    endpoint: endpoint,
-    path: path,
-    // debug: Boolean(NEXT_PUBLIC_DEBUG_MODE),
-    // ...(authorizationToken ? { authorizationToken } : {}),
-    // ...(serverId ? { serverId } : {}),
-    // debug: true,
-  }
-
-  return configuration
-}
 
 // eslint-disable-next-line max-len
 // Hack needed to avoid JSON-Serialization validation error from Next.js https://github.com/zeit/next.js/discussions/11209
@@ -95,17 +52,17 @@ export const loadCommerceConfig = (page: PageModel, query?: ParsedUrlQuery): Com
     graphqlServiceUrl:
       channelParams?.graphql_baseurl || process.env.NEXT_PUBLIC_APOLLO_SERVER_URI || 'http://localhost:4000',
     connector: process.env.NEXT_PUBLIC_DEFAULT_CONNECTOR ?? '',
-    discoveryAccountId: channelParams?.discoveryAccountId || process.env.NEXT_PUBLIC_DISCOVERY_ACCOUNT_ID,
+    discoveryAccountId: process.env.NEXT_PUBLIC_DISCOVERY_ACCOUNT_ID || channelParams?.discoveryAccountId,
     discoveryAuthKey: process.env.NEXT_PUBLIC_DISCOVERY_AUTH_KEY,
-    discoveryDomainKey: channelParams?.discoveryDomainKey || process.env.NEXT_PUBLIC_DISCOVERY_DOMAIN_KEY,
-    discoveryViewId: channelParams?.discoveryViewId || process.env.NEXT_PUBLIC_DISCOVERY_VIEW_ID,
-    discoveryCatalogViews: process.env.NEXT_PUBLIC_DISCOVERY_CATALOG_VIEWS,
+    discoveryDomainKey: process.env.NEXT_PUBLIC_DISCOVERY_DOMAIN_KEY || channelParams?.discoveryDomainKey,
+    discoveryViewId: channelParams?.discoveryViewId || process.env.NEXT_PUBLIC_DISCOVERY_VIEW_ID || null,
+    discoveryCatalogViews: process.env.NEXT_PUBLIC_DISCOVERY_CATALOG_VIEWS || null,
     discoveryCustomAttrFields: process.env.NEXT_PUBLIC_DISCOVERY_CUSTOM_ATTR_FIELDS?.split(','),
     discoveryCustomVarAttrFields: process.env.NEXT_PUBLIC_DISCOVERY_CUSTOM_VARIANT_ATTR_FIELDS?.split(','),
-    discoveryCustomVarListPriceField: process.env.NEXT_PUBLIC_DISCOVERY_CUSTOM_VARIANT_LIST_PRICE_FIELD,
-    discoveryCustomVarPurchasePriceField: process.env.NEXT_PUBLIC_DISCOVERY_CUSTOM_VARIANT_PURCHASE_PRICE_FIELD,
+    discoveryCustomVarListPriceField: process.env.NEXT_PUBLIC_DISCOVERY_CUSTOM_VARIANT_LIST_PRICE_FIELD || null,
+    discoveryCustomVarPurchasePriceField: process.env.NEXT_PUBLIC_DISCOVERY_CUSTOM_VARIANT_PURCHASE_PRICE_FIELD || null,
     brEnvType: channelParams?.discoveryRealm === 'PRODUCTION'
-      ? undefined
+      ? ''
       : channelParams?.discoveryRealm || process.env.NEXT_PUBLIC_BR_ENV_TYPE,
     brAccountName: getBrAccountName(page, query),
   };
@@ -115,14 +72,6 @@ export const loadCommerceConfig = (page: PageModel, query?: ParsedUrlQuery): Com
 
 export const notEmpty = <T>(value: T | null | undefined): value is T => {
   return !!value;
-}
-
-export const isBrowser = () => typeof window !== 'undefined';
-
-export const isLoading = (loading: boolean): boolean => {
-  const ssrMode = typeof window === 'undefined';
-  // In SSR phase, ignore the `loading` param returned by Apollo client's hooks.
-  return ssrMode ? false : loading;
 }
 
 const getBrAccountName = (pageModel: PageModel, query?: ParsedUrlQuery): string | undefined => {
@@ -135,7 +84,7 @@ const getBrAccountName = (pageModel: PageModel, query?: ParsedUrlQuery): string 
     return graphqlTenantName.toLowerCase();
   }
 
-  const endpoint = NEXT_PUBLIC_BRXM_ENDPOINT || (NEXT_PUBLIC_BR_MULTI_TENANT_SUPPORT ? query?.endpoint : '');
+  const endpoint = NEXT_PUBLIC_BRXM_ENDPOINT;
   if (!endpoint) {
     return undefined;
   }
@@ -160,7 +109,7 @@ export const parseCategoryPickerField = (categoryIdValue?: string): { categoryId
     }
   } catch (err) {
     // eslint-disable-next-line no-console
-    console.log('Error parsing categoryid as JSON: ', err);
+    console.error('Error parsing categoryid as JSON: ', err);
   }
 
   // fall-back to old field format (categoryid as string)
@@ -196,7 +145,7 @@ export const parseProductPickerField = (
     }
   } catch (err) {
     // eslint-disable-next-line no-console
-    console.log('Error parsing itemid as JSON: ', err);
+    console.error('Error parsing itemid as JSON: ', err);
   }
 
   // fall-back to old field format as separated productid and variantid fields

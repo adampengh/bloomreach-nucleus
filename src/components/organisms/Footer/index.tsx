@@ -3,11 +3,11 @@ import { BrComponent} from '@bloomreach/react-sdk'
 import { Container, Grid, Typography } from '@mui/material';
 import { FooterMenu } from './FooterMenu';
 
-import styles from './Footer.module.scss';
+import { StyledFooterContainer } from './styles';
 
 export const Footer = () => {
   return (
-    <footer className={`${styles['footer']}`}>
+    <StyledFooterContainer>
       <Container maxWidth='xl' sx={{ py: 3}}>
         <Grid container>
           <BrComponent path="footerMenu">
@@ -28,6 +28,6 @@ export const Footer = () => {
           </Grid>
         </Grid>
       </Container>
-    </footer>
+    </StyledFooterContainer>
   )
 }

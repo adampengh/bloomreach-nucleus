@@ -8,9 +8,11 @@ import { Cookies } from 'react-cookie';
 // Utils
 import { APOLLO_STATE_PROP_NAME, CommerceApiClientFactory } from '@bloomreach/connector-components-react';
 import { initialize } from '@bloomreach/spa-sdk'
-import { buildConfiguration, deleteUndefined, loadCommerceConfig } from '../../lib/utils'
+import { deleteUndefined, loadCommerceConfig } from '@/lib/utils'
+import { buildConfiguration } from '@/lib/BrxConfiguration';
 import { BaseLayout } from '@/layouts/abstract/base';
-import { ProductListingLayout } from '@/layouts/ProductListingLayout';
+import { ProductListingAbstractLayout } from '@/layouts/abstract/ProductListingAbstractLayout';
+import { ProductListingLayout } from '@/layouts/pages/ProductListingLayout';
 
 
 let commerceClientFactory: CommerceApiClientFactory;
@@ -60,9 +62,11 @@ const ProductListingPage: NextPage<any> = ({
         factory={factory}
         query={query}
       >
-        <ProductListingLayout
-          query={query}
-        />
+        <ProductListingAbstractLayout>
+          <ProductListingLayout
+            query={query}
+          />
+        </ProductListingAbstractLayout>
       </BaseLayout>
     </>
   )
@@ -101,6 +105,7 @@ ProductListingPage.getInitialProps = async ({
   } finally {
     props.page = pageJson
   }
+  console.log('pageJson', pageJson)
   const commerceConfig = loadCommerceConfig(props.page, query);
   props.commerceConfig = commerceConfig
 

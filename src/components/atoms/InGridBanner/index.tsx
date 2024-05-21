@@ -1,22 +1,21 @@
-import { Grid } from '@mui/material'
+import { BrProps } from '@bloomreach/react-sdk'
 import React from 'react'
 
-export const InGridBanner = ({ document, component }: BrxComponentWrapper) => {
-  if (!document || !component) return null
+export const InGridBanner = ({ component, page }: BrProps) => {
+  const { document: documentRef } = component?.getModels<any>()
+  const document = documentRef && page?.getContent(documentRef)
 
-   // Component Parameters
-   const { mobilePosition = 1, desktopPosition = 1 } = component.getParameters()
+  if (!document) {
+    return page?.isPreview() ? <div>Document not defined</div> : null
+  }
 
    // Document Fields
-   const { unsplashImage } = document?.getData()
-
-   const {
-    alt_description,
-    urls,
-  } = JSON.parse(unsplashImage)
-  // console.log('urls', urls)
+  const { image: imageRef } = document?.getData() || {}
+  const image = imageRef && page?.getContent(imageRef)
 
   return (
-    <img src={urls?.full} alt={alt_description} />
+    <div className='in-grid-banner' style={{ width: '100%' }}>
+      {image && <img src={image.getOriginal().getUrl()} alt={''} />}
+    </div>
   )
 }

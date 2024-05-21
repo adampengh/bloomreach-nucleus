@@ -1,21 +1,20 @@
-import React, { ReactElement, useContext, useEffect, useMemo } from 'react';
+import React, { ReactElement, useContext, useMemo } from 'react';
 import { useCookies } from 'react-cookie';
 import { ProductGridWidgetInputProps, useProductGridWidget } from '@bloomreach/connector-components-react';
 import { BrProps } from '@bloomreach/react-sdk';
 import { ContainerItem, getContainerItemContent } from '@bloomreach/spa-sdk';
-
-import { DUMMY_BR_UID_2_FOR_PREVIEW, parseCategoryPickerField, parseProductPickerField } from '../../../lib/utils';
+import { DUMMY_BR_UID_2_FOR_PREVIEW, parseCategoryPickerField, parseProductPickerField } from '@/lib/utils';
 
 // Components
 import Slider from 'react-slick';
-import { ProductCard } from '../../../components';
-import { useTheme, Alert, Box, Container, Typography } from '@mui/material';
+import { ProductCard } from '@/components';
+import { useTheme, Alert, Box, Container, Typography, CircularProgress } from '@mui/material';
 
 // Contexts
-import { CommerceContext } from '../../../context/CommerceContext';
+import { CommerceContext } from '@/context/CommerceContext';
 
 // Icons
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 import styles from './PathwaysRecommendations.module.scss'
@@ -128,11 +127,6 @@ export const PathwaysRecommendations = ({ component, page }: BrProps<ContainerIt
   // console.log('params', params)
   const [, results, loading, apolloError] = useProductGridWidget(params);
 
-  useEffect(() => {
-    // console.log('sync')
-    // page?.sync()
-  }, [loading, results, page, component, title])
-
   const error = useMemo(() => {
     let message;
     if ((widgetId ?? 'undefined') !== 'undefined' && params.widgetType) {
@@ -174,10 +168,9 @@ export const PathwaysRecommendations = ({ component, page }: BrProps<ContainerIt
   }
 
   const PreviousArrow = ({ className, onClick}: any) => {
-    // console.log('PreviousArrow className=', className)
     return (
       <div className={`${className} ${styles['pathways-recommendations__arrow']} ${styles['pathways-recommendations__arrow-prev']}`} onClick={onClick}>
-        <ArrowBackIosIcon color="primary" />
+        <ArrowBackIosNewIcon color="primary" />
       </div>
     );
   }
@@ -196,10 +189,10 @@ export const PathwaysRecommendations = ({ component, page }: BrProps<ContainerIt
     autoplay: false,
     autoplaySpeed: 3000,
     className: styles['pathways-recommendations'],
-    dots: false,
+    dots: true,
     infinite: true,
-    slidesToShow: 5,
-    slidesToScroll: 1,
+    slidesToShow: 6,
+    slidesToScroll: 4,
     speed: 750,
     prevArrow: <PreviousArrow />,
     nextArrow: <NextArrow />,
@@ -207,28 +200,28 @@ export const PathwaysRecommendations = ({ component, page }: BrProps<ContainerIt
       {
         breakpoint: theme.breakpoints.values.xl,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 5,
           slidesToScroll: 1
         }
       },
       {
         breakpoint: theme.breakpoints.values.lg,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 4,
           slidesToScroll: 1
         }
       },
       {
         breakpoint: theme.breakpoints.values.md,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
           slidesToScroll: 1
         }
       },
       {
         breakpoint: theme.breakpoints.values.sm,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 1
         }
       }
@@ -236,12 +229,13 @@ export const PathwaysRecommendations = ({ component, page }: BrProps<ContainerIt
   };
 
   return (
-    <Container maxWidth={'xl'}>
+    <Container maxWidth={'xl'} sx={{ pb: 6 }}>
       {!loading && results?.items ? (
         <>
-          { title && <Typography variant='h3' align='center'>{title}</Typography> }
+          { title && <Typography variant='h4' align='center'>{title}</Typography> }
           {/* @ts-ignore */}
           <Slider {...sliderSettings}>
+            {/* @ts-ignore */}
             {results?.items?.map((product: any, index) => (
               <Box key={index} sx={{ p: 2 }}>
                 <ProductCard product={product} variation={'pacific-home'} />
@@ -250,7 +244,7 @@ export const PathwaysRecommendations = ({ component, page }: BrProps<ContainerIt
           </Slider>
         </>
       ) : (
-        <>Loading...</>
+        <CircularProgress color="inherit" />
       )}
     </Container>
   )
