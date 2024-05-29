@@ -1132,15 +1132,15 @@
     graphql "16.8.1"
     lodash "4.17.21"
 
-"@bloomreach/react-sdk@^22.0.2":
-  version "22.0.2"
-  resolved "https://registry.yarnpkg.com/@bloomreach/react-sdk/-/react-sdk-22.0.2.tgz#46c3df37cbdbe96a897545329a22f67d7aa380b8"
-  integrity sha512-276b+TotylwgxygO3imr/7PUEbQDPlbL4VFYMPlvLO4l4hyOFEv7JQaBmZeazeVq3AFAAxtBfiOlpose4Ll/PA==
+"@bloomreach/react-sdk@^23.3.0":
+  version "23.3.0"
+  resolved "https://registry.yarnpkg.com/@bloomreach/react-sdk/-/react-sdk-23.3.0.tgz#8d6eff3d0c4b9d96d67e1ca9a91c4173ae59e018"
+  integrity sha512-EdYLx4Y/VrQoP1ypMjOlV718PgeM8E2FmvrTR7TFKTSO6ZeRJQ6p0cN8dbAaC+O114fTdGiVVkpwjHF0vyCGWw==
 
-"@bloomreach/spa-sdk@^22.0.2":
-  version "22.0.2"
-  resolved "https://registry.yarnpkg.com/@bloomreach/spa-sdk/-/spa-sdk-22.0.2.tgz#baa93b8aecc61b7fcc473744a449267c3d447e51"
-  integrity sha512-GfNo/skVipYGfuoWFGbSGV6ZzzpnPX3c7HHsO3SUfXUwNayt8HBZiSGD2z4iIqjbXlCIkTqclg1RAITraKVdJA==
+"@bloomreach/spa-sdk@^23.3.0":
+  version "23.3.0"
+  resolved "https://registry.yarnpkg.com/@bloomreach/spa-sdk/-/spa-sdk-23.3.0.tgz#d4b4423d87830db9d5e4d86ae2edf7487bb3ef49"
+  integrity sha512-LXZwczWZnO4g/aAwMW61wwstnw6P1Yg1KOoiGST5kokjeGn/sb3D2O/RYwFkWuOegRxaQ1eCo1oAraU3CTA5Cw==
   dependencies:
     cookie "0.4.1"
     dom-serializer "2.0.0"

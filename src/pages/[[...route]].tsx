@@ -74,8 +74,8 @@ const Index: NextPage<IndexPageProps> = ({
 }
 
 Index.getInitialProps = async ({ req: request, res: response, asPath: path, query }) => {
-  // console.log("[...route] getInitialProps: path=", path);
-  // console.log("[getInitialProps]: query=", query);
+  console.log("[...route] getInitialProps: path=", path);
+  console.log("[getInitialProps]: query=", query);
 
   const configuration = buildConfiguration(path ?? '/', query)
   const page = await initialize({ ...configuration, request, httpClient: axios as any });

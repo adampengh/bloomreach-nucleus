@@ -4,6 +4,7 @@ import {
   CONSTANTS,
   NEXT_PUBLIC_BRXM_ENDPOINT,
   NEXT_PUBLIC_DEBUG_MODE,
+  NEXT_PUBLIC_BRXM_PREVIEW_TOKEN,
 } from './constants';
 
 type BuildConfigurationOptions = {
@@ -24,21 +25,28 @@ export const buildConfiguration = (
   query: ParsedUrlQuery,
   endpoint: string = NEXT_PUBLIC_BRXM_ENDPOINT,
 ) => {
-  // console.log('buildCongiguration [path]', path)
-  // console.log('buildCongiguration [query]', query)
+  console.log('buildCongiguration [path]', path)
+  console.log('buildCongiguration [query]', query)
 
   // Read a token and server id from the query string
-  const endpointParameter = query[CONSTANTS.PREVIEW_ENDPOINT_PARAM];
-  console.log('buildCongiguration [endpointParameter]', endpointParameter)
 
   const configuration: ConfigurationBuilder = {
     endpoint: endpoint,
     path: path,
-    // debug: Boolean(NEXT_PUBLIC_DEBUG_MODE),
   }
 
+  const endpointParameter = query[CONSTANTS.PREVIEW_ENDPOINT_PARAM];
   if (endpointParameter) {
+    console.log('buildCongiguration [endpointParameter]', endpointParameter)
     configuration.endpoint = endpointParameter;
+  }
+
+  // console.log('NEXT_PUBLIC_BRXM_PREVIEW_TOKEN', NEXT_PUBLIC_BRXM_PREVIEW_TOKEN)
+  // if (NEXT_PUBLIC_BRXM_PREVIEW_TOKEN) {
+  //   configuration.authorizationToken = NEXT_PUBLIC_BRXM_PREVIEW_TOKEN;
+  // }
+  if (NEXT_PUBLIC_DEBUG_MODE) {
+    configuration.debug = Boolean(NEXT_PUBLIC_DEBUG_MODE);
   }
 
   return configuration

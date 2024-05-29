@@ -19,41 +19,42 @@ export const typography: ExtendedTypographyOptions = {
   fontWeightBold: 700,
   htmlFontSize: 14,
   h1: {
-    fontFamily: "Taviraj",
+    // fontFamily: "Taviraj",
     fontWeight: 500,
     fontSize: "3rem",
     lineHeight: 1,
     margin: "0 0 2rem 0",
   },
   h2: {
-    fontFamily: "Taviraj",
+    // fontFamily: "Taviraj",
     fontWeight: 500,
     fontSize: "2.5rem",
     lineHeight: 1,
     margin: "0 0 1.5rem 0",
   },
   h3: {
-    fontFamily: "Taviraj",
+    // fontFamily: "Taviraj",
     fontWeight: 500,
     fontSize: "2rem",
     lineHeight: 1,
     margin: "0 0 1.25rem 0",
   },
   h4: {
-    fontFamily: "Taviraj",
+    // fontFamily: "Taviraj",
     fontWeight: 500,
     fontSize: "1.5rem",
   },
   h5: {
     fontWeight: 500,
     fontSize: "1.25rem",
-    fontFamily: "Taviraj",
+    // fontFamily: "Taviraj",
   },
   h6: {
     fontSize: "1rem",
   },
   subtitle1: {
     fontSize: 18,
+    fontWeight: 700,
   },
   subtitle2: {
     fontWeight: 400,
