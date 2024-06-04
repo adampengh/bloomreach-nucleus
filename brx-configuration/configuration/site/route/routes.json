@@ -1,0 +1,223 @@
+[
+  {
+    "name": "home",
+    "layout": null,
+    "pageTitle": null,
+    "relativeContentPath": "pages/home",
+    "referenceId": null,
+    "parameters": {},
+    "documentRequired": true,
+    "doctypePages": {},
+    "items": []
+  },
+  {
+    "name": "_default_",
+    "layout": null,
+    "pageTitle": null,
+    "relativeContentPath": "pages/${1}",
+    "referenceId": null,
+    "parameters": {},
+    "documentRequired": true,
+    "doctypePages": {
+      "Page": "one-column",
+      "Document": "two-column"
+    },
+    "items": [
+      {
+        "name": "_index_",
+        "layout": null,
+        "pageTitle": null,
+        "relativeContentPath": "${parent}/index",
+        "referenceId": null,
+        "parameters": {},
+        "documentRequired": true,
+        "doctypePages": {},
+        "items": []
+      },
+      {
+        "name": "_default_",
+        "layout": null,
+        "pageTitle": null,
+        "relativeContentPath": "${parent}/${2}",
+        "referenceId": null,
+        "parameters": {},
+        "documentRequired": true,
+        "doctypePages": {},
+        "items": [
+          {
+            "name": "_index_",
+            "layout": null,
+            "pageTitle": null,
+            "relativeContentPath": "${parent}/index",
+            "referenceId": null,
+            "parameters": {},
+            "documentRequired": true,
+            "doctypePages": {},
+            "items": []
+          },
+          {
+            "name": "_default_",
+            "layout": null,
+            "pageTitle": null,
+            "relativeContentPath": "${parent}/${3}",
+            "referenceId": null,
+            "parameters": {},
+            "documentRequired": true,
+            "doctypePages": {},
+            "items": [
+              {
+                "name": "_index_",
+                "layout": null,
+                "pageTitle": null,
+                "relativeContentPath": "${parent}/index",
+                "referenceId": null,
+                "parameters": {},
+                "documentRequired": true,
+                "doctypePages": {},
+                "items": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "c",
+    "layout": null,
+    "pageTitle": null,
+    "relativeContentPath": null,
+    "referenceId": null,
+    "parameters": {},
+    "documentRequired": false,
+    "doctypePages": {},
+    "items": [
+      {
+        "name": "_default_",
+        "layout": "product-listing",
+        "pageTitle": "c/_default_",
+        "relativeContentPath": "pages/category/${1}",
+        "referenceId": null,
+        "parameters": {},
+        "documentRequired": false,
+        "doctypePages": {},
+        "items": [
+          {
+            "name": "_index_",
+            "layout": "product-listing",
+            "pageTitle": null,
+            "relativeContentPath": "pages/category/${1}/index",
+            "referenceId": null,
+            "parameters": {},
+            "documentRequired": false,
+            "doctypePages": {},
+            "items": []
+          },
+          {
+            "name": "_any_",
+            "layout": "product-listing",
+            "pageTitle": "c/_default_/_any_",
+            "relativeContentPath": "pages/category/${1}",
+            "referenceId": null,
+            "parameters": {},
+            "documentRequired": false,
+            "doctypePages": {},
+            "items": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "help",
+    "layout": "help-center-topics-list",
+    "pageTitle": "Help Center",
+    "relativeContentPath": "help/top-faqs/index",
+    "referenceId": null,
+    "parameters": {},
+    "documentRequired": false,
+    "doctypePages": {},
+    "items": [
+      {
+        "name": "_default_",
+        "layout": "help-center-topics-list",
+        "pageTitle": null,
+        "relativeContentPath": "help/${1}",
+        "referenceId": null,
+        "parameters": {},
+        "documentRequired": false,
+        "doctypePages": {},
+        "items": [
+          {
+            "name": "article",
+            "layout": "help-center-article",
+            "pageTitle": null,
+            "relativeContentPath": null,
+            "referenceId": null,
+            "parameters": {},
+            "documentRequired": false,
+            "doctypePages": {},
+            "items": [
+              {
+                "name": "_default_",
+                "layout": "help-center-article",
+                "pageTitle": null,
+                "relativeContentPath": "help/${1}/articles/${2}",
+                "referenceId": null,
+                "parameters": {},
+                "documentRequired": false,
+                "doctypePages": {},
+                "items": []
+              }
+            ]
+          },
+          {
+            "name": "_index_",
+            "layout": "help-center-topics-list",
+            "pageTitle": null,
+            "relativeContentPath": "${parent}/index",
+            "referenceId": null,
+            "parameters": {},
+            "documentRequired": false,
+            "doctypePages": {},
+            "items": []
+          },
+          {
+            "name": "topic",
+            "layout": "help-center-topics-list",
+            "pageTitle": null,
+            "relativeContentPath": null,
+            "referenceId": null,
+            "parameters": {},
+            "documentRequired": false,
+            "doctypePages": {},
+            "items": [
+              {
+                "name": "_default_",
+                "layout": "help-center-topics-list",
+                "pageTitle": null,
+                "relativeContentPath": "help/${1}/topics/${2}",
+                "referenceId": null,
+                "parameters": {},
+                "documentRequired": false,
+                "doctypePages": {},
+                "items": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "search",
+        "layout": "help-center-search-results",
+        "pageTitle": "Help Center - Search Results",
+        "relativeContentPath": null,
+        "referenceId": null,
+        "parameters": {},
+        "documentRequired": false,
+        "doctypePages": {},
+        "items": []
+      }
+    ]
+  }
+]

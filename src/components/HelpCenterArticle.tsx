@@ -18,7 +18,7 @@ export const HelpCenterArticle = ({ component, page }: BrProps) => {
 
   return (
     <div>
-      {title && <Typography component='h3' variant='subtitle1'>{title}</Typography>}
+      {title && <Typography variant='h3'>{title}</Typography>}
       <Divider />
       {content && <div dangerouslySetInnerHTML={{ __html: content.value }} />}
     </div>

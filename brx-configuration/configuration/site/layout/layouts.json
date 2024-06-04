@@ -1,0 +1,565 @@
+[
+  {
+    "name": "base",
+    "label": null,
+    "description": null,
+    "parameters": {},
+    "type": "abstract",
+    "extends": null,
+    "components": [
+      {
+        "name": "Header",
+        "label": null,
+        "description": null,
+        "parameters": {},
+        "xtype": null,
+        "definition": null,
+        "components": [
+          {
+            "name": "menu",
+            "label": null,
+            "description": "Main Menu",
+            "parameters": {
+              "menu": "main"
+            },
+            "xtype": null,
+            "definition": "base/menu",
+            "components": [],
+            "type": "static"
+          },
+          {
+            "name": "logo",
+            "label": "Header Logo",
+            "description": null,
+            "parameters": {},
+            "xtype": "hst.nomarkup",
+            "type": "managed"
+          }
+        ],
+        "type": "static"
+      },
+      {
+        "name": "Footer",
+        "label": null,
+        "description": null,
+        "parameters": {},
+        "xtype": null,
+        "definition": null,
+        "components": [
+          {
+            "name": "footerMenu",
+            "label": null,
+            "description": "Footer Menu",
+            "parameters": {
+              "menu": "footer"
+            },
+            "xtype": null,
+            "definition": "base/menu",
+            "components": [],
+            "type": "static"
+          },
+          {
+            "name": "footerLogo",
+            "label": "Footer Logo",
+            "description": null,
+            "parameters": {},
+            "xtype": "hst.vbox",
+            "type": "managed"
+          }
+        ],
+        "type": "static"
+      },
+      {
+        "name": "Base",
+        "label": null,
+        "description": null,
+        "parameters": {
+          "contentpath": "banners/banner-1",
+          "document": "banners/banner-1",
+          "relative": "false"
+        },
+        "xtype": null,
+        "definition": "base/component",
+        "components": [],
+        "type": "static"
+      }
+    ]
+  },
+  {
+    "name": "one-column",
+    "label": "One-Column Layout",
+    "description": null,
+    "parameters": {},
+    "type": "xpage",
+    "extends": "base",
+    "components": [
+      {
+        "name": "top",
+        "label": null,
+        "description": null,
+        "parameters": {},
+        "xtype": null,
+        "definition": null,
+        "components": [
+          {
+            "name": "container",
+            "label": "Top",
+            "description": null,
+            "parameters": {},
+            "xtype": "hst.nomarkup",
+            "type": "managed"
+          }
+        ],
+        "type": "static"
+      },
+      {
+        "name": "main",
+        "label": null,
+        "description": null,
+        "parameters": {},
+        "xtype": null,
+        "definition": null,
+        "components": [
+          {
+            "name": "container",
+            "label": "Main",
+            "description": null,
+            "parameters": {},
+            "xtype": "hst.nomarkup",
+            "type": "managed"
+          }
+        ],
+        "type": "static"
+      },
+      {
+        "name": "bottom",
+        "label": null,
+        "description": null,
+        "parameters": {},
+        "xtype": null,
+        "definition": null,
+        "components": [
+          {
+            "name": "container",
+            "label": "Bottom",
+            "description": null,
+            "parameters": {},
+            "xtype": "hst.nomarkup",
+            "type": "managed"
+          }
+        ],
+        "type": "static"
+      }
+    ]
+  },
+  {
+    "name": "two-column",
+    "label": "Two-Column Layout",
+    "description": null,
+    "parameters": {},
+    "type": "xpage",
+    "extends": "base",
+    "components": [
+      {
+        "name": "top",
+        "label": null,
+        "description": null,
+        "parameters": {},
+        "xtype": null,
+        "definition": null,
+        "components": [
+          {
+            "name": "container",
+            "label": "Top",
+            "description": null,
+            "parameters": {},
+            "xtype": "hst.nomarkup",
+            "type": "managed"
+          }
+        ],
+        "type": "static"
+      },
+      {
+        "name": "main",
+        "label": null,
+        "description": null,
+        "parameters": {},
+        "xtype": null,
+        "definition": null,
+        "components": [
+          {
+            "name": "container",
+            "label": "Main",
+            "description": null,
+            "parameters": {},
+            "xtype": "hst.nomarkup",
+            "type": "managed"
+          }
+        ],
+        "type": "static"
+      },
+      {
+        "name": "right",
+        "label": null,
+        "description": null,
+        "parameters": {},
+        "xtype": null,
+        "definition": null,
+        "components": [
+          {
+            "name": "container",
+            "label": "Right",
+            "description": null,
+            "parameters": {},
+            "xtype": "hst.nomarkup",
+            "type": "managed"
+          }
+        ],
+        "type": "static"
+      },
+      {
+        "name": "bottom",
+        "label": null,
+        "description": null,
+        "parameters": {},
+        "xtype": null,
+        "definition": null,
+        "components": [
+          {
+            "name": "container",
+            "label": "Bottom",
+            "description": null,
+            "parameters": {},
+            "xtype": "hst.nomarkup",
+            "type": "managed"
+          }
+        ],
+        "type": "static"
+      }
+    ]
+  },
+  {
+    "name": "plp-level-one",
+    "label": null,
+    "description": null,
+    "parameters": {},
+    "type": "abstract",
+    "extends": "base",
+    "components": [
+      {
+        "name": "plp-top-shared",
+        "label": null,
+        "description": null,
+        "parameters": {},
+        "xtype": null,
+        "definition": null,
+        "components": [
+          {
+            "name": "container",
+            "label": "PLP Top (Shared)",
+            "description": null,
+            "parameters": {},
+            "xtype": "hst.vbox",
+            "type": "managed"
+          }
+        ],
+        "type": "static"
+      }
+    ]
+  },
+  {
+    "name": "product-listing",
+    "label": null,
+    "description": null,
+    "parameters": {},
+    "type": "page",
+    "extends": "plp-level-one",
+    "components": []
+  },
+  {
+    "name": "product-listing-page",
+    "label": "Product Listing Page Layout",
+    "description": null,
+    "parameters": {},
+    "type": "xpage",
+    "extends": "plp-level-one",
+    "components": [
+      {
+        "name": "plp-top",
+        "label": null,
+        "description": null,
+        "parameters": {},
+        "xtype": null,
+        "definition": null,
+        "components": [
+          {
+            "name": "container",
+            "label": "PLP Top",
+            "description": null,
+            "parameters": {},
+            "xtype": "hst.vbox",
+            "type": "managed"
+          }
+        ],
+        "type": "static"
+      },
+      {
+        "name": "plp-bottom",
+        "label": null,
+        "description": null,
+        "parameters": {},
+        "xtype": null,
+        "definition": null,
+        "components": [
+          {
+            "name": "container",
+            "label": "PLP Bottom",
+            "description": null,
+            "parameters": {},
+            "xtype": "hst.vbox",
+            "type": "managed"
+          }
+        ],
+        "type": "static"
+      },
+      {
+        "name": "plp-in-grid",
+        "label": null,
+        "description": null,
+        "parameters": {},
+        "xtype": null,
+        "definition": null,
+        "components": [
+          {
+            "name": "container",
+            "label": "PLP In-Grid Banner",
+            "description": null,
+            "parameters": {},
+            "xtype": "hst.vbox",
+            "type": "managed"
+          }
+        ],
+        "type": "static"
+      },
+      {
+        "name": "inGridBanner1",
+        "label": null,
+        "description": null,
+        "parameters": {},
+        "xtype": null,
+        "definition": null,
+        "components": [
+          {
+            "name": "container",
+            "label": "inGridBanner1",
+            "description": "",
+            "parameters": {},
+            "xtype": null,
+            "type": "managed"
+          }
+        ],
+        "type": "static"
+      },
+      {
+        "name": "inGridBanner2",
+        "label": null,
+        "description": null,
+        "parameters": {},
+        "xtype": null,
+        "definition": null,
+        "components": [
+          {
+            "name": "container",
+            "label": "inGridBanner2",
+            "description": null,
+            "parameters": {},
+            "xtype": null,
+            "type": "managed"
+          }
+        ],
+        "type": "static"
+      },
+      {
+        "name": "inGridBanner3",
+        "label": null,
+        "description": null,
+        "parameters": {},
+        "xtype": null,
+        "definition": null,
+        "components": [
+          {
+            "name": "container",
+            "label": "inGridBanner3",
+            "description": null,
+            "parameters": {},
+            "xtype": null,
+            "type": "managed"
+          }
+        ],
+        "type": "static"
+      },
+      {
+        "name": "inGridBanner4",
+        "label": null,
+        "description": null,
+        "parameters": {},
+        "xtype": null,
+        "definition": null,
+        "components": [
+          {
+            "name": "container",
+            "label": "inGridBanner4",
+            "description": null,
+            "parameters": {},
+            "xtype": null,
+            "type": "managed"
+          }
+        ],
+        "type": "static"
+      }
+    ]
+  },
+  {
+    "name": "help-center-abstract",
+    "label": null,
+    "description": null,
+    "parameters": {},
+    "type": "abstract",
+    "extends": "base",
+    "components": [
+      {
+        "name": "left",
+        "label": null,
+        "description": null,
+        "parameters": {},
+        "xtype": null,
+        "definition": null,
+        "components": [
+          {
+            "name": "HelpCenterSearchBar",
+            "label": null,
+            "description": null,
+            "parameters": {
+              "placeholder": "Enter Search Term",
+              "label": "Search"
+            },
+            "xtype": null,
+            "definition": "base/component",
+            "components": [],
+            "type": "static"
+          },
+          {
+            "name": "HelpCenterMenu",
+            "label": null,
+            "description": null,
+            "parameters": {
+              "menu": "helpCenter"
+            },
+            "xtype": null,
+            "definition": "base/menu",
+            "components": [],
+            "type": "static"
+          }
+        ],
+        "type": "static"
+      }
+    ]
+  },
+  {
+    "name": "help-center-search-results",
+    "label": null,
+    "description": null,
+    "parameters": {},
+    "type": "page",
+    "extends": "help-center-abstract",
+    "components": [
+      {
+        "name": "main",
+        "label": null,
+        "description": null,
+        "parameters": {},
+        "xtype": null,
+        "definition": null,
+        "components": [
+          {
+            "name": "HelpCenterSearchResults",
+            "label": null,
+            "description": null,
+            "parameters": {
+              "scope": "help",
+              "documentTypes": "brxsaas:content",
+              "pageSize": "2"
+            },
+            "xtype": null,
+            "definition": "base/text-search-results",
+            "components": [],
+            "type": "static"
+          }
+        ],
+        "type": "static"
+      }
+    ]
+  },
+  {
+    "name": "help-center-topics-list",
+    "label": null,
+    "description": null,
+    "parameters": {},
+    "type": "page",
+    "extends": "help-center-abstract",
+    "components": [
+      {
+        "name": "main",
+        "label": null,
+        "description": null,
+        "parameters": {},
+        "xtype": null,
+        "definition": null,
+        "components": [
+          {
+            "name": "HelpCenterTopicsList",
+            "label": null,
+            "description": null,
+            "parameters": {},
+            "xtype": null,
+            "definition": "base/component",
+            "components": [],
+            "type": "static"
+          }
+        ],
+        "type": "static"
+      }
+    ]
+  },
+  {
+    "name": "help-center-article",
+    "label": null,
+    "description": null,
+    "parameters": {},
+    "type": "page",
+    "extends": "help-center-abstract",
+    "components": [
+      {
+        "name": "main",
+        "label": null,
+        "description": null,
+        "parameters": {},
+        "xtype": null,
+        "definition": null,
+        "components": [
+          {
+            "name": "HelpCenterArticle",
+            "label": null,
+            "description": null,
+            "parameters": {},
+            "xtype": null,
+            "definition": "base/component",
+            "components": [],
+            "type": "static"
+          }
+        ],
+        "type": "static"
+      }
+    ]
+  }
+]

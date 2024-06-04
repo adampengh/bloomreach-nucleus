@@ -1,0 +1,35 @@
+{
+  "name": "help-center-search-results",
+  "label": null,
+  "description": null,
+  "parameters": {},
+  "type": "page",
+  "extends": "help-center-abstract",
+  "components": [
+    {
+      "name": "main",
+      "label": null,
+      "description": null,
+      "parameters": {},
+      "xtype": null,
+      "definition": null,
+      "components": [
+        {
+          "name": "HelpCenterSearchResults",
+          "label": null,
+          "description": null,
+          "parameters": {
+            "scope": "help",
+            "documentTypes": "brxsaas:content",
+            "pageSize": "2"
+          },
+          "xtype": null,
+          "definition": "base/text-search-results",
+          "components": [],
+          "type": "static"
+        }
+      ],
+      "type": "static"
+    }
+  ]
+}

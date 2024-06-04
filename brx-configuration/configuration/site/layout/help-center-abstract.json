@@ -1,0 +1,46 @@
+{
+  "name": "help-center-abstract",
+  "label": null,
+  "description": null,
+  "parameters": {},
+  "type": "abstract",
+  "extends": "base",
+  "components": [
+    {
+      "name": "left",
+      "label": null,
+      "description": null,
+      "parameters": {},
+      "xtype": null,
+      "definition": null,
+      "components": [
+        {
+          "name": "HelpCenterSearchBar",
+          "label": null,
+          "description": null,
+          "parameters": {
+            "placeholder": "Enter Search Term",
+            "label": "Search"
+          },
+          "xtype": null,
+          "definition": "base/component",
+          "components": [],
+          "type": "static"
+        },
+        {
+          "name": "HelpCenterMenu",
+          "label": null,
+          "description": null,
+          "parameters": {
+            "menu": "helpCenter"
+          },
+          "xtype": null,
+          "definition": "base/menu",
+          "components": [],
+          "type": "static"
+        }
+      ],
+      "type": "static"
+    }
+  ]
+}

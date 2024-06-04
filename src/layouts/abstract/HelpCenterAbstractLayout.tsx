@@ -1,7 +1,7 @@
 import { BrComponent } from "@bloomreach/react-sdk";
 import { Container, Grid, Typography } from "@mui/material";
 
-import { HelpCenterMenu } from "@/components";
+import { HelpCenterMenu } from "@/components/HelpCenterMenu";
 
 export const HelpCenterAbstractLayout = ({
   children,
@@ -25,11 +25,6 @@ export const HelpCenterAbstractLayout = ({
       </BrComponent>
       <Container maxWidth={'xl'}>
         <Grid container spacing={3}>
-          <BrComponent path="helpCenterMenu">
-            <Grid item xs={12} md={3}>
-              <HelpCenterMenu />
-            </Grid>
-          </BrComponent>
           {children}
         </Grid>
       </Container>

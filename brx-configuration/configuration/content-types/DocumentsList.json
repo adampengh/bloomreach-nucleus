@@ -1,0 +1,70 @@
+{
+  "name": "DocumentsList",
+  "enabled": true,
+  "type": "Document",
+  "presentation": {
+    "displayName": "DocumentsList",
+    "layout": "one-column"
+  },
+  "fields": [
+    {
+      "name": "heading",
+      "type": "String",
+      "required": false,
+      "multiple": false,
+      "presentation": {
+        "caption": "Heading",
+        "hint": "",
+        "layoutColumn": 1,
+        "displayType": "Simple"
+      },
+      "validations": {
+        "maxLength": null
+      },
+      "defaultValue": [
+        ""
+      ]
+    },
+    {
+      "name": "subHeading",
+      "type": "String",
+      "required": false,
+      "multiple": false,
+      "presentation": {
+        "caption": "Sub-Heading",
+        "hint": "",
+        "layoutColumn": 1,
+        "displayType": "Simple"
+      },
+      "validations": {
+        "maxLength": null
+      },
+      "defaultValue": [
+        ""
+      ]
+    },
+    {
+      "name": "documents",
+      "type": "Link",
+      "required": false,
+      "multiple": true,
+      "presentation": {
+        "caption": "Documents",
+        "hint": "",
+        "layoutColumn": 1,
+        "lookupFolderPath": null,
+        "lastVisitedNodetypes": null,
+        "languageContextAware": true,
+        "pickerType": null,
+        "displayType": "AnyLink",
+        "lookupFolderTypes": null,
+        "lastVisitedKey": null,
+        "lastVisitedEnabled": true
+      },
+      "validations": {},
+      "defaultValue": [
+        "/"
+      ]
+    }
+  ]
+}

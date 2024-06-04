@@ -25,7 +25,7 @@ export const HelpCenterTopicsList = ({ component, page }: BrProps) => {
 
   return (
     <div>
-      {heading && <Typography component='h3' variant='subtitle1'>{heading}</Typography>}
+      {heading && <Typography variant='h3'>{heading}</Typography>}
       <List>
         {documents?.map((item: any, index: number) => {
           const document = page?.getContent(item)
