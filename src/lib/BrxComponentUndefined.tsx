@@ -8,6 +8,6 @@ export const BrxComponentUndefined = ({ component, page}: BrProps) => {
 
   return page?.isPreview() ? (
     // @ts-ignore
-    <Alert severity='warning'>"{component?.getType()}": This component is not configured properly</Alert>
+    <Alert severity='warning'>"{component?.getType()}": This component is either not mapped or not configured properly</Alert>
   ) : null
 }

@@ -1,0 +1,31 @@
+[
+  {
+    "name": "Customer Support",
+    "items": [
+      {
+        "name": "Customer Service"
+      },
+      {
+        "name": "Track Order"
+      },
+      {
+        "name": "Returns & Exchanges"
+      },
+      {
+        "name": "Shipping"
+      },
+      {
+        "name": "International Orders"
+      }
+    ]
+  },
+  {
+    "name": "Quick Links",
+    "items": [
+      {
+        "name": "Help",
+        "link": "help"
+      }
+    ]
+  }
+]

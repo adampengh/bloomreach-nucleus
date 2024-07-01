@@ -85,6 +85,7 @@ ProductListingPage.getInitialProps = async ({
   const configuration = buildConfiguration(path ?? '/', query)
   let page: any = {};
   let pageJson = {};
+  configuration.debug = true;
   const props: ProductListingPageProps = {
     configuration,
     query,
@@ -105,7 +106,7 @@ ProductListingPage.getInitialProps = async ({
   } finally {
     props.page = pageJson
   }
-  console.log('pageJson', pageJson)
+
   const commerceConfig = loadCommerceConfig(props.page, query);
   props.commerceConfig = commerceConfig
 

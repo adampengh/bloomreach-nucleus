@@ -2,9 +2,10 @@ import { Meta, StoryObj } from '@storybook/react';
 import { BrComponent, BrPage } from '@bloomreach/react-sdk';
 import axios from 'axios';
 import { Footer } from '../../../components'
+import { Logo } from '../../../components';
 
 const configuration = {
-  endpoint: 'https://profserv02.bloomreach.io/delivery/site/v1/channels/bloomreach-nucleus/pages./footer',
+  endpoint: process.env.NEXT_PUBLIC_BRX_ENDPOINT + './footer',
   path: '/',
   httpClient: axios,
 }
@@ -22,7 +23,7 @@ type Story = StoryObj<typeof Footer>
 
 export const Default: Story = {
   render: () =>
-    <BrPage configuration={configuration} mapping={{}}>
+    <BrPage configuration={configuration} mapping={{ Logo }}>
       <BrComponent path="Footer">
         <Footer />
       </BrComponent>

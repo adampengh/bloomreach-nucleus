@@ -79,28 +79,6 @@ export const Header = () => {
           <Grid item xs={12} lg={3} sx={{ p: 0, minWidth: '50px' }} className={`${styles['header__logo']}`}>
             <BrComponent path="logo" />
           </Grid>
-          {/* <Grid item className={`${styles['header__logo']}`}>
-            <BrComponent path="logo">
-              <BrComponentContext.Consumer>
-                  {(component) => {
-                    const containerParams = component?.getParameters();
-                    return (
-                      <div
-                        style={{
-                          minWidth: containerParams?.minWidth ?? '100px',
-                          maxWidth: containerParams?.maxWidth ?? '320px',
-                          [`@media (minWidth: ${theme.breakpoints.values.sm}px)`]: {
-                            maxWidth: containerParams?.mobileMaxWidth ?? '320px',
-                          }
-                        }}
-                      >
-                        <BrComponent />
-                      </div>
-                    )
-                  }}
-              </BrComponentContext.Consumer>
-            </BrComponent>
-          </Grid> */}
 
           {/* Navigation */}
           <Grid item className={`${styles['header__nav']}`}>

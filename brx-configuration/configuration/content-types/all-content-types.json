@@ -1,0 +1,6817 @@
+[
+  {
+    "name": "referencespa:banner",
+    "enabled": true,
+    "type": "Document",
+    "presentation": {
+      "displayName": "Banner",
+      "layout": "two-column"
+    },
+    "fields": [
+      {
+        "name": "title",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Title",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "content",
+        "type": "RichText",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Content",
+          "hint": "",
+          "layoutColumn": 1,
+          "ckEditorAppendedJson": null,
+          "ckEditorOverlayedJson": null,
+          "imagepickerBasePath": null,
+          "imagepickerType": "images",
+          "imagepickerNodetypes": null,
+          "imagepickerLastVisitedEnabled": null,
+          "imagepickerLastVisitedGroupKey": "ckeditor-imagepicker",
+          "imagepickerLastVisitedNodetypes": [
+            "gallery"
+          ],
+          "imagepickerPreferredImageVariant": "original",
+          "linkpickerBasePath": null,
+          "linkpickerType": "documents",
+          "linkpickerNodetypes": null,
+          "linkpickerLastVisitedEnabled": null,
+          "linkpickerLastVisitedGroupKey": "ckeditor-linkpicker",
+          "linkpickerLastVisitedNodetypes": [
+            "folder"
+          ],
+          "linkPickerLanguageContextAware": null,
+          "linkPickerOpenInNewWindowEnabled": true,
+          "includeImageVariants": null,
+          "excludeImageVariants": null
+        },
+        "validations": {},
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "image",
+        "type": "Link",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Image",
+          "hint": "",
+          "layoutColumn": 1,
+          "uploadEnabled": true,
+          "displayType": "ImageLink",
+          "lookupFolderTypes": null,
+          "lastVisitedKey": "gallerypicker-imagelink",
+          "lastVisitedEnabled": true
+        },
+        "validations": {},
+        "defaultValue": [
+          "/"
+        ]
+      },
+      {
+        "name": "cta",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "CTA",
+          "hint": "",
+          "layoutColumn": 2,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "link",
+        "type": "Link",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Link",
+          "hint": "",
+          "layoutColumn": 2,
+          "lookupFolderPath": null,
+          "lastVisitedNodetypes": null,
+          "languageContextAware": true,
+          "pickerType": null,
+          "displayType": "AnyLink",
+          "lookupFolderTypes": null,
+          "lastVisitedKey": null,
+          "lastVisitedEnabled": true
+        },
+        "validations": {},
+        "defaultValue": [
+          "/"
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2020-10-01T17:00:00+01:00",
+      "updatedBy": "nicholas.pavao@bloomreach.com",
+      "updatedAt": "2023-12-04T18:14:07.985+01:00",
+      "id": "banner"
+    }
+  },
+  {
+    "name": "referencespa:bannercarousel",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Banner carousel",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "banners",
+        "type": "FieldGroup",
+        "required": true,
+        "multiple": true,
+        "presentation": {
+          "caption": "Banners",
+          "hint": "",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          {
+            "fields": {
+              "title": [
+                ""
+              ],
+              "content": [
+                ""
+              ],
+              "image": [
+                "/"
+              ],
+              "cta": [
+                ""
+              ],
+              "link": [
+                "/"
+              ]
+            }
+          }
+        ],
+        "fieldGroupType": "referencespa:bannercompound"
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2021-07-12T23:58:23.209-04:00",
+      "updatedBy": "nicholas.pavao@bloomreach.com",
+      "updatedAt": "2023-12-04T18:14:10.845+01:00",
+      "id": "bannercarousel"
+    }
+  },
+  {
+    "name": "referencespa:bannercompound",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Banner field group",
+      "layout": "two-column"
+    },
+    "fields": [
+      {
+        "name": "title",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Title",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "content",
+        "type": "RichText",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Content",
+          "hint": "",
+          "layoutColumn": 1,
+          "ckEditorAppendedJson": null,
+          "ckEditorOverlayedJson": null,
+          "imagepickerBasePath": null,
+          "imagepickerType": "images",
+          "imagepickerNodetypes": null,
+          "imagepickerLastVisitedEnabled": null,
+          "imagepickerLastVisitedGroupKey": "ckeditor-imagepicker",
+          "imagepickerLastVisitedNodetypes": [
+            "gallery"
+          ],
+          "imagepickerPreferredImageVariant": "original",
+          "linkpickerBasePath": null,
+          "linkpickerType": "documents",
+          "linkpickerNodetypes": null,
+          "linkpickerLastVisitedEnabled": null,
+          "linkpickerLastVisitedGroupKey": "ckeditor-linkpicker",
+          "linkpickerLastVisitedNodetypes": [
+            "folder"
+          ],
+          "linkPickerLanguageContextAware": null,
+          "linkPickerOpenInNewWindowEnabled": true,
+          "includeImageVariants": null,
+          "excludeImageVariants": null
+        },
+        "validations": {},
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "image",
+        "type": "Link",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Image",
+          "hint": "",
+          "layoutColumn": 1,
+          "uploadEnabled": true,
+          "displayType": "ImageLink",
+          "lookupFolderTypes": null,
+          "lastVisitedKey": "gallerypicker-imagelink",
+          "lastVisitedEnabled": true
+        },
+        "validations": {},
+        "defaultValue": [
+          "/"
+        ]
+      },
+      {
+        "name": "cta",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "CTA",
+          "hint": "",
+          "layoutColumn": 2,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "link",
+        "type": "Link",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Link",
+          "hint": "",
+          "layoutColumn": 2,
+          "lookupFolderPath": null,
+          "lastVisitedNodetypes": null,
+          "languageContextAware": true,
+          "pickerType": null,
+          "displayType": "AnyLink",
+          "lookupFolderTypes": null,
+          "lastVisitedKey": null,
+          "lastVisitedEnabled": true
+        },
+        "validations": {},
+        "defaultValue": [
+          "/"
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2020-10-01T17:00:00+01:00",
+      "updatedBy": "nicholas.pavao@bloomreach.com",
+      "updatedAt": "2023-12-04T18:14:09.547+01:00",
+      "id": "bannercompound"
+    }
+  },
+  {
+    "name": "referencespa:bannercta",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Banner CTA",
+      "layout": "two-column"
+    },
+    "fields": [
+      {
+        "name": "title",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Title",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "content",
+        "type": "RichText",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Content",
+          "hint": "",
+          "layoutColumn": 1,
+          "ckEditorAppendedJson": null,
+          "ckEditorOverlayedJson": null,
+          "imagepickerBasePath": null,
+          "imagepickerType": "images",
+          "imagepickerNodetypes": null,
+          "imagepickerLastVisitedEnabled": null,
+          "imagepickerLastVisitedGroupKey": "ckeditor-imagepicker",
+          "imagepickerLastVisitedNodetypes": [
+            "gallery"
+          ],
+          "imagepickerPreferredImageVariant": "original",
+          "linkpickerBasePath": null,
+          "linkpickerType": "documents",
+          "linkpickerNodetypes": null,
+          "linkpickerLastVisitedEnabled": null,
+          "linkpickerLastVisitedGroupKey": "ckeditor-linkpicker",
+          "linkpickerLastVisitedNodetypes": [
+            "folder"
+          ],
+          "linkPickerLanguageContextAware": null,
+          "linkPickerOpenInNewWindowEnabled": true,
+          "includeImageVariants": null,
+          "excludeImageVariants": null
+        },
+        "validations": {},
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "cta",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "CTA",
+          "hint": "",
+          "layoutColumn": 2,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "link",
+        "type": "Link",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Link",
+          "hint": "",
+          "layoutColumn": 2,
+          "lookupFolderPath": null,
+          "lastVisitedNodetypes": null,
+          "languageContextAware": true,
+          "pickerType": null,
+          "displayType": "AnyLink",
+          "lookupFolderTypes": null,
+          "lastVisitedKey": null,
+          "lastVisitedEnabled": true
+        },
+        "validations": {},
+        "defaultValue": [
+          "/"
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2021-07-12T23:58:23.209-04:00",
+      "updatedBy": "nicholas.pavao@bloomreach.com",
+      "updatedAt": "2023-12-04T18:14:13.129+01:00",
+      "id": "bannercta"
+    }
+  },
+  {
+    "name": "referencespa:bannergallery",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Banner gallery",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "title",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Title",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "banners",
+        "type": "FieldGroup",
+        "required": true,
+        "multiple": true,
+        "presentation": {
+          "caption": "Banners",
+          "hint": "",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          {
+            "fields": {
+              "title": [
+                ""
+              ],
+              "content": [
+                ""
+              ],
+              "image": [
+                "/"
+              ],
+              "cta": [
+                ""
+              ],
+              "link": [
+                "/"
+              ]
+            }
+          }
+        ],
+        "fieldGroupType": "referencespa:bannercompound"
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2021-07-12T23:58:23.209-04:00",
+      "updatedBy": "nicholas.pavao@bloomreach.com",
+      "updatedAt": "2023-12-04T18:14:11.914+01:00",
+      "id": "bannergallery"
+    }
+  },
+  {
+    "name": "referencespa:CategoryHighlight",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Category highlight",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "title",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Title",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "CommerceCategoryCompound",
+        "type": "FieldGroup",
+        "required": false,
+        "multiple": true,
+        "presentation": {
+          "caption": "Category",
+          "hint": "",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          {
+            "fields": {
+              "categoryid": [
+                ""
+              ]
+            }
+          }
+        ],
+        "fieldGroupType": "referencespa:CommerceCategoryCompound"
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2021-08-02T11:49:26.655+02:00",
+      "updatedBy": "nicholas.pavao@bloomreach.com",
+      "updatedAt": "2023-12-04T18:14:14.279+01:00",
+      "id": "CategoryHighlight"
+    }
+  },
+  {
+    "name": "referencespa:CommerceCategoryCompound",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Commerce category",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "categoryid",
+        "type": "OpenUiExtension",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Category",
+          "hint": "",
+          "layoutColumn": 1,
+          "extensionType": "discoveryCategoryPicker"
+        },
+        "validations": {},
+        "defaultValue": [
+          ""
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2020-12-09T01:13:05.507+01:00",
+      "updatedBy": "nicholas.pavao@bloomreach.com",
+      "updatedAt": "2023-12-04T18:14:15.191+01:00",
+      "id": "CommerceCategoryCompound"
+    }
+  },
+  {
+    "name": "referencespa:CommerceProductCompound",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Commerce product",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "usePidFromPage",
+        "type": "Boolean",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Use PID from Current Page",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Checkbox"
+        },
+        "validations": {},
+        "defaultValue": [
+          false
+        ]
+      },
+      {
+        "name": "productid",
+        "type": "OpenUiExtension",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Product",
+          "hint": "",
+          "layoutColumn": 1,
+          "extensionType": "discoveryProductPicker"
+        },
+        "validations": {},
+        "defaultValue": [
+          ""
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2020-12-09T01:13:05.507+01:00",
+      "updatedBy": "adam.pengh@bloomreach.com",
+      "updatedAt": "2024-06-26T19:54:31.34+02:00",
+      "id": "CommerceProductCompound"
+    }
+  },
+  {
+    "name": "referencespa:content",
+    "enabled": true,
+    "type": "Document",
+    "presentation": {
+      "displayName": "Content",
+      "layout": "two-column"
+    },
+    "fields": [
+      {
+        "name": "title",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Title",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "introduction",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Introduction",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Text"
+        },
+        "validations": {
+          "maxRow": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "content",
+        "type": "RichText",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Content",
+          "hint": "",
+          "layoutColumn": 1,
+          "ckEditorAppendedJson": null,
+          "ckEditorOverlayedJson": null,
+          "imagepickerBasePath": null,
+          "imagepickerType": "images",
+          "imagepickerNodetypes": null,
+          "imagepickerLastVisitedEnabled": null,
+          "imagepickerLastVisitedGroupKey": "ckeditor-imagepicker",
+          "imagepickerLastVisitedNodetypes": [
+            "gallery"
+          ],
+          "imagepickerPreferredImageVariant": "original",
+          "linkpickerBasePath": null,
+          "linkpickerType": "documents",
+          "linkpickerNodetypes": null,
+          "linkpickerLastVisitedEnabled": null,
+          "linkpickerLastVisitedGroupKey": "ckeditor-linkpicker",
+          "linkpickerLastVisitedNodetypes": [
+            "folder"
+          ],
+          "linkPickerLanguageContextAware": null,
+          "linkPickerOpenInNewWindowEnabled": true,
+          "includeImageVariants": null,
+          "excludeImageVariants": null
+        },
+        "validations": {},
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "image",
+        "type": "Link",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Image",
+          "hint": "",
+          "layoutColumn": 2,
+          "uploadEnabled": true,
+          "displayType": "ImageLink",
+          "lookupFolderTypes": null,
+          "lastVisitedKey": "gallerypicker-imagelink",
+          "lastVisitedEnabled": true
+        },
+        "validations": {},
+        "defaultValue": [
+          "/"
+        ]
+      },
+      {
+        "name": "date",
+        "type": "Date",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Publication Date",
+          "hint": "",
+          "layoutColumn": 2,
+          "timeSelectable": true
+        },
+        "validations": {},
+        "defaultValue": [
+          "2021-01-01T12:00:00Z"
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2020-10-01T17:00:00+01:00",
+      "updatedBy": "nicholas.pavao@bloomreach.com",
+      "updatedAt": "2023-12-04T18:14:17.132+01:00",
+      "id": "content"
+    }
+  },
+  {
+    "name": "referencespa:ContentCompound",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Content",
+      "layout": "two-column"
+    },
+    "fields": [
+      {
+        "name": "title",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Title",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "introduction",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Introduction",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Text"
+        },
+        "validations": {
+          "maxRow": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "content",
+        "type": "RichText",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Content",
+          "hint": "",
+          "layoutColumn": 1,
+          "ckEditorAppendedJson": null,
+          "ckEditorOverlayedJson": null,
+          "imagepickerBasePath": null,
+          "imagepickerType": "images",
+          "imagepickerNodetypes": null,
+          "imagepickerLastVisitedEnabled": null,
+          "imagepickerLastVisitedGroupKey": "ckeditor-imagepicker",
+          "imagepickerLastVisitedNodetypes": [
+            "gallery"
+          ],
+          "imagepickerPreferredImageVariant": "original",
+          "linkpickerBasePath": null,
+          "linkpickerType": "documents",
+          "linkpickerNodetypes": null,
+          "linkpickerLastVisitedEnabled": null,
+          "linkpickerLastVisitedGroupKey": "ckeditor-linkpicker",
+          "linkpickerLastVisitedNodetypes": [
+            "folder"
+          ],
+          "linkPickerLanguageContextAware": null,
+          "linkPickerOpenInNewWindowEnabled": true,
+          "includeImageVariants": null,
+          "excludeImageVariants": null
+        },
+        "validations": {},
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "image",
+        "type": "Link",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Image",
+          "hint": "",
+          "layoutColumn": 2,
+          "uploadEnabled": true,
+          "displayType": "ImageLink",
+          "lookupFolderTypes": null,
+          "lastVisitedKey": "gallerypicker-imagelink",
+          "lastVisitedEnabled": true
+        },
+        "validations": {},
+        "defaultValue": [
+          "/"
+        ]
+      },
+      {
+        "name": "date",
+        "type": "Date",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Publication Date",
+          "hint": "",
+          "layoutColumn": 2,
+          "timeSelectable": true
+        },
+        "validations": {},
+        "defaultValue": [
+          "2022-01-01T12:00:00Z"
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2022-03-01T15:36:02.456+01:00",
+      "updatedBy": "nicholas.pavao@bloomreach.com",
+      "updatedAt": "2023-12-04T18:14:18.527+01:00",
+      "id": "ContentCompound"
+    }
+  },
+  {
+    "name": "referencespa:pathways",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Pathways & Recommendations",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "WidgetCompound",
+        "type": "FieldGroup",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Widget",
+          "hint": "",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          {
+            "fields": {
+              "widgetalgo": [
+                ""
+              ],
+              "widgetid": [
+                ""
+              ]
+            }
+          }
+        ],
+        "fieldGroupType": "referencespa:WidgetCompound"
+      },
+      {
+        "name": "ProductCompound",
+        "type": "FieldGroup",
+        "required": false,
+        "multiple": true,
+        "presentation": {
+          "caption": "Product Reference",
+          "hint": "",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          {
+            "fields": {
+              "usePidFromPage": [
+                false
+              ],
+              "productid": [
+                ""
+              ]
+            }
+          }
+        ],
+        "fieldGroupType": "referencespa:CommerceProductCompound"
+      },
+      {
+        "name": "CategoryCompound",
+        "type": "FieldGroup",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Category Reference",
+          "hint": "",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          {
+            "fields": {
+              "categoryid": [
+                ""
+              ]
+            }
+          }
+        ],
+        "fieldGroupType": "referencespa:CommerceCategoryCompound"
+      },
+      {
+        "name": "keyword",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Keyword",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2021-07-16T16:24:00.329+02:00",
+      "updatedBy": "adam.pengh@bloomreach.com",
+      "updatedAt": "2024-06-26T19:54:53.874+02:00",
+      "id": "pathways"
+    }
+  },
+  {
+    "name": "referencespa:productgrid",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Product grid",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "title",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Title",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "searchtype",
+        "type": "SelectableString",
+        "required": true,
+        "multiple": false,
+        "presentation": {
+          "caption": "Type",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Dropdown",
+          "sortOrder": null,
+          "sortBy": null,
+          "showDefault": null
+        },
+        "validations": {
+          "inResourceBundle": null,
+          "inValues": [
+            {
+              "key": "category",
+              "label": "Category"
+            },
+            {
+              "key": "search",
+              "label": "Search"
+            }
+          ]
+        },
+        "defaultValue": []
+      },
+      {
+        "name": "query",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Search Term",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "category",
+        "type": "FieldGroup",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Category",
+          "hint": "",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          {
+            "fields": {
+              "categoryid": [
+                ""
+              ]
+            }
+          }
+        ],
+        "fieldGroupType": "referencespa:CommerceCategoryCompound"
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2021-08-02T16:40:31.55-04:00",
+      "updatedBy": "nicholas.pavao@bloomreach.com",
+      "updatedAt": "2023-12-04T18:14:22.165+01:00",
+      "id": "productgrid"
+    }
+  },
+  {
+    "name": "referencespa:ProductHighlight",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Product highlight",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "title",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Title",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "CommerceProductCompound",
+        "type": "FieldGroup",
+        "required": false,
+        "multiple": true,
+        "presentation": {
+          "caption": "Product",
+          "hint": "",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          {
+            "fields": {
+              "usePidFromPage": [],
+              "productid": [
+                ""
+              ]
+            }
+          }
+        ],
+        "fieldGroupType": "referencespa:CommerceProductCompound"
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2021-07-30T11:49:26.655+02:00",
+      "updatedBy": "nicholas.pavao@bloomreach.com",
+      "updatedAt": "2023-12-04T18:14:21.063+01:00",
+      "id": "ProductHighlight"
+    }
+  },
+  {
+    "name": "referencespa:titleandtext",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Title and text",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "title",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Title",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "text",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Text",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Text"
+        },
+        "validations": {
+          "maxRow": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2021-05-27T15:13:01.199+02:00",
+      "updatedBy": "nicholas.pavao@bloomreach.com",
+      "updatedAt": "2023-12-04T18:14:23.183+01:00",
+      "id": "titleandtext"
+    }
+  },
+  {
+    "name": "referencespa:WidgetCompound",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Widget",
+      "layout": "two-column"
+    },
+    "fields": [
+      {
+        "name": "widgetalgo",
+        "type": "SelectableString",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Widget Algorithm",
+          "hint": "",
+          "layoutColumn": 2,
+          "displayType": "Dropdown",
+          "sortOrder": null,
+          "sortBy": null,
+          "showDefault": null
+        },
+        "validations": {
+          "inResourceBundle": "brsm.widget.types",
+          "inValues": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "widgetid",
+        "type": "OpenUiExtension",
+        "required": true,
+        "multiple": false,
+        "presentation": {
+          "caption": "Widget",
+          "hint": "",
+          "layoutColumn": 1,
+          "extensionType": "discoveryWidgetPicker"
+        },
+        "validations": {},
+        "defaultValue": [
+          ""
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2020-12-09T01:13:05.507+01:00",
+      "updatedBy": "nicholas.pavao@bloomreach.com",
+      "updatedAt": "2023-12-04T18:14:24.074+01:00",
+      "id": "WidgetCompound"
+    }
+  },
+  {
+    "name": "referencespa:OpenGraphCompound",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Open Graph field group",
+      "layout": "two-column"
+    },
+    "fields": [
+      {
+        "name": "description",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Open Graph description",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Text"
+        },
+        "validations": {
+          "maxRow": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "image",
+        "type": "Link",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Open Graph image",
+          "hint": "",
+          "layoutColumn": 1,
+          "uploadEnabled": true,
+          "displayType": "ImageLink",
+          "lookupFolderTypes": null,
+          "lastVisitedKey": "gallerypicker-imagelink",
+          "lastVisitedEnabled": true
+        },
+        "validations": {},
+        "defaultValue": [
+          "/"
+        ]
+      },
+      {
+        "name": "type",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Open Graph type",
+          "hint": "",
+          "layoutColumn": 2,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          "website"
+        ]
+      },
+      {
+        "name": "locale",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Open Graph locale",
+          "hint": "",
+          "layoutColumn": 2,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          "en"
+        ]
+      },
+      {
+        "name": "url",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Open Graph URL",
+          "hint": "",
+          "layoutColumn": 2,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2022-02-15T16:46:58.866+01:00",
+      "updatedBy": "nicholas.pavao@bloomreach.com",
+      "updatedAt": "2023-12-04T18:14:26.665+01:00",
+      "id": "OpenGraphCompound"
+    }
+  },
+  {
+    "name": "referencespa:page",
+    "enabled": true,
+    "type": "Document",
+    "presentation": {
+      "displayName": "Page",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "title",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Title",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "description",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "SEO meta description",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "ogCompound",
+        "type": "FieldGroup",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Open Graph Compound",
+          "hint": "",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          {
+            "fields": {
+              "description": [
+                ""
+              ],
+              "image": [
+                "/"
+              ],
+              "type": [
+                "website"
+              ],
+              "locale": [
+                "en"
+              ],
+              "url": [
+                ""
+              ]
+            }
+          }
+        ],
+        "fieldGroupType": "referencespa:OpenGraphCompound"
+      },
+      {
+        "name": "preventIndexing",
+        "type": "Boolean",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Prevent search indexing",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Checkbox"
+        },
+        "validations": {},
+        "defaultValue": [
+          false
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2022-01-25T13:47:48.147+01:00",
+      "updatedBy": "adam.pengh@bloomreach.com",
+      "updatedAt": "2024-04-06T15:21:31.554+02:00",
+      "id": "page"
+    }
+  },
+  {
+    "name": "referencespa:NewName",
+    "enabled": true,
+    "type": "Document",
+    "presentation": {
+      "displayName": "Display Name",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "string",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "String",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "adam.pengh@bloomreach.com",
+      "createdAt": "2023-12-13T17:43:03.854+01:00",
+      "updatedBy": "adam.pengh@bloomreach.com",
+      "updatedAt": "2023-12-13T17:43:33.821+01:00",
+      "id": "NStGRPO2XD"
+    }
+  },
+  {
+    "name": "sapspartacus:bannercompound",
+    "enabled": false,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Banner field group",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "title",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Title",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "content",
+        "type": "RichText",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Content",
+          "hint": "",
+          "layoutColumn": 1,
+          "ckEditorAppendedJson": null,
+          "ckEditorOverlayedJson": null,
+          "imagepickerBasePath": null,
+          "imagepickerType": "images",
+          "imagepickerNodetypes": null,
+          "imagepickerLastVisitedEnabled": null,
+          "imagepickerLastVisitedGroupKey": "ckeditor-imagepicker",
+          "imagepickerLastVisitedNodetypes": [
+            "gallery"
+          ],
+          "imagepickerPreferredImageVariant": "original",
+          "linkpickerBasePath": null,
+          "linkpickerType": "documents",
+          "linkpickerNodetypes": null,
+          "linkpickerLastVisitedEnabled": null,
+          "linkpickerLastVisitedGroupKey": "ckeditor-linkpicker",
+          "linkpickerLastVisitedNodetypes": [
+            "folder"
+          ],
+          "linkPickerLanguageContextAware": null,
+          "linkPickerOpenInNewWindowEnabled": true,
+          "includeImageVariants": null,
+          "excludeImageVariants": null
+        },
+        "validations": {},
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "image",
+        "type": "Link",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Image",
+          "hint": "",
+          "layoutColumn": 1,
+          "uploadEnabled": true,
+          "displayType": "ImageLink",
+          "lookupFolderTypes": null,
+          "lastVisitedKey": "gallerypicker-imagelink",
+          "lastVisitedEnabled": true
+        },
+        "validations": {},
+        "defaultValue": [
+          "/"
+        ]
+      },
+      {
+        "name": "link",
+        "type": "Link",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Link",
+          "hint": "",
+          "layoutColumn": 1,
+          "lookupFolderPath": null,
+          "lastVisitedNodetypes": null,
+          "languageContextAware": true,
+          "pickerType": null,
+          "displayType": "AnyLink",
+          "lookupFolderTypes": null,
+          "lastVisitedKey": null,
+          "lastVisitedEnabled": true
+        },
+        "validations": {},
+        "defaultValue": [
+          "/"
+        ]
+      },
+      {
+        "name": "styleClasses",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Style Classes",
+          "hint": "This can contain a \"list\" of space separated style classes.",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2020-10-01T17:00:00+01:00",
+      "updatedBy": "admin",
+      "updatedAt": "2020-10-01T17:00:00+01:00",
+      "id": "bannercompound"
+    }
+  },
+  {
+    "name": "sapspartacus:banner",
+    "enabled": false,
+    "type": "Document",
+    "presentation": {
+      "displayName": "Banner",
+      "layout": "two-column"
+    },
+    "fields": [
+      {
+        "name": "title",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Title",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "content",
+        "type": "RichText",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Content",
+          "hint": "",
+          "layoutColumn": 1,
+          "ckEditorAppendedJson": null,
+          "ckEditorOverlayedJson": null,
+          "imagepickerBasePath": null,
+          "imagepickerType": "images",
+          "imagepickerNodetypes": null,
+          "imagepickerLastVisitedEnabled": null,
+          "imagepickerLastVisitedGroupKey": "ckeditor-imagepicker",
+          "imagepickerLastVisitedNodetypes": [
+            "gallery"
+          ],
+          "imagepickerPreferredImageVariant": "original",
+          "linkpickerBasePath": null,
+          "linkpickerType": "documents",
+          "linkpickerNodetypes": null,
+          "linkpickerLastVisitedEnabled": null,
+          "linkpickerLastVisitedGroupKey": "ckeditor-linkpicker",
+          "linkpickerLastVisitedNodetypes": [
+            "folder"
+          ],
+          "linkPickerLanguageContextAware": null,
+          "linkPickerOpenInNewWindowEnabled": true,
+          "includeImageVariants": null,
+          "excludeImageVariants": null
+        },
+        "validations": {},
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "image",
+        "type": "Link",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Image",
+          "hint": "",
+          "layoutColumn": 1,
+          "uploadEnabled": true,
+          "displayType": "ImageLink",
+          "lookupFolderTypes": null,
+          "lastVisitedKey": "gallerypicker-imagelink",
+          "lastVisitedEnabled": true
+        },
+        "validations": {},
+        "defaultValue": [
+          "/"
+        ]
+      },
+      {
+        "name": "cta",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "CTA",
+          "hint": "",
+          "layoutColumn": 2,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "link",
+        "type": "Link",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Link",
+          "hint": "",
+          "layoutColumn": 2,
+          "lookupFolderPath": null,
+          "lastVisitedNodetypes": null,
+          "languageContextAware": true,
+          "pickerType": null,
+          "displayType": "AnyLink",
+          "lookupFolderTypes": null,
+          "lastVisitedKey": null,
+          "lastVisitedEnabled": true
+        },
+        "validations": {},
+        "defaultValue": [
+          "/"
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2020-10-01T17:00:00+01:00",
+      "updatedBy": "admin",
+      "updatedAt": "2020-10-01T17:00:00+01:00",
+      "id": "banner"
+    }
+  },
+  {
+    "name": "sapspartacus:CategoryHighlight",
+    "enabled": false,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Category highlight",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "title",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Title",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "CommerceCategoryCompound",
+        "type": "FieldGroup",
+        "required": false,
+        "multiple": true,
+        "presentation": {
+          "caption": "Category",
+          "hint": "",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          {
+            "fields": {
+              "categoryid": [
+                ""
+              ]
+            }
+          }
+        ],
+        "fieldGroupType": "sapspartacus:CommerceCategoryCompound"
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2021-08-02T11:49:26.655+02:00",
+      "updatedBy": "admin",
+      "updatedAt": "2021-08-02T11:52:57.441+02:00",
+      "id": "CategoryHighlight"
+    }
+  },
+  {
+    "name": "sapspartacus:CommerceCategoryCompound",
+    "enabled": false,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Commerce category",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "categoryid",
+        "type": "OpenUiExtension",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Category",
+          "hint": "",
+          "layoutColumn": 1,
+          "extensionType": "discoveryCategoryPicker"
+        },
+        "validations": {},
+        "defaultValue": [
+          ""
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2020-12-09T01:13:05.507+01:00",
+      "updatedBy": "admin",
+      "updatedAt": "2020-12-09T01:13:05.507+01:00",
+      "id": "CommerceCategoryCompound"
+    }
+  },
+  {
+    "name": "sapspartacus:CommerceProductCompound",
+    "enabled": false,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Commerce product",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "productid",
+        "type": "OpenUiExtension",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Product",
+          "hint": "",
+          "layoutColumn": 1,
+          "extensionType": "discoveryProductPicker"
+        },
+        "validations": {},
+        "defaultValue": [
+          ""
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2020-12-09T01:13:05.507+01:00",
+      "updatedBy": "admin",
+      "updatedAt": "2020-12-09T01:13:05.507+01:00",
+      "id": "CommerceProductCompound"
+    }
+  },
+  {
+    "name": "sapspartacus:content",
+    "enabled": false,
+    "type": "Document",
+    "presentation": {
+      "displayName": "Content",
+      "layout": "two-column"
+    },
+    "fields": [
+      {
+        "name": "title",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Title",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "introduction",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Introduction",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Text"
+        },
+        "validations": {
+          "maxRow": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "content",
+        "type": "RichText",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Content",
+          "hint": "",
+          "layoutColumn": 1,
+          "ckEditorAppendedJson": null,
+          "ckEditorOverlayedJson": null,
+          "imagepickerBasePath": null,
+          "imagepickerType": "images",
+          "imagepickerNodetypes": null,
+          "imagepickerLastVisitedEnabled": null,
+          "imagepickerLastVisitedGroupKey": "ckeditor-imagepicker",
+          "imagepickerLastVisitedNodetypes": [
+            "gallery"
+          ],
+          "imagepickerPreferredImageVariant": "original",
+          "linkpickerBasePath": null,
+          "linkpickerType": "documents",
+          "linkpickerNodetypes": null,
+          "linkpickerLastVisitedEnabled": null,
+          "linkpickerLastVisitedGroupKey": "ckeditor-linkpicker",
+          "linkpickerLastVisitedNodetypes": [
+            "folder"
+          ],
+          "linkPickerLanguageContextAware": null,
+          "linkPickerOpenInNewWindowEnabled": true,
+          "includeImageVariants": null,
+          "excludeImageVariants": null
+        },
+        "validations": {},
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "image",
+        "type": "Link",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Image",
+          "hint": "",
+          "layoutColumn": 2,
+          "uploadEnabled": true,
+          "displayType": "ImageLink",
+          "lookupFolderTypes": null,
+          "lastVisitedKey": "gallerypicker-imagelink",
+          "lastVisitedEnabled": true
+        },
+        "validations": {},
+        "defaultValue": [
+          "/"
+        ]
+      },
+      {
+        "name": "date",
+        "type": "Date",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Publication Date",
+          "hint": "",
+          "layoutColumn": 2,
+          "timeSelectable": true
+        },
+        "validations": {},
+        "defaultValue": [
+          "2021-01-01T12:00:00Z"
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2020-10-01T17:00:00+01:00",
+      "updatedBy": "admin",
+      "updatedAt": "2020-10-01T17:00:00+01:00",
+      "id": "content"
+    }
+  },
+  {
+    "name": "sapspartacus:pathways",
+    "enabled": false,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Pathways & Recommendations",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "WidgetCompound",
+        "type": "FieldGroup",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Widget",
+          "hint": "",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          {
+            "fields": {
+              "widgetalgo": [
+                ""
+              ],
+              "widgetid": [
+                ""
+              ]
+            }
+          }
+        ],
+        "fieldGroupType": "sapspartacus:WidgetCompound"
+      },
+      {
+        "name": "ProductCompound",
+        "type": "FieldGroup",
+        "required": false,
+        "multiple": true,
+        "presentation": {
+          "caption": "Product Reference",
+          "hint": "",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          {
+            "fields": {
+              "productid": [
+                ""
+              ]
+            }
+          }
+        ],
+        "fieldGroupType": "sapspartacus:CommerceProductCompound"
+      },
+      {
+        "name": "CategoryCompound",
+        "type": "FieldGroup",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Category Reference",
+          "hint": "",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          {
+            "fields": {
+              "categoryid": [
+                ""
+              ]
+            }
+          }
+        ],
+        "fieldGroupType": "sapspartacus:CommerceCategoryCompound"
+      },
+      {
+        "name": "keyword",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Keyword",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2021-07-16T16:24:00.329+02:00",
+      "updatedBy": "admin",
+      "updatedAt": "2021-07-19T15:26:29.224+02:00",
+      "id": "pathways"
+    }
+  },
+  {
+    "name": "sapspartacus:ProductDetailTabsCompound",
+    "enabled": false,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Product details tabs",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "tabs",
+        "type": "SelectableString",
+        "required": true,
+        "multiple": true,
+        "presentation": {
+          "caption": "Tabs",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Dropdown",
+          "sortOrder": null,
+          "sortBy": null,
+          "showDefault": null
+        },
+        "validations": {
+          "inResourceBundle": null,
+          "inValues": [
+            {
+              "key": "ProductDetailsTabComponent",
+              "label": "Product Details"
+            },
+            {
+              "key": "ProductSpecsTabComponent",
+              "label": "Specs"
+            },
+            {
+              "key": "ProductReviewsTabComponent",
+              "label": "Reviews"
+            },
+            {
+              "key": "deliveryTab",
+              "label": "Shipping"
+            }
+          ]
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "shipping",
+        "type": "RichText",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Shipping instructions",
+          "hint": "",
+          "layoutColumn": 1,
+          "ckEditorAppendedJson": null,
+          "ckEditorOverlayedJson": null,
+          "imagepickerBasePath": null,
+          "imagepickerType": "images",
+          "imagepickerNodetypes": null,
+          "imagepickerLastVisitedEnabled": null,
+          "imagepickerLastVisitedGroupKey": "ckeditor-imagepicker",
+          "imagepickerLastVisitedNodetypes": [
+            "gallery"
+          ],
+          "imagepickerPreferredImageVariant": "original",
+          "linkpickerBasePath": null,
+          "linkpickerType": "documents",
+          "linkpickerNodetypes": null,
+          "linkpickerLastVisitedEnabled": null,
+          "linkpickerLastVisitedGroupKey": "ckeditor-linkpicker",
+          "linkpickerLastVisitedNodetypes": [
+            "folder"
+          ],
+          "linkPickerLanguageContextAware": null,
+          "linkPickerOpenInNewWindowEnabled": true,
+          "includeImageVariants": null,
+          "excludeImageVariants": null
+        },
+        "validations": {},
+        "defaultValue": [
+          ""
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2021-10-14T21:18:43.596+02:00",
+      "updatedBy": "admin",
+      "updatedAt": "2021-10-15T20:15:08.472+02:00",
+      "id": "ProductDetailTabsCompound"
+    }
+  },
+  {
+    "name": "sapspartacus:productgrid",
+    "enabled": false,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Product grid",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "searchtype",
+        "type": "SelectableString",
+        "required": true,
+        "multiple": false,
+        "presentation": {
+          "caption": "Type",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Dropdown",
+          "sortOrder": null,
+          "sortBy": null,
+          "showDefault": null
+        },
+        "validations": {
+          "inResourceBundle": null,
+          "inValues": [
+            {
+              "key": "category",
+              "label": "Category"
+            },
+            {
+              "key": "search",
+              "label": "Search"
+            }
+          ]
+        },
+        "defaultValue": []
+      },
+      {
+        "name": "query",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Search Term",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "category",
+        "type": "FieldGroup",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Category",
+          "hint": "",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          {
+            "fields": {
+              "categoryid": [
+                ""
+              ]
+            }
+          }
+        ],
+        "fieldGroupType": "sapspartacus:CommerceCategoryCompound"
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2021-08-02T16:40:31.55-04:00",
+      "updatedBy": "admin",
+      "updatedAt": "2021-08-02T16:49:16.971-04:00",
+      "id": "productgrid"
+    }
+  },
+  {
+    "name": "sapspartacus:ProductHighlight",
+    "enabled": false,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Product highlight",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "title",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Title",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "CommerceProductCompound",
+        "type": "FieldGroup",
+        "required": false,
+        "multiple": true,
+        "presentation": {
+          "caption": "Product",
+          "hint": "",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          {
+            "fields": {
+              "productid": [
+                ""
+              ]
+            }
+          }
+        ],
+        "fieldGroupType": "sapspartacus:CommerceProductCompound"
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2021-07-30T11:49:26.655+02:00",
+      "updatedBy": "admin",
+      "updatedAt": "2021-07-30T11:52:57.441+02:00",
+      "id": "ProductHighlight"
+    }
+  },
+  {
+    "name": "sapspartacus:titleandtext",
+    "enabled": false,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Title and text",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "title",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Title",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "text",
+        "type": "RichText",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Text",
+          "hint": "",
+          "layoutColumn": 1,
+          "ckEditorAppendedJson": null,
+          "ckEditorOverlayedJson": null,
+          "imagepickerBasePath": null,
+          "imagepickerType": "images",
+          "imagepickerNodetypes": null,
+          "imagepickerLastVisitedEnabled": null,
+          "imagepickerLastVisitedGroupKey": "ckeditor-imagepicker",
+          "imagepickerLastVisitedNodetypes": [
+            "gallery"
+          ],
+          "imagepickerPreferredImageVariant": "original",
+          "linkpickerBasePath": null,
+          "linkpickerType": "documents",
+          "linkpickerNodetypes": null,
+          "linkpickerLastVisitedEnabled": null,
+          "linkpickerLastVisitedGroupKey": "ckeditor-linkpicker",
+          "linkpickerLastVisitedNodetypes": [
+            "folder"
+          ],
+          "linkPickerLanguageContextAware": null,
+          "linkPickerOpenInNewWindowEnabled": true,
+          "includeImageVariants": null,
+          "excludeImageVariants": null
+        },
+        "validations": {},
+        "defaultValue": [
+          ""
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2021-05-27T15:13:01.199+02:00",
+      "updatedBy": "admin",
+      "updatedAt": "2021-05-27T15:14:11.487+02:00",
+      "id": "titleandtext"
+    }
+  },
+  {
+    "name": "sapspartacus:WidgetCompound",
+    "enabled": false,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Widget",
+      "layout": "two-column"
+    },
+    "fields": [
+      {
+        "name": "widgetalgo",
+        "type": "SelectableString",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Widget Algorithm",
+          "hint": "",
+          "layoutColumn": 2,
+          "displayType": "Dropdown",
+          "sortOrder": null,
+          "sortBy": null,
+          "showDefault": null
+        },
+        "validations": {
+          "inResourceBundle": "brsm.widget.types",
+          "inValues": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "widgetid",
+        "type": "OpenUiExtension",
+        "required": true,
+        "multiple": false,
+        "presentation": {
+          "caption": "Widget",
+          "hint": "",
+          "layoutColumn": 1,
+          "extensionType": "discoveryWidgetPicker"
+        },
+        "validations": {},
+        "defaultValue": [
+          ""
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2020-12-09T01:13:05.507+01:00",
+      "updatedBy": "admin",
+      "updatedAt": "2020-12-09T01:13:05.507+01:00",
+      "id": "WidgetCompound"
+    }
+  },
+  {
+    "name": "vuestorefront:content",
+    "enabled": true,
+    "type": "Document",
+    "presentation": {
+      "displayName": "Content",
+      "layout": "two-column"
+    },
+    "fields": [
+      {
+        "name": "title",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Title",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "introduction",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Introduction",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Text"
+        },
+        "validations": {
+          "maxRow": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "content",
+        "type": "RichText",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Content",
+          "hint": "",
+          "layoutColumn": 1,
+          "ckEditorAppendedJson": null,
+          "ckEditorOverlayedJson": null,
+          "imagepickerBasePath": null,
+          "imagepickerType": "images",
+          "imagepickerNodetypes": null,
+          "imagepickerLastVisitedEnabled": null,
+          "imagepickerLastVisitedGroupKey": "ckeditor-imagepicker",
+          "imagepickerLastVisitedNodetypes": [
+            "gallery"
+          ],
+          "imagepickerPreferredImageVariant": "original",
+          "linkpickerBasePath": null,
+          "linkpickerType": "documents",
+          "linkpickerNodetypes": null,
+          "linkpickerLastVisitedEnabled": null,
+          "linkpickerLastVisitedGroupKey": "ckeditor-linkpicker",
+          "linkpickerLastVisitedNodetypes": [
+            "folder"
+          ],
+          "linkPickerLanguageContextAware": null,
+          "linkPickerOpenInNewWindowEnabled": true,
+          "includeImageVariants": null,
+          "excludeImageVariants": null
+        },
+        "validations": {},
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "image",
+        "type": "Link",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Image",
+          "hint": "",
+          "layoutColumn": 2,
+          "uploadEnabled": true,
+          "displayType": "ImageLink",
+          "lookupFolderTypes": null,
+          "lastVisitedKey": "gallerypicker-imagelink",
+          "lastVisitedEnabled": true
+        },
+        "validations": {},
+        "defaultValue": [
+          "/"
+        ]
+      },
+      {
+        "name": "date",
+        "type": "Date",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Date",
+          "hint": "",
+          "layoutColumn": 2,
+          "timeSelectable": true
+        },
+        "validations": {},
+        "defaultValue": [
+          null
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2020-10-01T17:00:00+01:00",
+      "updatedBy": "nicholas.pavao@bloomreach.com",
+      "updatedAt": "2023-12-13T22:02:23.366+01:00",
+      "id": "content"
+    }
+  },
+  {
+    "name": "vuestorefront:groupitem",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Group item",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "title",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Title",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "content",
+        "type": "Link",
+        "required": false,
+        "multiple": true,
+        "presentation": {
+          "caption": "Content",
+          "hint": "",
+          "layoutColumn": 1,
+          "lookupFolderPath": null,
+          "lastVisitedNodetypes": null,
+          "languageContextAware": true,
+          "pickerType": null,
+          "displayType": "AnyLink",
+          "lookupFolderTypes": null,
+          "lastVisitedKey": null,
+          "lastVisitedEnabled": true
+        },
+        "validations": {},
+        "defaultValue": [
+          "/"
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2021-06-21T16:48:14.073+02:00",
+      "updatedBy": "nicholas.pavao@bloomreach.com",
+      "updatedAt": "2023-12-13T22:02:24.57+01:00",
+      "id": "groupitem"
+    }
+  },
+  {
+    "name": "vuestorefront:heroitem",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Hero item",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "title",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Title",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "subtitle",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Subtitle",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "background",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Background",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "image",
+        "type": "Link",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Image",
+          "hint": "",
+          "layoutColumn": 1,
+          "uploadEnabled": true,
+          "displayType": "ImageLink",
+          "lookupFolderTypes": null,
+          "lastVisitedKey": "gallerypicker-imagelink",
+          "lastVisitedEnabled": true
+        },
+        "validations": {},
+        "defaultValue": [
+          "/"
+        ]
+      },
+      {
+        "name": "button_link",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Button Link",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "button_text",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Button Text",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2021-06-21T15:16:46.182+02:00",
+      "updatedBy": "nicholas.pavao@bloomreach.com",
+      "updatedAt": "2023-12-13T22:02:25.713+01:00",
+      "id": "heroitem"
+    }
+  },
+  {
+    "name": "vuestorefront:banner",
+    "enabled": true,
+    "type": "Document",
+    "presentation": {
+      "displayName": "Banner",
+      "layout": "two-column"
+    },
+    "fields": [
+      {
+        "name": "title",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Title",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "subtitle",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Subtitle",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "description",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Description",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Text"
+        },
+        "validations": {
+          "maxRow": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "image",
+        "type": "Link",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Image",
+          "hint": "",
+          "layoutColumn": 1,
+          "uploadEnabled": true,
+          "displayType": "ImageLink",
+          "lookupFolderTypes": null,
+          "lastVisitedKey": "gallerypicker-imagelink",
+          "lastVisitedEnabled": true
+        },
+        "validations": {},
+        "defaultValue": [
+          "/"
+        ]
+      },
+      {
+        "name": "button_link",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Button Link",
+          "hint": "",
+          "layoutColumn": 2,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "background",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Background",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "button_text",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Button Text",
+          "hint": "",
+          "layoutColumn": 2,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2020-10-01T17:00:00+01:00",
+      "updatedBy": "nicholas.pavao@bloomreach.com",
+      "updatedAt": "2023-12-13T22:02:09.16+01:00",
+      "id": "banner"
+    }
+  },
+  {
+    "name": "vuestorefront:link",
+    "enabled": true,
+    "type": "Document",
+    "presentation": {
+      "displayName": "Link",
+      "layout": "two-column"
+    },
+    "fields": [
+      {
+        "name": "text",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Text",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "string",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Link",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": []
+      },
+      {
+        "name": "string1",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Open New",
+          "hint": "",
+          "layoutColumn": 2,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": []
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2021-07-01T12:25:12.713+02:00",
+      "updatedBy": "nicholas.pavao@bloomreach.com",
+      "updatedAt": "2023-12-13T22:02:17.838+01:00",
+      "id": "link"
+    }
+  },
+  {
+    "name": "vuestorefront:accordion",
+    "enabled": true,
+    "type": "Document",
+    "presentation": {
+      "displayName": "Accordion",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "items",
+        "type": "FieldGroup",
+        "required": false,
+        "multiple": true,
+        "presentation": {
+          "caption": "Items",
+          "hint": "",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          {
+            "fields": {
+              "title": [
+                ""
+              ],
+              "content": []
+            }
+          }
+        ],
+        "fieldGroupType": "vuestorefront:groupitem"
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2021-06-21T16:49:36.032+02:00",
+      "updatedBy": "nicholas.pavao@bloomreach.com",
+      "updatedAt": "2023-12-13T22:02:08.026+01:00",
+      "id": "accordion"
+    }
+  },
+  {
+    "name": "vuestorefront:tabs",
+    "enabled": true,
+    "type": "Document",
+    "presentation": {
+      "displayName": "Tabs",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "items",
+        "type": "FieldGroup",
+        "required": false,
+        "multiple": true,
+        "presentation": {
+          "caption": "Items",
+          "hint": "",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          {
+            "fields": {
+              "title": [
+                ""
+              ],
+              "content": []
+            }
+          }
+        ],
+        "fieldGroupType": "vuestorefront:groupitem"
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2021-06-21T16:49:36.032+02:00",
+      "updatedBy": "nicholas.pavao@bloomreach.com",
+      "updatedAt": "2023-12-13T22:02:21.323+01:00",
+      "id": "tabs"
+    }
+  },
+  {
+    "name": "vuestorefront:hero",
+    "enabled": true,
+    "type": "Document",
+    "presentation": {
+      "displayName": "Hero",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "items",
+        "type": "FieldGroup",
+        "required": false,
+        "multiple": true,
+        "presentation": {
+          "caption": "Hero Items",
+          "hint": "",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          {
+            "fields": {
+              "title": [
+                ""
+              ],
+              "subtitle": [
+                ""
+              ],
+              "background": [
+                ""
+              ],
+              "image": [
+                "/"
+              ],
+              "button_link": [
+                ""
+              ],
+              "button_text": [
+                ""
+              ]
+            }
+          }
+        ],
+        "fieldGroupType": "vuestorefront:heroitem"
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2021-06-21T15:22:47.012+02:00",
+      "updatedBy": "nicholas.pavao@bloomreach.com",
+      "updatedAt": "2023-12-13T22:02:16.89+01:00",
+      "id": "hero"
+    }
+  },
+  {
+    "name": "vuestorefront:carousel",
+    "enabled": true,
+    "type": "Document",
+    "presentation": {
+      "displayName": "Carousel",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "items",
+        "type": "FieldGroup",
+        "required": false,
+        "multiple": true,
+        "presentation": {
+          "caption": "Items",
+          "hint": "",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          {
+            "fields": {
+              "content": [
+                "/"
+              ]
+            }
+          }
+        ],
+        "fieldGroupType": "vuestorefront:carouselItem"
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2021-06-21T16:49:36.032+02:00",
+      "updatedBy": "nicholas.pavao@bloomreach.com",
+      "updatedAt": "2023-12-13T22:02:12.18+01:00",
+      "id": "carousel"
+    }
+  },
+  {
+    "name": "vuestorefront:carouselItem",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Carousel item",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "content",
+        "type": "Link",
+        "required": false,
+        "multiple": true,
+        "presentation": {
+          "caption": "Content",
+          "hint": "",
+          "layoutColumn": 1,
+          "lookupFolderPath": null,
+          "lastVisitedNodetypes": null,
+          "languageContextAware": true,
+          "pickerType": null,
+          "displayType": "AnyLink",
+          "lookupFolderTypes": null,
+          "lastVisitedKey": null,
+          "lastVisitedEnabled": true
+        },
+        "validations": {},
+        "defaultValue": [
+          "/"
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2021-06-21T16:48:14.073+02:00",
+      "updatedBy": "nicholas.pavao@bloomreach.com",
+      "updatedAt": "2023-12-13T22:02:13.066+01:00",
+      "id": "carouselItem"
+    }
+  },
+  {
+    "name": "vuestorefront:calltoaction",
+    "enabled": true,
+    "type": "Document",
+    "presentation": {
+      "displayName": "Call to action",
+      "layout": "two-column"
+    },
+    "fields": [
+      {
+        "name": "title",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Title",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "description",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Description",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "image",
+        "type": "Link",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Image",
+          "hint": "",
+          "layoutColumn": 1,
+          "uploadEnabled": true,
+          "displayType": "ImageLink",
+          "lookupFolderTypes": null,
+          "lastVisitedKey": "gallerypicker-imagelink",
+          "lastVisitedEnabled": true
+        },
+        "validations": {},
+        "defaultValue": [
+          "/"
+        ]
+      },
+      {
+        "name": "background",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Background",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "button_link",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Button Link",
+          "hint": "",
+          "layoutColumn": 2,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "button_text",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Button Text",
+          "hint": "",
+          "layoutColumn": 2,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2020-10-01T17:00:00+01:00",
+      "updatedBy": "nicholas.pavao@bloomreach.com",
+      "updatedAt": "2023-12-13T22:02:10.816+01:00",
+      "id": "calltoaction"
+    }
+  },
+  {
+    "name": "vuestorefront:heading",
+    "enabled": true,
+    "type": "Document",
+    "presentation": {
+      "displayName": "Heading",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "title",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Title",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "description",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Description",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Text"
+        },
+        "validations": {
+          "maxRow": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "string",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Level",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": []
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2021-06-24T16:21:46.204+02:00",
+      "updatedBy": "nicholas.pavao@bloomreach.com",
+      "updatedAt": "2023-12-13T22:02:15.796+01:00",
+      "id": "heading"
+    }
+  },
+  {
+    "name": "vuestorefront:productslider",
+    "enabled": true,
+    "type": "Document",
+    "presentation": {
+      "displayName": "Product slider",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "products",
+        "type": "String",
+        "required": false,
+        "multiple": true,
+        "presentation": {
+          "caption": "Product IDs",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2021-06-30T11:00:19.271+02:00",
+      "updatedBy": "nicholas.pavao@bloomreach.com",
+      "updatedAt": "2023-12-13T22:02:20.541+01:00",
+      "id": "productslider"
+    }
+  },
+  {
+    "name": "vuestorefront:editorial",
+    "enabled": true,
+    "type": "Document",
+    "presentation": {
+      "displayName": "Editorial",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "content",
+        "type": "RichText",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Content",
+          "hint": "",
+          "layoutColumn": 1,
+          "ckEditorAppendedJson": null,
+          "ckEditorOverlayedJson": null,
+          "imagepickerBasePath": null,
+          "imagepickerType": "images",
+          "imagepickerNodetypes": null,
+          "imagepickerLastVisitedEnabled": null,
+          "imagepickerLastVisitedGroupKey": "ckeditor-imagepicker",
+          "imagepickerLastVisitedNodetypes": [
+            "gallery"
+          ],
+          "imagepickerPreferredImageVariant": "original",
+          "linkpickerBasePath": null,
+          "linkpickerType": "documents",
+          "linkpickerNodetypes": null,
+          "linkpickerLastVisitedEnabled": null,
+          "linkpickerLastVisitedGroupKey": "ckeditor-linkpicker",
+          "linkpickerLastVisitedNodetypes": [
+            "folder"
+          ],
+          "linkPickerLanguageContextAware": null,
+          "linkPickerOpenInNewWindowEnabled": true,
+          "includeImageVariants": null,
+          "excludeImageVariants": null
+        },
+        "validations": {},
+        "defaultValue": [
+          ""
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2021-07-02T11:43:40.777+02:00",
+      "updatedBy": "nicholas.pavao@bloomreach.com",
+      "updatedAt": "2023-12-13T22:02:13.931+01:00",
+      "id": "editorial"
+    }
+  },
+  {
+    "name": "vuestorefront:productcard",
+    "enabled": true,
+    "type": "Document",
+    "presentation": {
+      "displayName": "Product card",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "title",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Title",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "link",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Link",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "image",
+        "type": "Link",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Image",
+          "hint": "",
+          "layoutColumn": 1,
+          "uploadEnabled": true,
+          "displayType": "ImageLink",
+          "lookupFolderTypes": null,
+          "lastVisitedKey": "gallerypicker-imagelink",
+          "lastVisitedEnabled": true
+        },
+        "validations": {},
+        "defaultValue": [
+          "/"
+        ]
+      },
+      {
+        "name": "regularPrice",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Price",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "specialPrice",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Special Price",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "scoreRating",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Rating",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "maxRating",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Max Rating",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2021-06-28T10:23:47.936+02:00",
+      "updatedBy": "nicholas.pavao@bloomreach.com",
+      "updatedAt": "2023-12-13T22:02:19.219+01:00",
+      "id": "productcard"
+    }
+  },
+  {
+    "name": "vuestorefront:gallery",
+    "enabled": true,
+    "type": "Document",
+    "presentation": {
+      "displayName": "Gallery",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "images",
+        "type": "Link",
+        "required": false,
+        "multiple": true,
+        "presentation": {
+          "caption": "Images",
+          "hint": "",
+          "layoutColumn": 1,
+          "uploadEnabled": true,
+          "displayType": "ImageLink",
+          "lookupFolderTypes": null,
+          "lastVisitedKey": "gallerypicker-imagelink",
+          "lastVisitedEnabled": true
+        },
+        "validations": {},
+        "defaultValue": [
+          "/"
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2021-07-19T16:53:24.374+02:00",
+      "updatedBy": "nicholas.pavao@bloomreach.com",
+      "updatedAt": "2023-12-13T22:02:14.816+01:00",
+      "id": "gallery"
+    }
+  },
+  {
+    "name": "vuestorefront:CommerceCategoryCompound",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Commerce category",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "categoryid",
+        "type": "OpenUiExtension",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Category",
+          "hint": "",
+          "layoutColumn": 1,
+          "extensionType": "discoveryCategoryPicker"
+        },
+        "validations": {},
+        "defaultValue": [
+          ""
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2020-12-09T01:13:05.507+01:00",
+      "updatedBy": "nicholas.pavao@bloomreach.com",
+      "updatedAt": "2023-12-13T22:02:06.339+01:00",
+      "id": "CommerceCategoryCompound"
+    }
+  },
+  {
+    "name": "vuestorefront:CommerceProductCompound",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Commerce product",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "productid",
+        "type": "OpenUiExtension",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Product",
+          "hint": "",
+          "layoutColumn": 1,
+          "extensionType": "discoveryProductPicker"
+        },
+        "validations": {},
+        "defaultValue": [
+          ""
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2020-12-09T01:13:05.507+01:00",
+      "updatedBy": "nicholas.pavao@bloomreach.com",
+      "updatedAt": "2023-12-13T22:02:07.149+01:00",
+      "id": "CommerceProductCompound"
+    }
+  },
+  {
+    "name": "vuestorefront:WidgetCompound",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Widget",
+      "layout": "two-column"
+    },
+    "fields": [
+      {
+        "name": "widgetalgo",
+        "type": "SelectableString",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Widget Algorithm",
+          "hint": "",
+          "layoutColumn": 2,
+          "displayType": "Dropdown",
+          "sortOrder": null,
+          "sortBy": null,
+          "showDefault": null
+        },
+        "validations": {
+          "inResourceBundle": "brsm.widget.types",
+          "inValues": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "widgetid",
+        "type": "OpenUiExtension",
+        "required": true,
+        "multiple": false,
+        "presentation": {
+          "caption": "Widget",
+          "hint": "",
+          "layoutColumn": 1,
+          "extensionType": "discoveryWidgetPicker"
+        },
+        "validations": {},
+        "defaultValue": [
+          ""
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2020-12-09T01:13:05.507+01:00",
+      "updatedBy": "nicholas.pavao@bloomreach.com",
+      "updatedAt": "2023-12-13T22:02:22.272+01:00",
+      "id": "WidgetCompound"
+    }
+  },
+  {
+    "name": "vuestorefront:pathways",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Pathways & Recommendations",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "WidgetCompound",
+        "type": "FieldGroup",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Widget",
+          "hint": "",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          {
+            "fields": {
+              "widgetalgo": [
+                ""
+              ],
+              "widgetid": [
+                ""
+              ]
+            }
+          }
+        ],
+        "fieldGroupType": "vuestorefront:WidgetCompound"
+      },
+      {
+        "name": "ProductCompound",
+        "type": "FieldGroup",
+        "required": false,
+        "multiple": true,
+        "presentation": {
+          "caption": "Product Reference",
+          "hint": "",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          {
+            "fields": {
+              "productid": [
+                ""
+              ]
+            }
+          }
+        ],
+        "fieldGroupType": "vuestorefront:CommerceProductCompound"
+      },
+      {
+        "name": "CategoryCompound",
+        "type": "FieldGroup",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Category Reference",
+          "hint": "",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          {
+            "fields": {
+              "categoryid": [
+                ""
+              ]
+            }
+          }
+        ],
+        "fieldGroupType": "vuestorefront:CommerceCategoryCompound"
+      },
+      {
+        "name": "keyword",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Keyword",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2021-07-16T16:24:00.329+02:00",
+      "updatedBy": "nicholas.pavao@bloomreach.com",
+      "updatedAt": "2023-12-13T22:02:26.917+01:00",
+      "id": "pathways"
+    }
+  },
+  {
+    "name": "banner",
+    "enabled": true,
+    "type": "Document",
+    "presentation": {
+      "displayName": "Banner",
+      "layout": "two-column"
+    },
+    "fields": [
+      {
+        "name": "title",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Title",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "content",
+        "type": "RichText",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Content",
+          "hint": "",
+          "layoutColumn": 1,
+          "ckEditorAppendedJson": null,
+          "ckEditorOverlayedJson": null,
+          "imagepickerBasePath": null,
+          "imagepickerType": "images",
+          "imagepickerNodetypes": null,
+          "imagepickerLastVisitedEnabled": null,
+          "imagepickerLastVisitedGroupKey": "ckeditor-imagepicker",
+          "imagepickerLastVisitedNodetypes": [
+            "gallery"
+          ],
+          "imagepickerPreferredImageVariant": "original",
+          "linkpickerBasePath": null,
+          "linkpickerType": "documents",
+          "linkpickerNodetypes": null,
+          "linkpickerLastVisitedEnabled": null,
+          "linkpickerLastVisitedGroupKey": "ckeditor-linkpicker",
+          "linkpickerLastVisitedNodetypes": [
+            "folder"
+          ],
+          "linkPickerLanguageContextAware": null,
+          "linkPickerOpenInNewWindowEnabled": true,
+          "includeImageVariants": null,
+          "excludeImageVariants": null
+        },
+        "validations": {},
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "image",
+        "type": "Link",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Image",
+          "hint": "",
+          "layoutColumn": 1,
+          "uploadEnabled": true,
+          "displayType": "ImageLink",
+          "lookupFolderTypes": null,
+          "lastVisitedKey": "gallerypicker-imagelink",
+          "lastVisitedEnabled": true
+        },
+        "validations": {},
+        "defaultValue": [
+          "/"
+        ]
+      },
+      {
+        "name": "cta",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "CTA",
+          "hint": "",
+          "layoutColumn": 2,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "link",
+        "type": "Link",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Link",
+          "hint": "",
+          "layoutColumn": 2,
+          "lookupFolderPath": null,
+          "lastVisitedNodetypes": null,
+          "languageContextAware": true,
+          "pickerType": null,
+          "displayType": "AnyLink",
+          "lookupFolderTypes": null,
+          "lastVisitedKey": null,
+          "lastVisitedEnabled": true
+        },
+        "validations": {},
+        "defaultValue": [
+          "/"
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2020-10-01T17:00:00+01:00",
+      "updatedBy": "adam.pengh@bloomreach.com",
+      "updatedAt": "2024-04-09T14:26:12.912+02:00",
+      "id": "banner"
+    }
+  },
+  {
+    "name": "bannercarousel",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Banner carousel",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "banners",
+        "type": "FieldGroup",
+        "required": true,
+        "multiple": true,
+        "presentation": {
+          "caption": "Banners",
+          "hint": "",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          {
+            "fields": {
+              "title": [
+                ""
+              ],
+              "content": [
+                ""
+              ],
+              "image": [
+                "/"
+              ],
+              "cta": [
+                ""
+              ],
+              "link": [
+                "/"
+              ]
+            }
+          }
+        ],
+        "fieldGroupType": "bannercompound"
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2021-07-12T23:58:23.209-04:00",
+      "updatedBy": "admin",
+      "updatedAt": "2021-07-12T23:58:42.052-04:00",
+      "id": "bannercarousel"
+    }
+  },
+  {
+    "name": "bannercompound",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Banner field group",
+      "layout": "two-column"
+    },
+    "fields": [
+      {
+        "name": "title",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Title",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "content",
+        "type": "RichText",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Content",
+          "hint": "",
+          "layoutColumn": 1,
+          "ckEditorAppendedJson": null,
+          "ckEditorOverlayedJson": null,
+          "imagepickerBasePath": null,
+          "imagepickerType": "images",
+          "imagepickerNodetypes": null,
+          "imagepickerLastVisitedEnabled": null,
+          "imagepickerLastVisitedGroupKey": "ckeditor-imagepicker",
+          "imagepickerLastVisitedNodetypes": [
+            "gallery"
+          ],
+          "imagepickerPreferredImageVariant": "original",
+          "linkpickerBasePath": null,
+          "linkpickerType": "documents",
+          "linkpickerNodetypes": null,
+          "linkpickerLastVisitedEnabled": null,
+          "linkpickerLastVisitedGroupKey": "ckeditor-linkpicker",
+          "linkpickerLastVisitedNodetypes": [
+            "folder"
+          ],
+          "linkPickerLanguageContextAware": null,
+          "linkPickerOpenInNewWindowEnabled": true,
+          "includeImageVariants": null,
+          "excludeImageVariants": null
+        },
+        "validations": {},
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "image",
+        "type": "Link",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Image",
+          "hint": "",
+          "layoutColumn": 1,
+          "uploadEnabled": true,
+          "displayType": "ImageLink",
+          "lookupFolderTypes": null,
+          "lastVisitedKey": "gallerypicker-imagelink",
+          "lastVisitedEnabled": true
+        },
+        "validations": {},
+        "defaultValue": [
+          "/"
+        ]
+      },
+      {
+        "name": "cta",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "CTA",
+          "hint": "",
+          "layoutColumn": 2,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "link",
+        "type": "Link",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Link",
+          "hint": "",
+          "layoutColumn": 2,
+          "lookupFolderPath": null,
+          "lastVisitedNodetypes": null,
+          "languageContextAware": true,
+          "pickerType": null,
+          "displayType": "AnyLink",
+          "lookupFolderTypes": null,
+          "lastVisitedKey": null,
+          "lastVisitedEnabled": true
+        },
+        "validations": {},
+        "defaultValue": [
+          "/"
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2020-10-01T17:00:00+01:00",
+      "updatedBy": "admin",
+      "updatedAt": "2020-10-01T17:00:00+01:00",
+      "id": "bannercompound"
+    }
+  },
+  {
+    "name": "bannercta",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Banner CTA",
+      "layout": "two-column"
+    },
+    "fields": [
+      {
+        "name": "title",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Title",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "content",
+        "type": "RichText",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Content",
+          "hint": "",
+          "layoutColumn": 1,
+          "ckEditorAppendedJson": null,
+          "ckEditorOverlayedJson": null,
+          "imagepickerBasePath": null,
+          "imagepickerType": "images",
+          "imagepickerNodetypes": null,
+          "imagepickerLastVisitedEnabled": null,
+          "imagepickerLastVisitedGroupKey": "ckeditor-imagepicker",
+          "imagepickerLastVisitedNodetypes": [
+            "gallery"
+          ],
+          "imagepickerPreferredImageVariant": "original",
+          "linkpickerBasePath": null,
+          "linkpickerType": "documents",
+          "linkpickerNodetypes": null,
+          "linkpickerLastVisitedEnabled": null,
+          "linkpickerLastVisitedGroupKey": "ckeditor-linkpicker",
+          "linkpickerLastVisitedNodetypes": [
+            "folder"
+          ],
+          "linkPickerLanguageContextAware": null,
+          "linkPickerOpenInNewWindowEnabled": true,
+          "includeImageVariants": null,
+          "excludeImageVariants": null
+        },
+        "validations": {},
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "cta",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "CTA",
+          "hint": "",
+          "layoutColumn": 2,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "link",
+        "type": "Link",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Link",
+          "hint": "",
+          "layoutColumn": 2,
+          "lookupFolderPath": null,
+          "lastVisitedNodetypes": null,
+          "languageContextAware": true,
+          "pickerType": null,
+          "displayType": "AnyLink",
+          "lookupFolderTypes": null,
+          "lastVisitedKey": null,
+          "lastVisitedEnabled": true
+        },
+        "validations": {},
+        "defaultValue": [
+          "/"
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2021-07-12T23:58:23.209-04:00",
+      "updatedBy": "admin",
+      "updatedAt": "2021-07-12T23:58:42.052-04:00",
+      "id": "bannercta"
+    }
+  },
+  {
+    "name": "bannergallery",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Banner gallery",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "title",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Title",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "banners",
+        "type": "FieldGroup",
+        "required": true,
+        "multiple": true,
+        "presentation": {
+          "caption": "Banners",
+          "hint": "",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          {
+            "fields": {
+              "title": [
+                ""
+              ],
+              "content": [
+                ""
+              ],
+              "image": [
+                "/"
+              ],
+              "cta": [
+                ""
+              ],
+              "link": [
+                "/"
+              ]
+            }
+          }
+        ],
+        "fieldGroupType": "bannercompound"
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2021-07-12T23:58:23.209-04:00",
+      "updatedBy": "admin",
+      "updatedAt": "2021-07-12T23:58:42.052-04:00",
+      "id": "bannergallery"
+    }
+  },
+  {
+    "name": "CategoryHighlight",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Category highlight",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "title",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Title",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "CommerceCategoryCompound",
+        "type": "FieldGroup",
+        "required": false,
+        "multiple": true,
+        "presentation": {
+          "caption": "Category",
+          "hint": "",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          {
+            "fields": {
+              "categoryid": [
+                ""
+              ]
+            }
+          }
+        ],
+        "fieldGroupType": "CommerceCategoryCompound"
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2021-08-02T11:49:26.655+02:00",
+      "updatedBy": "admin",
+      "updatedAt": "2021-08-02T11:52:57.441+02:00",
+      "id": "CategoryHighlight"
+    }
+  },
+  {
+    "name": "CommerceCategoryCompound",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Commerce category",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "categoryid",
+        "type": "OpenUiExtension",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Category",
+          "hint": "",
+          "layoutColumn": 1,
+          "extensionType": "discoveryCategoryPicker"
+        },
+        "validations": {},
+        "defaultValue": [
+          ""
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2020-12-09T01:13:05.507+01:00",
+      "updatedBy": "admin",
+      "updatedAt": "2020-12-09T01:13:05.507+01:00",
+      "id": "CommerceCategoryCompound"
+    }
+  },
+  {
+    "name": "CommerceProductCompound",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Commerce product",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "usePidFromPage",
+        "type": "Boolean",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Use Product ID from Page",
+          "hint": "Get Product ID from the current page",
+          "layoutColumn": 1,
+          "displayType": "Checkbox"
+        },
+        "validations": {},
+        "defaultValue": [
+          false
+        ]
+      },
+      {
+        "name": "productid",
+        "type": "OpenUiExtension",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Product",
+          "hint": "",
+          "layoutColumn": 1,
+          "extensionType": "discoveryProductPicker"
+        },
+        "validations": {},
+        "defaultValue": [
+          ""
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2020-12-09T01:13:05.507+01:00",
+      "updatedBy": "adam.pengh@bloomreach.com",
+      "updatedAt": "2024-06-26T19:52:47.899+02:00",
+      "id": "CommerceProductCompound"
+    }
+  },
+  {
+    "name": "content",
+    "enabled": true,
+    "type": "Document",
+    "presentation": {
+      "displayName": "Content",
+      "layout": "two-column"
+    },
+    "fields": [
+      {
+        "name": "title",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Title",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "introduction",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Introduction",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Text"
+        },
+        "validations": {
+          "maxRow": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "content",
+        "type": "RichText",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Content",
+          "hint": "",
+          "layoutColumn": 1,
+          "ckEditorAppendedJson": null,
+          "ckEditorOverlayedJson": null,
+          "imagepickerBasePath": null,
+          "imagepickerType": "images",
+          "imagepickerNodetypes": null,
+          "imagepickerLastVisitedEnabled": null,
+          "imagepickerLastVisitedGroupKey": "ckeditor-imagepicker",
+          "imagepickerLastVisitedNodetypes": [
+            "gallery"
+          ],
+          "imagepickerPreferredImageVariant": "original",
+          "linkpickerBasePath": null,
+          "linkpickerType": "documents",
+          "linkpickerNodetypes": null,
+          "linkpickerLastVisitedEnabled": null,
+          "linkpickerLastVisitedGroupKey": "ckeditor-linkpicker",
+          "linkpickerLastVisitedNodetypes": [
+            "folder"
+          ],
+          "linkPickerLanguageContextAware": null,
+          "linkPickerOpenInNewWindowEnabled": true,
+          "includeImageVariants": null,
+          "excludeImageVariants": null
+        },
+        "validations": {},
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "image",
+        "type": "Link",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Image",
+          "hint": "",
+          "layoutColumn": 2,
+          "uploadEnabled": true,
+          "displayType": "ImageLink",
+          "lookupFolderTypes": null,
+          "lastVisitedKey": "gallerypicker-imagelink",
+          "lastVisitedEnabled": true
+        },
+        "validations": {},
+        "defaultValue": [
+          "/"
+        ]
+      },
+      {
+        "name": "date",
+        "type": "Date",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Publication Date",
+          "hint": "",
+          "layoutColumn": 2,
+          "timeSelectable": true
+        },
+        "validations": {},
+        "defaultValue": [
+          "2021-01-01T12:00:00Z"
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2020-10-01T17:00:00+01:00",
+      "updatedBy": "admin",
+      "updatedAt": "2020-10-01T17:00:00+01:00",
+      "id": "content"
+    }
+  },
+  {
+    "name": "pathways",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Pathways & Recommendations",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "WidgetCompound",
+        "type": "FieldGroup",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Widget",
+          "hint": "",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          {
+            "fields": {
+              "widgetalgo": [
+                ""
+              ],
+              "widgetid": [
+                ""
+              ]
+            }
+          }
+        ],
+        "fieldGroupType": "WidgetCompound"
+      },
+      {
+        "name": "ProductCompound",
+        "type": "FieldGroup",
+        "required": false,
+        "multiple": true,
+        "presentation": {
+          "caption": "Product reference",
+          "hint": "",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          {
+            "fields": {
+              "usePidFromPage": [
+                false
+              ],
+              "productid": [
+                ""
+              ]
+            }
+          }
+        ],
+        "fieldGroupType": "CommerceProductCompound"
+      },
+      {
+        "name": "CategoryCompound",
+        "type": "FieldGroup",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Category reference",
+          "hint": "",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          {
+            "fields": {
+              "categoryid": [
+                ""
+              ]
+            }
+          }
+        ],
+        "fieldGroupType": "CommerceCategoryCompound"
+      },
+      {
+        "name": "keyword",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Keyword",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2021-07-16T16:24:00.329+02:00",
+      "updatedBy": "adam.pengh@bloomreach.com",
+      "updatedAt": "2024-06-26T20:06:23.039+02:00",
+      "id": "pathways"
+    }
+  },
+  {
+    "name": "productgrid",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Product grid",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "title",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Title",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "searchtype",
+        "type": "SelectableString",
+        "required": true,
+        "multiple": false,
+        "presentation": {
+          "caption": "Type",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Dropdown",
+          "sortOrder": null,
+          "sortBy": null,
+          "showDefault": null
+        },
+        "validations": {
+          "inResourceBundle": null,
+          "inValues": [
+            {
+              "key": "category",
+              "label": "Category"
+            },
+            {
+              "key": "search",
+              "label": "Search"
+            }
+          ]
+        },
+        "defaultValue": []
+      },
+      {
+        "name": "query",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Search term",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "category",
+        "type": "FieldGroup",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Category",
+          "hint": "",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          {
+            "fields": {
+              "categoryid": [
+                ""
+              ]
+            }
+          }
+        ],
+        "fieldGroupType": "CommerceCategoryCompound"
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2021-08-02T16:40:31.55-04:00",
+      "updatedBy": "admin",
+      "updatedAt": "2021-08-02T16:49:16.971-04:00",
+      "id": "productgrid"
+    }
+  },
+  {
+    "name": "ProductHighlight",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Product highlight",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "title",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Title",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "CommerceProductCompound",
+        "type": "FieldGroup",
+        "required": false,
+        "multiple": true,
+        "presentation": {
+          "caption": "Product",
+          "hint": "",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          {
+            "fields": {
+              "usePidFromPage": [],
+              "productid": [
+                ""
+              ]
+            }
+          }
+        ],
+        "fieldGroupType": "CommerceProductCompound"
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2021-07-30T11:49:26.655+02:00",
+      "updatedBy": "admin",
+      "updatedAt": "2021-07-30T11:52:57.441+02:00",
+      "id": "ProductHighlight"
+    }
+  },
+  {
+    "name": "titleandtext",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Title and text",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "title",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Title",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "text",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Text",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Text"
+        },
+        "validations": {
+          "maxRow": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2021-05-27T15:13:01.199+02:00",
+      "updatedBy": "admin",
+      "updatedAt": "2021-05-27T15:14:11.487+02:00",
+      "id": "titleandtext"
+    }
+  },
+  {
+    "name": "WidgetCompound",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Widget",
+      "layout": "two-column"
+    },
+    "fields": [
+      {
+        "name": "widgetalgo",
+        "type": "SelectableString",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Widget Algorithm",
+          "hint": "",
+          "layoutColumn": 2,
+          "displayType": "Dropdown",
+          "sortOrder": null,
+          "sortBy": null,
+          "showDefault": null
+        },
+        "validations": {
+          "inResourceBundle": "brsm.widget.types",
+          "inValues": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "widgetid",
+        "type": "OpenUiExtension",
+        "required": true,
+        "multiple": false,
+        "presentation": {
+          "caption": "Widget",
+          "hint": "",
+          "layoutColumn": 1,
+          "extensionType": "discoveryWidgetPicker"
+        },
+        "validations": {},
+        "defaultValue": [
+          ""
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "admin",
+      "createdAt": "2020-12-09T01:13:05.507+01:00",
+      "updatedBy": "adam.pengh@bloomreach.com",
+      "updatedAt": "2024-06-26T17:49:49.343+02:00",
+      "id": "WidgetCompound"
+    }
+  },
+  {
+    "name": "NewName",
+    "enabled": true,
+    "type": "Document",
+    "presentation": {
+      "displayName": "Display Name",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "string",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "String",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "adam.pengh@bloomreach.com",
+      "createdAt": "2023-12-13T17:36:16.184+01:00",
+      "updatedBy": "adam.pengh@bloomreach.com",
+      "updatedAt": "2023-12-13T17:42:08.296+01:00",
+      "id": "sRAFZ9C2PV"
+    }
+  },
+  {
+    "name": "test",
+    "enabled": true,
+    "type": "Document",
+    "presentation": {
+      "displayName": "test",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "multiValueString",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Multi-Value String",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": []
+      }
+    ],
+    "system": {
+      "createdBy": "nicholas.pavao@bloomreach.com",
+      "createdAt": "2023-12-21T23:26:10.279+01:00",
+      "updatedBy": "adam.pengh@bloomreach.com",
+      "updatedAt": "2024-05-08T15:17:17.415+02:00",
+      "id": "msR6wiwvnj"
+    }
+  },
+  {
+    "name": "DocumentCollection",
+    "enabled": true,
+    "type": "Document",
+    "presentation": {
+      "displayName": "DocumentCollection",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "document",
+        "type": "Link",
+        "required": false,
+        "multiple": true,
+        "presentation": {
+          "caption": "Document",
+          "hint": "",
+          "layoutColumn": 1,
+          "lookupFolderPath": null,
+          "lastVisitedNodetypes": null,
+          "languageContextAware": true,
+          "pickerType": null,
+          "displayType": "AnyLink",
+          "lookupFolderTypes": null,
+          "lastVisitedKey": null,
+          "lastVisitedEnabled": true
+        },
+        "validations": {},
+        "defaultValue": [
+          "/"
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "adam.pengh@bloomreach.com",
+      "createdAt": "2024-01-08T13:06:32.703+01:00",
+      "updatedBy": "adam.pengh@bloomreach.com",
+      "updatedAt": "2024-01-08T13:06:52.394+01:00",
+      "id": "gN6e3EaooT"
+    }
+  },
+  {
+    "name": "FieldGroupTest",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "FieldGroupTest",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "up",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Up",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "down",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Down",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "nicholas.pavao@bloomreach.com",
+      "createdAt": "2024-03-19T18:45:18.989+01:00",
+      "updatedBy": "nicholas.pavao@bloomreach.com",
+      "updatedAt": "2024-03-19T18:46:51.93+01:00",
+      "id": "xkYKf9FgPL"
+    }
+  },
+  {
+    "name": "FieldGroupTestTwo",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "FieldGroupTestTwo",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "enabled",
+        "type": "Boolean",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Enabled",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Checkbox"
+        },
+        "validations": {},
+        "defaultValue": [
+          false
+        ]
+      },
+      {
+        "name": "hex",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Hex",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "FieldGroupTest",
+        "type": "FieldGroup",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "FieldGroupTest",
+          "hint": "",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          {
+            "fields": {
+              "up": [
+                ""
+              ],
+              "down": [
+                ""
+              ]
+            }
+          }
+        ],
+        "fieldGroupType": "FieldGroupTest"
+      }
+    ],
+    "system": {
+      "createdBy": "nicholas.pavao@bloomreach.com",
+      "createdAt": "2024-03-19T18:48:01.717+01:00",
+      "updatedBy": "nicholas.pavao@bloomreach.com",
+      "updatedAt": "2024-03-19T18:53:49.185+01:00",
+      "id": "M8SEnhFVJz"
+    }
+  },
+  {
+    "name": "Paragraph",
+    "enabled": true,
+    "type": "Document",
+    "presentation": {
+      "displayName": "Paragraph",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "html",
+        "type": "Html",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Html",
+          "hint": "",
+          "layoutColumn": 1,
+          "ckEditorAppendedJson": null,
+          "ckEditorOverlayedJson": null
+        },
+        "validations": {},
+        "defaultValue": [
+          ""
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "adam.pengh@bloomreach.com",
+      "createdAt": "2024-03-21T12:26:58.513+01:00",
+      "updatedBy": "adam.pengh@bloomreach.com",
+      "updatedAt": "2024-03-21T12:27:10.618+01:00",
+      "id": "ofAAsOAhRu"
+    }
+  },
+  {
+    "name": "ProductListingContent",
+    "enabled": true,
+    "type": "Document",
+    "presentation": {
+      "displayName": "ProductListingContent",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "topBanner",
+        "type": "Link",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Top Banner",
+          "hint": "",
+          "layoutColumn": 1,
+          "lookupFolderPath": null,
+          "lastVisitedNodetypes": null,
+          "languageContextAware": true,
+          "pickerType": null,
+          "displayType": "AnyLink",
+          "lookupFolderTypes": null,
+          "lastVisitedKey": null,
+          "lastVisitedEnabled": true
+        },
+        "validations": {},
+        "defaultValue": [
+          "/"
+        ]
+      },
+      {
+        "name": "bottomBanner",
+        "type": "Link",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Bottom Banner",
+          "hint": "",
+          "layoutColumn": 1,
+          "lookupFolderPath": null,
+          "lastVisitedNodetypes": null,
+          "languageContextAware": true,
+          "pickerType": null,
+          "displayType": "AnyLink",
+          "lookupFolderTypes": null,
+          "lastVisitedKey": null,
+          "lastVisitedEnabled": true
+        },
+        "validations": {},
+        "defaultValue": [
+          "/"
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "adam.pengh@bloomreach.com",
+      "createdAt": "2024-03-21T16:40:49.012+01:00",
+      "updatedBy": "adam.pengh@bloomreach.com",
+      "updatedAt": "2024-03-21T16:42:34.64+01:00",
+      "id": "ISLCntIout"
+    }
+  },
+  {
+    "name": "RichTextNamedContent",
+    "enabled": true,
+    "type": "Document",
+    "presentation": {
+      "displayName": "RichTextNamedContent",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "title",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Title",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "content",
+        "type": "RichText",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Content",
+          "hint": "",
+          "layoutColumn": 1,
+          "ckEditorAppendedJson": null,
+          "ckEditorOverlayedJson": null,
+          "imagepickerBasePath": null,
+          "imagepickerType": "images",
+          "imagepickerNodetypes": null,
+          "imagepickerLastVisitedEnabled": null,
+          "imagepickerLastVisitedGroupKey": "ckeditor-imagepicker",
+          "imagepickerLastVisitedNodetypes": [
+            "gallery"
+          ],
+          "imagepickerPreferredImageVariant": "original",
+          "linkpickerBasePath": null,
+          "linkpickerType": "documents",
+          "linkpickerNodetypes": null,
+          "linkpickerLastVisitedEnabled": null,
+          "linkpickerLastVisitedGroupKey": "ckeditor-linkpicker",
+          "linkpickerLastVisitedNodetypes": [
+            "folder"
+          ],
+          "linkPickerLanguageContextAware": null,
+          "linkPickerOpenInNewWindowEnabled": true,
+          "includeImageVariants": null,
+          "excludeImageVariants": null
+        },
+        "validations": {},
+        "defaultValue": [
+          ""
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "nicholas.pavao@bloomreach.com",
+      "createdAt": "2024-04-03T16:40:17.286+02:00",
+      "updatedBy": "nicholas.pavao@bloomreach.com",
+      "updatedAt": "2024-04-03T16:40:44.293+02:00",
+      "id": "ogrw1QPknO"
+    }
+  },
+  {
+    "name": "ProductListingPage",
+    "enabled": true,
+    "type": "Document",
+    "presentation": {
+      "displayName": "Product Listing Page",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "title",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Title",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "adam.pengh@bloomreach.com",
+      "createdAt": "2024-04-09T20:28:43.393+02:00",
+      "updatedBy": "adam.pengh@bloomreach.com",
+      "updatedAt": "2024-04-09T20:37:27.608+02:00",
+      "id": "LwqydKzgm0"
+    }
+  },
+  {
+    "name": "StylesWellWithCompound",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "StylesWellWithCompound",
+      "layout": "two-column-mirrored"
+    },
+    "fields": [
+      {
+        "name": "dynamicdropdown",
+        "type": "SelectableString",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "DynamicDropdown",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Dropdown",
+          "sortOrder": null,
+          "sortBy": null,
+          "showDefault": null
+        },
+        "validations": {
+          "inResourceBundle": "brsm.widget.types",
+          "inValues": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "adam.pengh@bloomreach.com",
+      "createdAt": "2024-04-17T13:12:54.127+02:00",
+      "updatedBy": "adam.pengh@bloomreach.com",
+      "updatedAt": "2024-04-24T20:46:02.933+02:00",
+      "id": "XCcrfAK3yw"
+    }
+  },
+  {
+    "name": "Menu",
+    "enabled": true,
+    "type": "Document",
+    "presentation": {
+      "displayName": "Menu",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "boolean",
+        "type": "Boolean",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Boolean",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Checkbox"
+        },
+        "validations": {},
+        "defaultValue": [
+          false
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "nicholas.pavao@bloomreach.com",
+      "createdAt": "2024-04-23T01:26:25.29+02:00",
+      "updatedBy": "nicholas.pavao@bloomreach.com",
+      "updatedAt": "2024-04-23T01:27:48.916+02:00",
+      "id": "cBKODMwYbC"
+    }
+  },
+  {
+    "name": "DemoDocumentType",
+    "enabled": true,
+    "type": "Document",
+    "presentation": {
+      "displayName": "DemoDocumentType",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "ImageGroup",
+        "type": "FieldGroup",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "ImageGroup",
+          "hint": "",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          {
+            "fields": {
+              "mobileImageURL": [
+                ""
+              ],
+              "tabletImageUrl": [
+                ""
+              ],
+              "desktopImageUrl": [
+                ""
+              ],
+              "altText": []
+            }
+          }
+        ],
+        "fieldGroupType": "ImageGroup"
+      }
+    ],
+    "system": {
+      "createdBy": "adam.pengh@bloomreach.com",
+      "createdAt": "2024-05-24T17:40:40.086+02:00",
+      "updatedBy": "adam.pengh@bloomreach.com",
+      "updatedAt": "2024-06-12T18:22:44.324+02:00",
+      "id": "TR11Gxnnlk"
+    }
+  },
+  {
+    "name": "HelpCenterDocument",
+    "enabled": true,
+    "type": "Document",
+    "presentation": {
+      "displayName": "HelpCenterDocument",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "heading",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Heading",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "documents",
+        "type": "Link",
+        "required": false,
+        "multiple": true,
+        "presentation": {
+          "caption": "Documents",
+          "hint": "",
+          "layoutColumn": 1,
+          "lookupFolderPath": null,
+          "lastVisitedNodetypes": null,
+          "languageContextAware": true,
+          "pickerType": null,
+          "displayType": "AnyLink",
+          "lookupFolderTypes": [
+            "content"
+          ],
+          "lastVisitedKey": null,
+          "lastVisitedEnabled": true
+        },
+        "validations": {},
+        "defaultValue": [
+          "/"
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "adam.pengh@bloomreach.com",
+      "createdAt": "2024-05-27T19:03:09.201+02:00",
+      "updatedBy": "adam.pengh@bloomreach.com",
+      "updatedAt": "2024-05-27T19:04:27.396+02:00",
+      "id": "ECyxiyxYzC"
+    }
+  },
+  {
+    "name": "HelpCenterDocumentType",
+    "enabled": true,
+    "type": "Document",
+    "presentation": {
+      "displayName": "HelpCenterDocumentType",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "heading",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Heading",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "subHeading",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Sub-Heading",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "documents",
+        "type": "Link",
+        "required": false,
+        "multiple": true,
+        "presentation": {
+          "caption": "Documents",
+          "hint": "",
+          "layoutColumn": 1,
+          "lookupFolderPath": null,
+          "lastVisitedNodetypes": null,
+          "languageContextAware": true,
+          "pickerType": null,
+          "displayType": "AnyLink",
+          "lookupFolderTypes": null,
+          "lastVisitedKey": null,
+          "lastVisitedEnabled": true
+        },
+        "validations": {},
+        "defaultValue": [
+          "/"
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "adam.pengh@bloomreach.com",
+      "createdAt": "2024-05-27T19:17:13.056+02:00",
+      "updatedBy": "adam.pengh@bloomreach.com",
+      "updatedAt": "2024-05-28T19:17:31.482+02:00",
+      "id": "Bnhr4OcDQe"
+    }
+  },
+  {
+    "name": "DocumentsList",
+    "enabled": true,
+    "type": "Document",
+    "presentation": {
+      "displayName": "DocumentsList",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "heading",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Heading",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "subHeading",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Sub-Heading",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "documents",
+        "type": "Link",
+        "required": false,
+        "multiple": true,
+        "presentation": {
+          "caption": "Documents",
+          "hint": "",
+          "layoutColumn": 1,
+          "lookupFolderPath": null,
+          "lastVisitedNodetypes": null,
+          "languageContextAware": true,
+          "pickerType": null,
+          "displayType": "AnyLink",
+          "lookupFolderTypes": null,
+          "lastVisitedKey": null,
+          "lastVisitedEnabled": true
+        },
+        "validations": {},
+        "defaultValue": [
+          "/"
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "adam.pengh@bloomreach.com",
+      "createdAt": "2024-05-29T15:46:12.577+02:00",
+      "updatedBy": "adam.pengh@bloomreach.com",
+      "updatedAt": "2024-05-29T15:46:49.177+02:00",
+      "id": "pSKFSfnOkT"
+    }
+  },
+  {
+    "name": "ImageGroup",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Image Group",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "mobileImageURL",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Mobile Image URL",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "tabletImageUrl",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Tablet Image URL",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "desktopImageUrl",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Desktop Image URL",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "altText",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Alt Text",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "adam.pengh@bloomreach.com",
+      "createdAt": "2024-06-12T17:25:09.361+02:00",
+      "updatedBy": "adam.pengh@bloomreach.com",
+      "updatedAt": "2024-06-25T15:28:48.863+02:00",
+      "id": "b5TL36mqPY"
+    }
+  },
+  {
+    "name": "ContentCard",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "Content Card",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "image",
+        "type": "FieldGroup",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Image",
+          "hint": "",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          {
+            "fields": {
+              "mobileImageURL": [
+                ""
+              ],
+              "tabletImageUrl": [
+                ""
+              ],
+              "desktopImageUrl": [
+                ""
+              ],
+              "altText": [
+                ""
+              ]
+            }
+          }
+        ],
+        "fieldGroupType": "ImageGroup"
+      }
+    ],
+    "system": {
+      "createdBy": "adam.pengh@bloomreach.com",
+      "createdAt": "2024-06-25T15:26:27.508+02:00",
+      "updatedBy": "adam.pengh@bloomreach.com",
+      "updatedAt": "2024-06-25T15:30:16.094+02:00",
+      "id": "J9IJMRU4Az"
+    }
+  },
+  {
+    "name": "CarouselSettingsGroup",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "CarouselSettingsGroup",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "arrows",
+        "type": "Boolean",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Arrows",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Checkbox"
+        },
+        "validations": {},
+        "defaultValue": [
+          true
+        ]
+      },
+      {
+        "name": "autoplay",
+        "type": "Boolean",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Autoplay",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Checkbox"
+        },
+        "validations": {},
+        "defaultValue": [
+          false
+        ]
+      },
+      {
+        "name": "autoplaySpeed",
+        "type": "Integer",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Autoplay Speed",
+          "hint": "Autoplay Speed in milliseconds",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          0
+        ]
+      },
+      {
+        "name": "dots",
+        "type": "Boolean",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Dots",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Checkbox"
+        },
+        "validations": {},
+        "defaultValue": [
+          true
+        ]
+      },
+      {
+        "name": "dotsStyle",
+        "type": "SelectableString",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Dots Style",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Dropdown",
+          "sortOrder": null,
+          "sortBy": null,
+          "showDefault": null
+        },
+        "validations": {
+          "inResourceBundle": "carousel.dots.styles",
+          "inValues": null
+        },
+        "defaultValue": [
+          "dots"
+        ]
+      },
+      {
+        "name": "fade",
+        "type": "Boolean",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Fade",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Checkbox"
+        },
+        "validations": {},
+        "defaultValue": [
+          false
+        ]
+      },
+      {
+        "name": "infinite",
+        "type": "Boolean",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Infinite",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Checkbox"
+        },
+        "validations": {},
+        "defaultValue": [
+          true
+        ]
+      },
+      {
+        "name": "pauseOnDotsHover",
+        "type": "Boolean",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Pause on Dots Hover",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Checkbox"
+        },
+        "validations": {},
+        "defaultValue": [
+          false
+        ]
+      },
+      {
+        "name": "pauseOnFocus",
+        "type": "Boolean",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Pause on Focus",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Checkbox"
+        },
+        "validations": {},
+        "defaultValue": [
+          false
+        ]
+      },
+      {
+        "name": "pauseOnHover",
+        "type": "Boolean",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Pause on Hover",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Checkbox"
+        },
+        "validations": {},
+        "defaultValue": [
+          false
+        ]
+      },
+      {
+        "name": "rows",
+        "type": "Integer",
+        "required": true,
+        "multiple": false,
+        "presentation": {
+          "caption": "Rows",
+          "hint": "Setting this to more than 1 initializes grid mode. Use \"Slides Per Row\" to set how many slides should be in each row.",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          1
+        ]
+      },
+      {
+        "name": "slidesPerRow",
+        "type": "Integer",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Slides Per Row",
+          "hint": "With grid mode intialized via the Rows option, this sets how many slides are in each grid row",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          1
+        ]
+      },
+      {
+        "name": "slidesToScroll",
+        "type": "Integer",
+        "required": true,
+        "multiple": false,
+        "presentation": {
+          "caption": "Slides to Scroll",
+          "hint": "# of slides to scroll",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          1
+        ]
+      },
+      {
+        "name": "slidesToShow",
+        "type": "Integer",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Slides to Show",
+          "hint": "# of slides to show",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          4
+        ]
+      },
+      {
+        "name": "speed",
+        "type": "Integer",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Speed",
+          "hint": "slide/fade animation speed",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          500
+        ]
+      },
+      {
+        "name": "vertical",
+        "type": "Boolean",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Vertical",
+          "hint": "Vertical carousel",
+          "layoutColumn": 1,
+          "displayType": "Checkbox"
+        },
+        "validations": {},
+        "defaultValue": [
+          false
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "adam.pengh@bloomreach.com",
+      "createdAt": "2024-06-26T17:05:40.681+02:00",
+      "updatedBy": "adam.pengh@bloomreach.com",
+      "updatedAt": "2024-06-26T17:26:52.474+02:00",
+      "id": "caXOFaCUvH"
+    }
+  },
+  {
+    "name": "PathwaysRecommendationsDocument",
+    "enabled": true,
+    "type": "Document",
+    "presentation": {
+      "displayName": "PathwaysRecommendationsDocument",
+      "layout": "two-column"
+    },
+    "fields": [
+      {
+        "name": "carouselSettings",
+        "type": "FieldGroup",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Carousel Settings",
+          "hint": "",
+          "layoutColumn": 2
+        },
+        "validations": {},
+        "defaultValue": [
+          {
+            "fields": {
+              "arrows": [
+                true
+              ],
+              "autoplay": [
+                false
+              ],
+              "autoplaySpeed": [
+                0
+              ],
+              "dots": [
+                true
+              ],
+              "dotsStyle": [
+                "dots"
+              ],
+              "fade": [
+                false
+              ],
+              "infinite": [
+                true
+              ],
+              "pauseOnDotsHover": [
+                false
+              ],
+              "pauseOnFocus": [
+                false
+              ],
+              "pauseOnHover": [
+                false
+              ],
+              "rows": [
+                1
+              ],
+              "slidesPerRow": [
+                1
+              ],
+              "slidesToScroll": [
+                1
+              ],
+              "slidesToShow": [
+                4
+              ],
+              "speed": [
+                500
+              ],
+              "vertical": [
+                false
+              ]
+            }
+          }
+        ],
+        "fieldGroupType": "CarouselSettingsGroup"
+      },
+      {
+        "name": "heading",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Heading",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "pathwaysRecommendations",
+        "type": "FieldGroup",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Pathways & Recommendations",
+          "hint": "",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          {
+            "fields": {
+              "widgetCompound": [
+                {
+                  "fields": {
+                    "widgetalgo": [
+                      ""
+                    ],
+                    "widgetid": [
+                      ""
+                    ]
+                  }
+                }
+              ],
+              "categoryCompound": [
+                {
+                  "fields": {
+                    "useCategoryIdFromPage": [
+                      false
+                    ],
+                    "categoryid": [
+                      ""
+                    ]
+                  }
+                }
+              ],
+              "productCompound": [
+                {
+                  "fields": {
+                    "usePidFromPage": [
+                      false
+                    ],
+                    "productid": [
+                      ""
+                    ]
+                  }
+                }
+              ],
+              "keyword": [
+                ""
+              ]
+            }
+          }
+        ],
+        "fieldGroupType": "PathwaysRecommendations"
+      }
+    ],
+    "system": {
+      "createdBy": "adam.pengh@bloomreach.com",
+      "createdAt": "2024-06-26T17:47:29.589+02:00",
+      "updatedBy": "adam.pengh@bloomreach.com",
+      "updatedAt": "2024-06-26T20:09:30.772+02:00",
+      "id": "MpoKxuXGsm"
+    }
+  },
+  {
+    "name": "ProductPicker",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "ProductPicker",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "usePidFromPage",
+        "type": "Boolean",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Use Product ID from Current Page",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Checkbox"
+        },
+        "validations": {},
+        "defaultValue": [
+          false
+        ]
+      },
+      {
+        "name": "productid",
+        "type": "OpenUiExtension",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Product",
+          "hint": "",
+          "layoutColumn": 1,
+          "extensionType": "discoveryProductPicker"
+        },
+        "validations": {},
+        "defaultValue": [
+          ""
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "adam.pengh@bloomreach.com",
+      "createdAt": "2024-06-26T19:58:08.927+02:00",
+      "updatedBy": "adam.pengh@bloomreach.com",
+      "updatedAt": "2024-06-26T20:00:52.728+02:00",
+      "id": "YP3IiSZ5Kz"
+    }
+  },
+  {
+    "name": "CategoryPicker",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "CategoryPicker",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "useCategoryIdFromPage",
+        "type": "Boolean",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Use Category ID from Page",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Checkbox"
+        },
+        "validations": {},
+        "defaultValue": [
+          false
+        ]
+      },
+      {
+        "name": "categoryid",
+        "type": "OpenUiExtension",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Category",
+          "hint": "",
+          "layoutColumn": 1,
+          "extensionType": "discoveryCategoryPicker"
+        },
+        "validations": {},
+        "defaultValue": [
+          ""
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "adam.pengh@bloomreach.com",
+      "createdAt": "2024-06-26T20:05:09.651+02:00",
+      "updatedBy": "adam.pengh@bloomreach.com",
+      "updatedAt": "2024-06-26T20:06:03.3+02:00",
+      "id": "On3qodr7c8"
+    }
+  },
+  {
+    "name": "PathwaysRecommendations",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "PathwaysRecommendations",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "widgetCompound",
+        "type": "FieldGroup",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Widget",
+          "hint": "",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          {
+            "fields": {
+              "widgetalgo": [
+                ""
+              ],
+              "widgetid": [
+                ""
+              ]
+            }
+          }
+        ],
+        "fieldGroupType": "vuestorefront:WidgetCompound"
+      },
+      {
+        "name": "categoryCompound",
+        "type": "FieldGroup",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Category",
+          "hint": "",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          {
+            "fields": {
+              "useCategoryIdFromPage": [
+                false
+              ],
+              "categoryid": [
+                ""
+              ]
+            }
+          }
+        ],
+        "fieldGroupType": "CategoryPicker"
+      },
+      {
+        "name": "productCompound",
+        "type": "FieldGroup",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Product",
+          "hint": "",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          {
+            "fields": {
+              "usePidFromPage": [
+                false
+              ],
+              "productid": [
+                ""
+              ]
+            }
+          }
+        ],
+        "fieldGroupType": "ProductPicker"
+      },
+      {
+        "name": "keyword",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Keyword",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      }
+    ],
+    "system": {
+      "createdBy": "adam.pengh@bloomreach.com",
+      "createdAt": "2024-06-26T20:06:54.294+02:00",
+      "updatedBy": "adam.pengh@bloomreach.com",
+      "updatedAt": "2024-06-26T20:09:45.665+02:00",
+      "id": "RQnWpFp93m"
+    }
+  },
+  {
+    "name": "MegaMenuGroup",
+    "enabled": true,
+    "type": "FieldGroup",
+    "presentation": {
+      "displayName": "MegaMenuGroup",
+      "layout": "two-column-mirrored"
+    },
+    "fields": [
+      {
+        "name": "menuName",
+        "type": "String",
+        "required": false,
+        "multiple": false,
+        "presentation": {
+          "caption": "Menu Name",
+          "hint": "",
+          "layoutColumn": 1,
+          "displayType": "Simple"
+        },
+        "validations": {
+          "maxLength": null
+        },
+        "defaultValue": [
+          ""
+        ]
+      },
+      {
+        "name": "banners",
+        "type": "Link",
+        "required": false,
+        "multiple": true,
+        "presentation": {
+          "caption": "Banners",
+          "hint": "",
+          "layoutColumn": 2,
+          "lookupFolderPath": null,
+          "lastVisitedNodetypes": null,
+          "languageContextAware": true,
+          "pickerType": null,
+          "displayType": "AnyLink",
+          "lookupFolderTypes": null,
+          "lastVisitedKey": null,
+          "lastVisitedEnabled": true
+        },
+        "validations": {},
+        "defaultValue": []
+      }
+    ],
+    "system": {
+      "createdBy": "adam.pengh@bloomreach.com",
+      "createdAt": "2024-06-28T17:07:54.696+02:00",
+      "updatedBy": "adam.pengh@bloomreach.com",
+      "updatedAt": "2024-06-28T17:09:03.69+02:00",
+      "id": "GbXCGSZPer"
+    }
+  },
+  {
+    "name": "MegaMenuDocument",
+    "enabled": true,
+    "type": "Document",
+    "presentation": {
+      "displayName": "MegaMenuDocument",
+      "layout": "one-column"
+    },
+    "fields": [
+      {
+        "name": "megaMenuGroup",
+        "type": "FieldGroup",
+        "required": false,
+        "multiple": true,
+        "presentation": {
+          "caption": "Mega Menu Banner(s)",
+          "hint": "",
+          "layoutColumn": 1
+        },
+        "validations": {},
+        "defaultValue": [
+          {
+            "fields": {
+              "menuName": [
+                ""
+              ],
+              "banners": []
+            }
+          }
+        ],
+        "fieldGroupType": "MegaMenuGroup"
+      }
+    ],
+    "system": {
+      "createdBy": "adam.pengh@bloomreach.com",
+      "createdAt": "2024-06-28T17:09:16.959+02:00",
+      "updatedBy": "adam.pengh@bloomreach.com",
+      "updatedAt": "2024-06-28T17:09:53.776+02:00",
+      "id": "s6aALr21M8"
+    }
+  }
+]

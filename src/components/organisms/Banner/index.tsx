@@ -15,6 +15,7 @@ export const Banner = ({ document, component, page }: BrxComponentWrapperProps) 
   const height = image?.getOriginal()?.getHeight();
   const aspectRatio = width && height ? width / height : 16 / 9;
 
+  console.groupEnd()
   return (
     <Container maxWidth={false} disableGutters>
       {image && <img src={image.getOriginal().getUrl()} alt={image.getName()} style={{ width: '100%' }} />}

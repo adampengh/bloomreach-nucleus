@@ -1,11 +1,18 @@
-import React, { useContext, useState } from 'react'
-import { BrComponentContext, BrManageMenuButton, BrPageContext } from '@bloomreach/react-sdk'
+import React, { useContext, useMemo, useState } from 'react'
+import { BrComponent, BrComponentContext, BrManageMenuButton, BrPageContext } from '@bloomreach/react-sdk'
 import { Menu as BrMenu, MenuItem, isMenu } from '@bloomreach/spa-sdk'
 import { Box, ClickAwayListener, Grid, Link, List, ListItem, Typography } from '@mui/material';
 
 import styles from './Navigation.module.scss'
+import { parseBrxEndpoint } from '@/lib/utils/Content';
+import { useRouter } from 'next/router';
+import { ContentDeliveryAPI } from '@/lib/utils/DeliveryApi';
+
+const MEGA_MENU_BANNERS_PATH = 'configuration/mega-menu-banners/mega-menu-banners'
 
 export const Navigation = ({ top }: any) => {
+  const { query } = useRouter();
+
   const [showMegaMenu, setShowMegaMenu] = useState<boolean>(false);
   const [activeMenu, setActiveMenu] = useState<number>(-1);
   const handleActiveMenu = (event: any, menu: any) => {
@@ -28,6 +35,26 @@ export const Navigation = ({ top }: any) => {
 
   const { menu: menuRef } = component?.getModels<MenuModels>()
   const menu: BrMenu = menuRef && page?.getContent<BrMenu>(menuRef)
+
+  useMemo(() => {
+    (async () => {
+      // Check if there is a preview token
+      // const { token } = query
+
+      // Get the environment and channel from the configuration endpoint
+      const { environment, channel } = parseBrxEndpoint(page?.toJSON()?.links?.self?.href)
+      if (!environment || !channel) {
+        console.error('Environment and Channel are required')
+        return
+      }
+
+      // Fetch the Mega Menu Banners document using the Document Delivery API V1
+      const documentFetcher = new ContentDeliveryAPI(environment, channel)
+      await documentFetcher.getV1DocumentById(MEGA_MENU_BANNERS_PATH)
+        .then(res => console.log('Mega Menu Banners Doc:', res.data))
+        .catch(err => console.log('err', err))
+    })();
+  }, [menu])
 
   if (!menu || !isMenu(menu)) {
     return null;
@@ -74,7 +101,6 @@ export const Navigation = ({ top }: any) => {
 
                     {/* Mega Menu Banners */}
                     <Box  className={`${styles['nav__mega-menu-promos']}`}>
-                      {item.getName()}
                       {{
                         'Furniture': <FurniturePromos />,
                         'Décor & Pillows': <DecorPromos />
@@ -100,6 +126,11 @@ export const Navigation = ({ top }: any) => {
 const FurniturePromos = () => {
   return (
     <>
+      <BrComponent path='promos-furniture'>
+        <div style={{ display: 'block', position: 'relative', zIndex: 10000 }}>
+          <BrComponent />
+        </div>
+      </BrComponent>
       <Typography variant='h3'>Furniture Trends</Typography>
       <Grid container spacing={1} sx={{ mt: 1 }}>
         <Grid item xs={6}>

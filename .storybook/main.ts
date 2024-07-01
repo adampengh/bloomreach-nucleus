@@ -32,8 +32,8 @@ const config: StorybookConfig = {
       @font-face {
         font-family: "Bloomreach Sans";
         src:
-            url(https://www.bloomreach.com/css/fonts/BloomreachSans-Regular.woff2)format("woff2"),
-            url(https://www.bloomreach.com/css/fonts/BloomreachSans-Regular.woff)format("woff");
+            url(https://www.bloomreach.com/wp-content/uploads/2024/04/BloomreachSans-Regular.woff2)format("woff2"),
+            url(https://www.bloomreach.com/wp-content/uploads/2024/04/BloomreachSans-Regular.woff)format("woff");
         font-weight: 400;
         font-style: normal;
         font-display: block
@@ -41,8 +41,8 @@ const config: StorybookConfig = {
       @font-face {
         font-family: "Bloomreach Sans";
         src:
-            url(https://www.bloomreach.com/css/fonts/BloomreachSans-Medium.woff2)format("woff2"),
-            url(https://www.bloomreach.com/css/fonts/BloomreachSans-Medium.woff)format("woff");
+            url(https://www.bloomreach.com/wp-content/uploads/2024/04/BloomreachSans-Medium.woff2)format("woff2"),
+            url(https://www.bloomreach.com/wp-content/uploads/2024/04/BloomreachSans-Medium.woff)format("woff");
         font-weight: 700;
         font-style: normal;
         font-display: block

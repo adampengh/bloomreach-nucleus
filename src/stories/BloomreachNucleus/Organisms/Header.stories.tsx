@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Header, Logo } from '@/components'
 
 const configuration = {
-  endpoint: 'https://profserv02.bloomreach.io/delivery/site/v1/channels/bloomreach-nucleus/pages./footer',
+  endpoint: process.env.NEXT_PUBLIC_BRX_ENDPOINT + './header',
   path: '/',
   httpClient: axios,
 }

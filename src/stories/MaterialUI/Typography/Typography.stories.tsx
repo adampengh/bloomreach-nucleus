@@ -1,4 +1,4 @@
-import { Typography } from './';
+import { Typography } from '.';
 
 export default {
   title: 'Material UI/Typography',

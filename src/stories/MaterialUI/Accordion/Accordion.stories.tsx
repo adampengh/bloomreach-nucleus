@@ -1,5 +1,5 @@
 
-import { Accordion } from './';
+import { Accordion } from '.';
 
 export default {
   title: 'Material UI/Accordion',

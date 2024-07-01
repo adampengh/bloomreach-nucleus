@@ -103,3 +103,22 @@ interface ProductDetailPageProps {
   query?: import('querystring').ParsedUrlQuery;
   productId?: string;
 }
+
+interface PathwaysRecommendationsCompound {
+  categoryCompound?: {
+    categoryid: string;
+    useCategoryIdFromPage: boolean;
+  };
+  keyword?: string;
+  productCompound?: {
+    productid?: string;
+    usePidFromPdp: boolean;
+  };
+  widgetCompound?: {
+    widgetid: string;
+    widgetalgo: {
+      sourceName: string;
+      selectionValues: [{ key: string; label: string }];
+    };
+  };
+}

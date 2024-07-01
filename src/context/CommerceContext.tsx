@@ -63,7 +63,6 @@ export function CommerceContextProvider({
     <CommerceContext.Provider
       value={{
         connector,
-        discoveryConnector: 'brsm',
         discoveryViewId,
         discoveryAccountId,
         discoveryAuthKey,

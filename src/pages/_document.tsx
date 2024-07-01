@@ -4,11 +4,11 @@ class MyDocument extends Document {
   render() {
     const nextInlineScriptSource = NextScript.getInlineScriptSource;
     NextScript.getInlineScriptSource = (props: any) => {
-      let brxmPage = JSON.stringify(props['__NEXT_DATA__'].props.pageProps.page)
-      brxmPage = brxmPage.replace(/\/page\//g, 'page/');
-      brxmPage = JSON.parse(brxmPage);
+      let brxPage = JSON.stringify(props['__NEXT_DATA__'].props.pageProps.page)
+      brxPage = brxPage.replace(/\/page\//g, 'page/');
+      brxPage = JSON.parse(brxPage);
 
-      props['__NEXT_DATA__'].props.pageProps.page = brxmPage;
+      props['__NEXT_DATA__'].props.pageProps.page = brxPage;
       return nextInlineScriptSource(props);
     };
 

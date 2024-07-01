@@ -10,8 +10,8 @@ export const TitleAndText = ({ component, page }: BrProps) => {
   const { title, text } = getContainerItemContent<any>(component, page) ?? {};
 
   return (
-    <Container maxWidth={'lg'}>
-      {title && <Typography variant='h1' component='h1'>{title}</Typography>}
+    <Container maxWidth={'xl'} disableGutters sx={{ my: 3 }}>
+      {title && <Typography variant='h3' component='h3'>{title}</Typography>}
       {text && <Typography variant='body1'>{text}</Typography>}
     </Container>
   );

@@ -83,52 +83,6 @@
     ]
   },
   {
-    "name": "c",
-    "layout": null,
-    "pageTitle": null,
-    "relativeContentPath": null,
-    "referenceId": null,
-    "parameters": {},
-    "documentRequired": false,
-    "doctypePages": {},
-    "items": [
-      {
-        "name": "_default_",
-        "layout": "product-listing",
-        "pageTitle": "c/_default_",
-        "relativeContentPath": "pages/category/${1}",
-        "referenceId": null,
-        "parameters": {},
-        "documentRequired": false,
-        "doctypePages": {},
-        "items": [
-          {
-            "name": "_index_",
-            "layout": "product-listing",
-            "pageTitle": null,
-            "relativeContentPath": "pages/category/${1}/index",
-            "referenceId": null,
-            "parameters": {},
-            "documentRequired": false,
-            "doctypePages": {},
-            "items": []
-          },
-          {
-            "name": "_any_",
-            "layout": "product-listing",
-            "pageTitle": "c/_default_/_any_",
-            "relativeContentPath": "pages/category/${1}",
-            "referenceId": null,
-            "parameters": {},
-            "documentRequired": false,
-            "doctypePages": {},
-            "items": []
-          }
-        ]
-      }
-    ]
-  },
-  {
     "name": "help",
     "layout": "help-center-topics-list",
     "pageTitle": "Help Center",
@@ -217,6 +171,87 @@
         "documentRequired": false,
         "doctypePages": {},
         "items": []
+      }
+    ]
+  },
+  {
+    "name": "p",
+    "layout": "product-detail",
+    "pageTitle": null,
+    "relativeContentPath": null,
+    "referenceId": null,
+    "parameters": {},
+    "documentRequired": false,
+    "doctypePages": {},
+    "items": [
+      {
+        "name": "_default_",
+        "layout": "product-detail",
+        "pageTitle": null,
+        "relativeContentPath": "pages/product-detail/${1}",
+        "referenceId": null,
+        "parameters": {},
+        "documentRequired": false,
+        "doctypePages": {},
+        "items": [
+          {
+            "name": "_any_",
+            "layout": "product-detail",
+            "pageTitle": null,
+            "relativeContentPath": "pages/product-detail/${1}",
+            "referenceId": null,
+            "parameters": {},
+            "documentRequired": false,
+            "doctypePages": {},
+            "items": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "c",
+    "layout": "product-listing",
+    "pageTitle": null,
+    "relativeContentPath": null,
+    "referenceId": null,
+    "parameters": {},
+    "documentRequired": false,
+    "doctypePages": {},
+    "items": [
+      {
+        "name": "_default_",
+        "layout": "product-listing",
+        "pageTitle": "c/_default_",
+        "relativeContentPath": "pages/plp/${1}",
+        "referenceId": null,
+        "parameters": {},
+        "documentRequired": false,
+        "doctypePages": {},
+        "items": [
+          {
+            "name": "_index_",
+            "layout": "product-listing",
+            "pageTitle": null,
+            "relativeContentPath": "pages/plp/${1}/index",
+            "referenceId": null,
+            "parameters": {},
+            "documentRequired": false,
+            "doctypePages": {},
+            "items": []
+          },
+          {
+            "name": "_any_",
+            "layout": "product-listing",
+            "pageTitle": null,
+            "relativeContentPath": "pages/plp/${1}",
+            "referenceId": null,
+            "parameters": {},
+            "documentRequired": false,
+            "doctypePages": {},
+            "items": []
+          }
+        ]
       }
     ]
   }

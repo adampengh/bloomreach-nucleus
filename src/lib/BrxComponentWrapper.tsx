@@ -1,17 +1,17 @@
 import React from 'react';
 import { BrManageContentButton } from '@bloomreach/react-sdk'
-import { Component as BrComponent, Page, Document } from '@bloomreach/spa-sdk'
-import { Container } from '@mui/material'
+import { Page, Document, ContainerItem } from '@bloomreach/spa-sdk'
+import { Alert, Container } from '@mui/material'
 
 export type BrxComponentProps = {
-  component: BrComponent | null;
+  component: ContainerItem | null;
   page: Page;
   children: any;
 }
 
 export type BrxComponentWrapperProps = {
   document: Document | null;
-  component: BrComponent | null;
+  component: ContainerItem | null;
   page: Page;
 }
 
@@ -27,48 +27,43 @@ const BrxComponentWrapper = (Component: any): any => {
     const document = documentRef && page.getContent(documentRef)
 
     // In Experience Manager Preview Mode, if a document has not been selected, still show the Manage Content Button
-    if (!document) {
+    if (!document || document === '') {
       return page.isPreview()
-        && <div className='has-edit-button'>
+        && <Container maxWidth={false} disableGutters className='has-edit-button'>
           <BrManageContentButton
-            documentTemplateQuery={`${parameters['document-template-query']}`}
-            folderTemplateQuery={`${parameters['folder-template-query']}`}
+            documentTemplateQuery={parameters['documentTemplateQuery'] ?? 'new-document'}
+            folderTemplateQuery={parameters['folderTemplateQuery'] ?? 'new-translate-folder'}
             relative={parameters['relative'] || false}
-            parameter={`${parameters['document']}`}
-            root={`${parameters['root']}`}
+            parameter={parameters['document'] || 'document'}
+            pickerRootPath={parameters['pickerRootPath'] || '/content/documents'}
+            root={parameters['root']}
           />
-        </div>
+          <Container maxWidth={'xl'}>
+            <Alert severity='error'>
+              {component.getLabel()}: Please Select a Document
+            </Alert>
+          </Container>
+          </Container>
     }
 
     return (
-      <Container maxWidth={false} disableGutters>
-        {page.isPreview() ? (
-          <div className='has-edit-button'>
-            <BrManageContentButton
-              content={document}
-              documentTemplateQuery={`${parameters['document-template-query']}`}
-              folderTemplateQuery={`${parameters['folder-template-query']}`}
-              relative={parameters['relative'] || false}
-              parameter={`${parameters['document']}`}
-              root={`${parameters['root']}`}
-            />
-            <Component
-              document={document}
-              component={component}
-              page={page}
-            >
-              {children}
-            </Component>
-          </div>
-        ) : (
-          <Component
-            document={document}
-            component={component}
-            page={page}
-          >
-            {children}
-          </Component>
-        )}
+      <Container maxWidth={false} disableGutters className={page.isPreview() ? 'has-edit-button' : ''}>
+        <BrManageContentButton
+          content={document}
+          documentTemplateQuery={parameters['documentTemplateQuery'] ?? 'new-document'}
+          folderTemplateQuery={parameters['folderTemplateQuery'] ?? 'new-translate-folder'}
+          relative={parameters['relative'] || false}
+          parameter={parameters['document'] || 'document'}
+          pickerRootPath={parameters['pickerRootPath'] || '/content/documents'}
+          root={parameters['root']}
+        />
+        <Component
+          document={document}
+          component={component}
+          page={page}
+        >
+          {children}
+        </Component>
       </Container>
     )
   }

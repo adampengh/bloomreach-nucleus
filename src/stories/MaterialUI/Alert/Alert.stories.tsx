@@ -1,5 +1,5 @@
 
-import { Alert } from './';
+import { Alert } from '.';
 
 export default {
   title: 'Material UI/Alert',

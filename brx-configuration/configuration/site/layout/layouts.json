@@ -239,50 +239,26 @@
     ]
   },
   {
-    "name": "plp-level-one",
-    "label": null,
-    "description": null,
-    "parameters": {},
-    "type": "abstract",
-    "extends": "base",
-    "components": [
-      {
-        "name": "plp-top-shared",
-        "label": null,
-        "description": null,
-        "parameters": {},
-        "xtype": null,
-        "definition": null,
-        "components": [
-          {
-            "name": "container",
-            "label": "PLP Top (Shared)",
-            "description": null,
-            "parameters": {},
-            "xtype": "hst.vbox",
-            "type": "managed"
-          }
-        ],
-        "type": "static"
-      }
-    ]
-  },
-  {
     "name": "product-listing",
-    "label": null,
+    "label": "Product Listing",
     "description": null,
-    "parameters": {},
+    "parameters": {
+      "categoryId": "${1}",
+      "previewCategoryId": "116748"
+    },
     "type": "page",
-    "extends": "plp-level-one",
+    "extends": "product-listing-abstract",
     "components": []
   },
   {
     "name": "product-listing-page",
-    "label": "Product Listing Page Layout",
+    "label": "Product Listing Page",
     "description": null,
-    "parameters": {},
+    "parameters": {
+      "categoryId": "${1}"
+    },
     "type": "xpage",
-    "extends": "plp-level-one",
+    "extends": "product-listing-abstract",
     "components": [
       {
         "name": "plp-top",
@@ -314,25 +290,6 @@
           {
             "name": "container",
             "label": "PLP Bottom",
-            "description": null,
-            "parameters": {},
-            "xtype": "hst.vbox",
-            "type": "managed"
-          }
-        ],
-        "type": "static"
-      },
-      {
-        "name": "plp-in-grid",
-        "label": null,
-        "description": null,
-        "parameters": {},
-        "xtype": null,
-        "definition": null,
-        "components": [
-          {
-            "name": "container",
-            "label": "PLP In-Grid Banner",
             "description": null,
             "parameters": {},
             "xtype": "hst.vbox",
@@ -556,6 +513,183 @@
             "definition": "base/component",
             "components": [],
             "type": "static"
+          }
+        ],
+        "type": "static"
+      }
+    ]
+  },
+  {
+    "name": "product-detail",
+    "label": "Product Detail",
+    "description": null,
+    "parameters": {
+      "productId": "${1}",
+      "previewProductId": "33327"
+    },
+    "type": "page",
+    "extends": "product-detail-abstract",
+    "components": []
+  },
+  {
+    "name": "product-detail-xpage",
+    "label": "Product Detail (XPage)",
+    "description": null,
+    "parameters": {
+      "productId": "${1}"
+    },
+    "type": "xpage",
+    "extends": "product-detail-abstract",
+    "components": [
+      {
+        "name": "details",
+        "label": null,
+        "description": null,
+        "parameters": {},
+        "xtype": null,
+        "definition": null,
+        "components": [
+          {
+            "name": "container",
+            "label": "Details",
+            "description": null,
+            "parameters": {},
+            "xtype": "hst.vbox",
+            "type": "managed"
+          }
+        ],
+        "type": "static"
+      },
+      {
+        "name": "pdp-top",
+        "label": null,
+        "description": null,
+        "parameters": {},
+        "xtype": null,
+        "definition": null,
+        "components": [
+          {
+            "name": "container",
+            "label": "PDP Top (Specific)",
+            "description": null,
+            "parameters": {},
+            "xtype": "hst.vbox",
+            "type": "managed"
+          }
+        ],
+        "type": "static"
+      }
+    ]
+  },
+  {
+    "name": "product-detail-abstract",
+    "label": null,
+    "description": null,
+    "parameters": {},
+    "type": "abstract",
+    "extends": "base",
+    "components": [
+      {
+        "name": "top",
+        "label": null,
+        "description": null,
+        "parameters": {},
+        "xtype": null,
+        "definition": null,
+        "components": [
+          {
+            "name": "container",
+            "label": "Top",
+            "description": null,
+            "parameters": {},
+            "xtype": "hst.vbox",
+            "type": "managed"
+          }
+        ],
+        "type": "static"
+      },
+      {
+        "name": "bottom",
+        "label": null,
+        "description": null,
+        "parameters": {},
+        "xtype": null,
+        "definition": null,
+        "components": [
+          {
+            "name": "container",
+            "label": "Bottom",
+            "description": null,
+            "parameters": {},
+            "xtype": "hst.vbox",
+            "type": "managed"
+          }
+        ],
+        "type": "static"
+      },
+      {
+        "name": "shipping-tab",
+        "label": null,
+        "description": null,
+        "parameters": {},
+        "xtype": null,
+        "definition": null,
+        "components": [
+          {
+            "name": "container",
+            "label": "Shipping",
+            "description": null,
+            "parameters": {},
+            "xtype": "hst.vbox",
+            "type": "managed"
+          }
+        ],
+        "type": "static"
+      }
+    ]
+  },
+  {
+    "name": "product-listing-abstract",
+    "label": "Product Listing Page Abstract Layout",
+    "description": null,
+    "parameters": {},
+    "type": "abstract",
+    "extends": "base",
+    "components": [
+      {
+        "name": "top",
+        "label": null,
+        "description": null,
+        "parameters": {},
+        "xtype": null,
+        "definition": null,
+        "components": [
+          {
+            "name": "container",
+            "label": "PLP Top (All PLPs)",
+            "description": null,
+            "parameters": {},
+            "xtype": "hst.vbox",
+            "type": "managed"
+          }
+        ],
+        "type": "static"
+      },
+      {
+        "name": "bottom",
+        "label": null,
+        "description": null,
+        "parameters": {},
+        "xtype": null,
+        "definition": null,
+        "components": [
+          {
+            "name": "container",
+            "label": "PLP Bottom (All PLPs)",
+            "description": null,
+            "parameters": {},
+            "xtype": "hst.vbox",
+            "type": "managed"
           }
         ],
         "type": "static"

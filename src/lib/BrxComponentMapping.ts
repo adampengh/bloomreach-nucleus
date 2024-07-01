@@ -2,6 +2,7 @@ import { TYPE_CONTAINER_ITEM_UNDEFINED } from '@bloomreach/spa-sdk';
 import BrxComponentWrapper from '@/lib/BrxComponentWrapper';
 import {
   Banner,
+  Content,
   Hero,
   InGridBanner,
   Logo,
@@ -21,10 +22,11 @@ import { HelpCenterTopicsList } from '@/components/HelpCenterTopicsList';
 
 export const BrxComponentMapping = {
   Banner: BrxComponentWrapper(Banner),
+  Content: BrxComponentWrapper(Content),
   Hero: BrxComponentWrapper(Hero),
   InGridBanner: InGridBanner,
   Logo,
-  PathwaysRecommendations,
+  PathwaysRecommendations: BrxComponentWrapper(PathwaysRecommendations),
   StoreListing,
   StoreLocator,
   TitleAndText,

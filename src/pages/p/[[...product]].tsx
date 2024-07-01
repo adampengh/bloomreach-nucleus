@@ -21,7 +21,6 @@ const ProductDetailPage: NextPage<any> = ({
   cookies,
   query,
 }): JSX.Element => {
-
   const {
     graphqlServiceUrl,
     connector,
@@ -58,7 +57,10 @@ const ProductDetailPage: NextPage<any> = ({
         factory={factory}
         query={query}
       >
-        <ProductDetailLayout query={query} />
+        <ProductDetailLayout
+          configuration={configuration}
+          query={query}
+        />
       </BaseLayout>
     </>
   )

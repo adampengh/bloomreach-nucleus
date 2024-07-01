@@ -1,0 +1,288 @@
+[
+  {
+    "id": "bloomreach-nucleus/logo",
+    "extends": "base/component",
+    "hidden": false,
+    "system": false,
+    "xtype": "hst.nomarkup",
+    "ctype": "Logo",
+    "contentType": null,
+    "label": "Logo",
+    "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3MS44NyA3MS44NyI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiMwMDI4NDA7fS5jbHMtMntmaWxsOiNmZmQ1MDA7fTwvc3R5bGU+PC9kZWZzPjxnIGlkPSJMYXllcl8yIiBkYXRhLW5hbWU9IkxheWVyIDIiPjxnIGlkPSJibG9vbXJlYWNoLWxvZ28iPjxjaXJjbGUgY2xhc3M9ImNscy0xIiBjeD0iMzUuOTQiIGN5PSIzNS45NCIgcj0iMzUuOTQiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik00My4yMiwyOC40Nyw0MS40NiwzM2E2LjYsNi42LDAsMCwxLDMsNS42NCw2LjM4LDYuMzgsMCwxLDEtMTIuNzYsMEE2LjM2LDYuMzYsMCwwLDEsMzcuODMsMzJsMS42NS00LjZBMTEsMTEsMCwwLDAsMjYuNzEsMzguMjloMFY0OS44NGg1VjQ4YTExLjcsMTEuNywwLDAsMCw2LjM4LDEuODIsMTEuMjYsMTEuMjYsMCwwLDAsNS4xMS0yMS4zN1oiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0yNi42OSwyNy45MmExNS41MSwxNS41MSwwLDAsMSw1LTMuNDFWMTcuMjdoLTVaIi8+PC9nPjwvZz48L3N2Zz4=",
+    "parameters": [
+      {
+        "name": "logo",
+        "valueType": "string",
+        "required": false,
+        "hidden": false,
+        "overlay": false,
+        "defaultValue": "",
+        "displayName": "Logo",
+        "system": false,
+        "config": {
+          "pickerConfiguration": "cms-pickers/images",
+          "pickerInitialPath": null,
+          "pickerRememberLastVisited": true,
+          "pickerSelectableNodeTypes": [],
+          "relative": false,
+          "pickerRootPath": null,
+          "enableUpload": false,
+          "type": "contentpath"
+        }
+      },
+      {
+        "name": "width",
+        "valueType": "integer",
+        "required": true,
+        "hidden": false,
+        "overlay": false,
+        "defaultValue": 200,
+        "displayName": "Width",
+        "system": false,
+        "config": null
+      },
+      {
+        "name": "height",
+        "valueType": "integer",
+        "required": true,
+        "hidden": false,
+        "overlay": false,
+        "defaultValue": 32,
+        "displayName": "Height",
+        "system": false,
+        "config": null
+      },
+      {
+        "name": "altText",
+        "valueType": "string",
+        "required": true,
+        "hidden": false,
+        "overlay": false,
+        "defaultValue": "",
+        "displayName": "Alt Text",
+        "system": false,
+        "config": null
+      }
+    ],
+    "fieldGroups": []
+  },
+  {
+    "id": "bloomreach-nucleus/plp-in-grid-banner",
+    "extends": "base/component",
+    "hidden": false,
+    "system": false,
+    "xtype": "hst.vbox",
+    "ctype": "InGridBanner",
+    "contentType": null,
+    "label": "PLP In-Grid-Banner",
+    "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3MS44NyA3MS44NyI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiMwMDI4NDA7fS5jbHMtMntmaWxsOiNmZmQ1MDA7fTwvc3R5bGU+PC9kZWZzPjxnIGlkPSJMYXllcl8yIiBkYXRhLW5hbWU9IkxheWVyIDIiPjxnIGlkPSJibG9vbXJlYWNoLWxvZ28iPjxjaXJjbGUgY2xhc3M9ImNscy0xIiBjeD0iMzUuOTQiIGN5PSIzNS45NCIgcj0iMzUuOTQiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik00My4yMiwyOC40Nyw0MS40NiwzM2E2LjYsNi42LDAsMCwxLDMsNS42NCw2LjM4LDYuMzgsMCwxLDEtMTIuNzYsMEE2LjM2LDYuMzYsMCwwLDEsMzcuODMsMzJsMS42NS00LjZBMTEsMTEsMCwwLDAsMjYuNzEsMzguMjloMFY0OS44NGg1VjQ4YTExLjcsMTEuNywwLDAsMCw2LjM4LDEuODIsMTEuMjYsMTEuMjYsMCwwLDAsNS4xMS0yMS4zN1oiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0yNi42OSwyNy45MmExNS41MSwxNS41MSwwLDAsMSw1LTMuNDFWMTcuMjdoLTVaIi8+PC9nPjwvZz48L3N2Zz4=",
+    "parameters": [
+      {
+        "name": "document",
+        "valueType": "string",
+        "required": false,
+        "hidden": false,
+        "overlay": false,
+        "defaultValue": "",
+        "displayName": "Document",
+        "system": false,
+        "config": {
+          "pickerConfiguration": "cms-pickers/documents",
+          "pickerInitialPath": null,
+          "pickerRememberLastVisited": true,
+          "pickerSelectableNodeTypes": [],
+          "relative": false,
+          "pickerRootPath": null,
+          "enableUpload": false,
+          "type": "contentpath"
+        }
+      },
+      {
+        "name": "mobilePosition",
+        "valueType": "integer",
+        "required": true,
+        "hidden": false,
+        "overlay": false,
+        "defaultValue": 1,
+        "displayName": "Mobile Position",
+        "system": false,
+        "config": null
+      },
+      {
+        "name": "desktopPosition",
+        "valueType": "integer",
+        "required": true,
+        "hidden": false,
+        "overlay": false,
+        "defaultValue": 1,
+        "displayName": "Desktop Position",
+        "system": false,
+        "config": null
+      },
+      {
+        "name": "columnSpan",
+        "valueType": "integer",
+        "required": false,
+        "hidden": false,
+        "overlay": false,
+        "defaultValue": 1,
+        "displayName": "Column Span",
+        "system": false,
+        "config": null
+      }
+    ],
+    "fieldGroups": []
+  },
+  {
+    "id": "bloomreach-nucleus/banner",
+    "extends": "base/component",
+    "hidden": false,
+    "system": false,
+    "xtype": null,
+    "ctype": "Banner",
+    "contentType": null,
+    "label": "Banner",
+    "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3MS44NyA3MS44NyI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiMwMDI4NDA7fS5jbHMtMntmaWxsOiNmZmQ1MDA7fTwvc3R5bGU+PC9kZWZzPjxnIGlkPSJMYXllcl8yIiBkYXRhLW5hbWU9IkxheWVyIDIiPjxnIGlkPSJibG9vbXJlYWNoLWxvZ28iPjxjaXJjbGUgY2xhc3M9ImNscy0xIiBjeD0iMzUuOTQiIGN5PSIzNS45NCIgcj0iMzUuOTQiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik00My4yMiwyOC40Nyw0MS40NiwzM2E2LjYsNi42LDAsMCwxLDMsNS42NCw2LjM4LDYuMzgsMCwxLDEtMTIuNzYsMEE2LjM2LDYuMzYsMCwwLDEsMzcuODMsMzJsMS42NS00LjZBMTEsMTEsMCwwLDAsMjYuNzEsMzguMjloMFY0OS44NGg1VjQ4YTExLjcsMTEuNywwLDAsMCw2LjM4LDEuODIsMTEuMjYsMTEuMjYsMCwwLDAsNS4xMS0yMS4zN1oiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0yNi42OSwyNy45MmExNS41MSwxNS41MSwwLDAsMSw1LTMuNDFWMTcuMjdoLTVaIi8+PC9nPjwvZz48L3N2Zz4=",
+    "parameters": [
+      {
+        "name": "document",
+        "valueType": "string",
+        "required": false,
+        "hidden": false,
+        "overlay": false,
+        "defaultValue": "",
+        "displayName": "Document",
+        "system": false,
+        "config": {
+          "pickerConfiguration": "cms-pickers/documents-only",
+          "pickerInitialPath": null,
+          "pickerRememberLastVisited": true,
+          "pickerSelectableNodeTypes": [],
+          "relative": false,
+          "pickerRootPath": null,
+          "enableUpload": false,
+          "type": "contentpath"
+        }
+      }
+    ],
+    "fieldGroups": []
+  },
+  {
+    "id": "bloomreach-nucleus/title-and-text",
+    "extends": "base/component",
+    "hidden": false,
+    "system": false,
+    "xtype": "hst.vbox",
+    "ctype": "TitleAndText",
+    "contentType": "titleandtext",
+    "label": "Title and Text",
+    "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3MS44NyA3MS44NyI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiNmZmQ1MDA7fS5jbHMtMntmaWxsOiMwMDI4NDA7fTwvc3R5bGU+PC9kZWZzPjxnIGlkPSJMYXllcl8yIiBkYXRhLW5hbWU9IkxheWVyIDIiPjxnIGlkPSJibG9vbXJlYWNoLWxvZ28iPjxjaXJjbGUgY2xhc3M9ImNscy0xIiBjeD0iMzUuOTQiIGN5PSIzNS45NCIgcj0iMzUuOTQiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik00My4yMiwyOC40Nyw0MS40NiwzM2E2LjYsNi42LDAsMCwxLDMsNS42NCw2LjM4LDYuMzgsMCwxLDEtMTIuNzYsMEE2LjM2LDYuMzYsMCwwLDEsMzcuODMsMzJsMS42NS00LjZBMTEsMTEsMCwwLDAsMjYuNzEsMzguMjloMFY0OS44NGg1VjQ4YTExLjcsMTEuNywwLDAsMCw2LjM4LDEuODIsMTEuMjYsMTEuMjYsMCwwLDAsNS4xMS0yMS4zN1oiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0yNi42OSwyNy45MmExNS41MSwxNS41MSwwLDAsMSw1LTMuNDFWMTcuMjdoLTVaIi8+PC9nPjwvZz48L3N2Zz4=",
+    "parameters": [],
+    "fieldGroups": []
+  },
+  {
+    "id": "bloomreach-nucleus/pathways-recommendations",
+    "extends": "base/component",
+    "hidden": false,
+    "system": false,
+    "xtype": "hst.vbox",
+    "ctype": "PathwaysRecommendations",
+    "contentType": null,
+    "label": "Pathways & Recommendations",
+    "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3MS44NyA3MS44NyI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiMwMDI4NDA7fS5jbHMtMntmaWxsOiNmZmQ1MDA7fTwvc3R5bGU+PC9kZWZzPjxnIGlkPSJMYXllcl8yIiBkYXRhLW5hbWU9IkxheWVyIDIiPjxnIGlkPSJibG9vbXJlYWNoLWxvZ28iPjxjaXJjbGUgY2xhc3M9ImNscy0xIiBjeD0iMzUuOTQiIGN5PSIzNS45NCIgcj0iMzUuOTQiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik00My4yMiwyOC40Nyw0MS40NiwzM2E2LjYsNi42LDAsMCwxLDMsNS42NCw2LjM4LDYuMzgsMCwxLDEtMTIuNzYsMEE2LjM2LDYuMzYsMCwwLDEsMzcuODMsMzJsMS42NS00LjZBMTEsMTEsMCwwLDAsMjYuNzEsMzguMjloMFY0OS44NGg1VjQ4YTExLjcsMTEuNywwLDAsMCw2LjM4LDEuODIsMTEuMjYsMTEuMjYsMCwwLDAsNS4xMS0yMS4zN1oiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0yNi42OSwyNy45MmExNS41MSwxNS41MSwwLDAsMSw1LTMuNDFWMTcuMjdoLTVaIi8+PC9nPjwvZz48L3N2Zz4=",
+    "parameters": [
+      {
+        "name": "document",
+        "valueType": "string",
+        "required": false,
+        "hidden": false,
+        "overlay": false,
+        "defaultValue": "",
+        "displayName": "Document",
+        "system": false,
+        "config": {
+          "pickerConfiguration": "cms-pickers/documents",
+          "pickerInitialPath": null,
+          "pickerRememberLastVisited": true,
+          "pickerSelectableNodeTypes": [
+            "PathwaysRecommendationsDocument"
+          ],
+          "relative": false,
+          "pickerRootPath": null,
+          "enableUpload": false,
+          "type": "contentpath"
+        }
+      },
+      {
+        "name": "fullWidth",
+        "valueType": "boolean",
+        "required": true,
+        "hidden": false,
+        "overlay": false,
+        "defaultValue": false,
+        "displayName": "Full Width",
+        "system": false,
+        "config": null
+      },
+      {
+        "name": "documentTemplateQuery",
+        "valueType": "string",
+        "required": false,
+        "hidden": true,
+        "overlay": false,
+        "defaultValue": "new-PathwaysRecommendationsDocument-document",
+        "displayName": "documentTemplateQuery",
+        "system": false,
+        "config": null
+      },
+      {
+        "name": "maxItems",
+        "valueType": "integer",
+        "required": true,
+        "hidden": false,
+        "overlay": false,
+        "defaultValue": 12,
+        "displayName": "Max Items",
+        "system": false,
+        "config": null
+      }
+    ],
+    "fieldGroups": []
+  },
+  {
+    "id": "bloomreach-nucleus/content",
+    "extends": "base/component",
+    "hidden": false,
+    "system": false,
+    "xtype": "hst.vbox",
+    "ctype": "Content",
+    "contentType": null,
+    "label": "Content",
+    "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3MS44NyA3MS44NyI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiMwMDI4NDA7fS5jbHMtMntmaWxsOiNmZmQ1MDA7fTwvc3R5bGU+PC9kZWZzPjxnIGlkPSJMYXllcl8yIiBkYXRhLW5hbWU9IkxheWVyIDIiPjxnIGlkPSJibG9vbXJlYWNoLWxvZ28iPjxjaXJjbGUgY2xhc3M9ImNscy0xIiBjeD0iMzUuOTQiIGN5PSIzNS45NCIgcj0iMzUuOTQiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik00My4yMiwyOC40Nyw0MS40NiwzM2E2LjYsNi42LDAsMCwxLDMsNS42NCw2LjM4LDYuMzgsMCwxLDEtMTIuNzYsMEE2LjM2LDYuMzYsMCwwLDEsMzcuODMsMzJsMS42NS00LjZBMTEsMTEsMCwwLDAsMjYuNzEsMzguMjloMFY0OS44NGg1VjQ4YTExLjcsMTEuNywwLDAsMCw2LjM4LDEuODIsMTEuMjYsMTEuMjYsMCwwLDAsNS4xMS0yMS4zN1oiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0yNi42OSwyNy45MmExNS41MSwxNS41MSwwLDAsMSw1LTMuNDFWMTcuMjdoLTVaIi8+PC9nPjwvZz48L3N2Zz4=",
+    "parameters": [
+      {
+        "name": "document",
+        "valueType": "string",
+        "required": false,
+        "hidden": false,
+        "overlay": false,
+        "defaultValue": "",
+        "displayName": "Document",
+        "system": false,
+        "config": {
+          "pickerConfiguration": "cms-pickers/documents",
+          "pickerInitialPath": null,
+          "pickerRememberLastVisited": true,
+          "pickerSelectableNodeTypes": [
+            "content"
+          ],
+          "relative": false,
+          "pickerRootPath": null,
+          "enableUpload": false,
+          "type": "contentpath"
+        }
+      }
+    ],
+    "fieldGroups": []
+  }
+]

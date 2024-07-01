@@ -4,7 +4,7 @@ import axios, { AxiosError } from 'axios'
 import { initialize } from '@bloomreach/spa-sdk'
 import { Montserrat } from 'next/font/google'
 import { loadCommerceConfig } from '@/lib/utils'
-import { NEXT_PUBLIC_BRXM_ENDPOINT } from '@/lib/constants'
+import { NEXT_PUBLIC_BRX_ENDPOINT } from '@/lib/constants'
 import App from '../components/App';
 
 const montserrat = Montserrat({ subsets: ['latin'] })
@@ -73,7 +73,7 @@ Error.getInitialProps = async ({ req: request, res: response, err, asPath }) => 
   const path = `${ERROR_PAGE_PATH_MAP[errorCode] ?? ERROR_PAGE_PATH_MAP[ErrorCode.GENERAL_ERROR]}${search}`;
   // console.log('ERROR path=', path)
   const configuration = {
-    endpoint: NEXT_PUBLIC_BRXM_ENDPOINT,
+    endpoint: NEXT_PUBLIC_BRX_ENDPOINT,
     path
   };
 

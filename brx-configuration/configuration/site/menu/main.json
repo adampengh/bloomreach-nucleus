@@ -1,0 +1,170 @@
+[
+  {
+    "name": "Furniture",
+    "link": "furniture",
+    "items": [
+      {
+        "name": "Column 1",
+        "items": [
+          {
+            "name": "Dining Room",
+            "link": "/c/116746/furniture/dining-room",
+            "items": [
+              {
+                "name": "Dining Tables",
+                "link": "/c/116748/furniture/dining-room/dining-tables"
+              },
+              {
+                "name": "Dining Chairs",
+                "link": "/c/116749/furniture/dining-room/dining-chairs"
+              },
+              {
+                "name": "Dining Benches",
+                "link": "/c/116750/furniture/dining-room/dining-benches"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Column 2",
+        "items": [
+          {
+            "name": "Living Room",
+            "items": [
+              {
+                "name": "Sofas"
+              },
+              {
+                "name": "Sectionals"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Column 3",
+        "items": [
+          {
+            "name": "Office",
+            "items": [
+              {
+                "name": "Office Desks"
+              },
+              {
+                "name": "Office Chairs"
+              },
+              {
+                "name": "Bookcases"
+              },
+              {
+                "name": "Storage Carts"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Column 4",
+        "items": [
+          {
+            "name": "Bedroom",
+            "items": [
+              {
+                "name": "Beds",
+                "link": "/c/116776/beds"
+              },
+              {
+                "name": "Headboards",
+                "link": "/c/116777/headboards"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Outdoor",
+    "items": [
+      {
+        "name": "Column 1",
+        "items": [
+          {
+            "name": "Outdoor Furniture",
+            "items": [
+              {
+                "name": "Outdoor Collections",
+                "link": "/c/116817/outdoor-collections"
+              },
+              {
+                "name": "Outdoor Dining Furniture",
+                "link": "/c/116818/outdoor-dining-furniture"
+              },
+              {
+                "name": "Seating & Lounge Furniture",
+                "link": "/c/116825/seating-and-lounge-furniture"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Column 2",
+        "items": [
+          {
+            "name": "Cushions & Pillows",
+            "link": "/c/116834/outdoor-cushions-and-pillows",
+            "items": [
+              {
+                "name": "Throw Pillows",
+                "link": "/c/116835/outdoor-throw-pillows"
+              },
+              {
+                "name": "Chair Cushions",
+                "link": "/c/116836/outdoor-chair-cushions"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Column 3",
+        "items": [
+          {
+            "name": "Plants & Gardening Tools",
+            "link": "/c/116851/plants-and-gardening-tools",
+            "items": [
+              {
+                "name": "Outdoor Plants",
+                "link": "/c/116852/outdoor-plants"
+              },
+              {
+                "name": "Planters & Garden Tools",
+                "link": "/c/116853/planters-and-garden-tools"
+              },
+              {
+                "name": "Planters",
+                "link": "/c/116854/planters"
+              },
+              {
+                "name": "Terrariums",
+                "link": "/c/116855/terrariums"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Lighting"
+  },
+  {
+    "name": "Bed & Bath"
+  },
+  {
+    "name": "Inspiration",
+    "link": "articles"
+  }
+]
