@@ -6,8 +6,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {/* Layout UI */}
-        <main className="layout">{children}</main>
+        <main id='rootLayout' className="root-layout">{children}</main>
       </body>
     </html>
   )

@@ -5,13 +5,11 @@ import { Box, ClickAwayListener, Grid, Link, List, ListItem, Typography } from '
 
 import styles from './Navigation.module.scss'
 import { parseBrxEndpoint } from '@/lib/utils/Content';
-import { useRouter } from 'next/router';
 import { ContentDeliveryAPI } from '@/lib/utils/DeliveryApi';
 
 const MEGA_MENU_BANNERS_PATH = 'configuration/mega-menu-banners/mega-menu-banners'
 
 export const Navigation = ({ top }: any) => {
-  const { query } = useRouter();
 
   const [showMegaMenu, setShowMegaMenu] = useState<boolean>(false);
   const [activeMenu, setActiveMenu] = useState<number>(-1);

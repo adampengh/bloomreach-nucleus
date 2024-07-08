@@ -26,7 +26,7 @@ export const BrxComponentMapping = {
   Hero: BrxComponentWrapper(Hero),
   InGridBanner: InGridBanner,
   Logo,
-  PathwaysRecommendations: BrxComponentWrapper(PathwaysRecommendations),
+  // PathwaysRecommendations: BrxComponentWrapper(PathwaysRecommendations),
   StoreListing,
   StoreLocator,
   TitleAndText,
