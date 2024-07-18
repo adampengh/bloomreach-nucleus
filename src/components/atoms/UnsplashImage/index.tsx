@@ -1,22 +1,32 @@
-import React from "react"
-import Image from 'next/image'
+export const UnsplashImage = ({
+  unsplashImage
+}: {
+  unsplashImage: string
+}) => {
+  console.group('UnsplashImage Component')
 
-export const UnsplashImage = ({ unsplashImage }: any) => {
-  // console.log('unsplashImage', JSON.parse(unsplashImage))
+  console.log('unsplashImage', JSON.parse(unsplashImage))
   const {
     alt_description,
     height,
-    urls,
+    urls: {
+      full,
+      raw,
+      regular,
+      small,
+      thumb,
+    },
     width,
   } = JSON.parse(unsplashImage)
-  // console.log('urls', urls)
 
+  console.groupEnd()
   return (
-    <img
-      src={urls.full}
-      alt={alt_description}
-      // width={width}
-      // height={height}
-    />
+    <>
+      <picture>
+        <source srcSet={full} media="(min-width: 1200px)" />
+        <source srcSet={regular} media="(min-width: 320px)" />
+        <img src={full} alt={alt_description || ''} />
+      </picture>
+    </>
   )
 }

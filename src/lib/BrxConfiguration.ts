@@ -1,18 +1,17 @@
 import { Configuration } from '@bloomreach/spa-sdk';
 import { ParsedUrlQuery } from 'querystring';
-import { parseBrxEndpoint } from '@/lib/utils/Content';
 import {
   CONSTANTS,
   NEXT_PUBLIC_BRX_ENDPOINT,
-  NEXT_PUBLIC_BRX_PREVIEW_TOKEN,
-  NEXT_PUBLIC_DEBUG_MODE,
+  NEXT_PUBLIC_BRX_MULTI_TENANT_SUPPORT,
+  NEXT_PUBLIC_BRX_DEBUG,
 } from './constants';
 
-type BuildConfigurationOptions = {
+export type BuildConfigurationOptions = {
   endpoint: string | (string | null)[];
   baseUrl: string;
 };
-type ConfigurationBuilder = Omit<Configuration & Partial<BuildConfigurationOptions>, 'httpClient'>;
+export type ConfigurationBuilder = Omit<Configuration & Partial<BuildConfigurationOptions>, 'httpClient'>;
 
 /**
  * Function to build the BrX configuration object
@@ -25,6 +24,8 @@ export const buildConfiguration = (
   path: string,
   query: ParsedUrlQuery,
   endpoint: string = NEXT_PUBLIC_BRX_ENDPOINT,
+  multiTenantSupport: boolean = Boolean(NEXT_PUBLIC_BRX_MULTI_TENANT_SUPPORT),
+  debug: boolean = Boolean(NEXT_PUBLIC_BRX_DEBUG) || false,
 ) => {
   // console.log('buildCongiguration [path]', path)
   // console.log('buildCongiguration [query]', query)
@@ -32,22 +33,41 @@ export const buildConfiguration = (
   const configuration: ConfigurationBuilder = {
     endpoint: endpoint,
     path: path,
-    debug: false,
+    debug,
   }
 
-  // const endpointParameter = query[CONSTANTS.PREVIEW_ENDPOINT_PARAM];
-  // if (endpointParameter) {
-  //   console.log('buildCongiguration [endpointParameter]', endpointParameter)
-  //   configuration.endpoint = endpointParameter;
-  // }
+  const endpointParameter = query[CONSTANTS.PREVIEW_ENDPOINT_PARAM];
+  if (multiTenantSupport && endpointParameter) {
+    console.log('buildCongiguration [multiTenantSupport endpoint]', endpointParameter)
+    configuration.endpoint = endpointParameter;
+  }
 
-  // console.log('NEXT_PUBLIC_BRX_PREVIEW_TOKEN', NEXT_PUBLIC_BRX_PREVIEW_TOKEN)
-  // if (NEXT_PUBLIC_BRX_PREVIEW_TOKEN) {
-  //   configuration.authorizationToken = NEXT_PUBLIC_BRX_PREVIEW_TOKEN;
-  // }
-  // if (NEXT_PUBLIC_DEBUG_MODE) {
-  //   configuration.debug = Boolean(NEXT_PUBLIC_DEBUG_MODE);
-  // }
+  return configuration
+}
+
+export const buildAppRouterConfiguration = (
+  path: string,
+  searchParams: { [key: string]: string | string[] | undefined },
+  endpoint: string = NEXT_PUBLIC_BRX_ENDPOINT,
+  multiTenantSupport: boolean = Boolean(NEXT_PUBLIC_BRX_MULTI_TENANT_SUPPORT),
+  debug: boolean = Boolean(NEXT_PUBLIC_BRX_DEBUG) || false,
+) => {
+  // console.log('buildCongiguration [path]', path)
+  // console.log('buildCongiguration [query]', query)
+
+  const {
+    token: authorizationToken,
+    'server-id': serverId,
+    endpoint: endpointQueryParam,
+  } = searchParams
+
+  const configuration: any = {
+    endpoint: endpointQueryParam ? endpointQueryParam: endpoint,
+    path: path,
+    ...(authorizationToken ? { authorizationToken } : {}),
+    ...(serverId ? { serverId } : {}),
+    debug: true,
+  }
 
   return configuration
 }

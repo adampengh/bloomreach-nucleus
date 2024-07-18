@@ -122,3 +122,8 @@ interface PathwaysRecommendationsCompound {
     };
   };
 }
+
+interface PathwaysRecommendationsProps {
+  fullWidth?: boolean
+  maxItems?: number
+}

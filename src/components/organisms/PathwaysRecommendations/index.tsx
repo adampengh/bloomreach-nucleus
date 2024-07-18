@@ -7,7 +7,6 @@ import { BrxComponentWrapperProps } from '@/lib/BrxComponentWrapper'
 import Slider from 'react-slick'
 import { ProductCard } from '@/components'
 import {
-  useTheme,
   Alert,
   Box,
   CircularProgress,
@@ -28,25 +27,19 @@ import { parseCategoryPickerField, parseProductPickerField } from '@/lib/utils/C
 
 // Styles
 import styles from './PathwaysRecommendations.module.scss'
-import { useRouter } from 'next/router'
 
-
-interface PathwaysRecommendationsParameters {
-  fullWidth?: boolean
-  maxItems?: number
-}
 
 const LIMIT = 16
 
 export const PathwaysRecommendations = ({ document, component, page }: BrxComponentWrapperProps): ReactElement | null => {
-  const { query } = useRouter()
+  // const { query } = useRouter()
 
   // State
   const [productId, setProductId] = useState<string>('');
   const [categoryId, setCategoryId] = useState<string>('');
 
   // Component Parameters
-  const { fullWidth, maxItems } = component?.getParameters<PathwaysRecommendationsParameters>() ?? {}
+  const { fullWidth, maxItems } = component?.getParameters<PathwaysRecommendationsProps>() ?? {}
 
   // Document Data
   const {
@@ -56,12 +49,12 @@ export const PathwaysRecommendations = ({ document, component, page }: BrxCompon
   } = document?.getData<any>()
 
   useMemo(() => {
-    const { selectedSku } = query
+    // const { selectedSku } = query
 
     let { productId, categoryId } = page?.getComponent()?.getParameters<any>();
-    if (selectedSku) {
-      productId += `___${selectedSku}`
-    }
+    // if (selectedSku) {
+    //   productId += `___${selectedSku}`
+    // }
     setProductId(productId)
     setCategoryId(categoryId)
 
@@ -75,7 +68,7 @@ export const PathwaysRecommendations = ({ document, component, page }: BrxCompon
       const { previewCategoryId } = page?.getComponent()?.getParameters();
       setCategoryId(previewCategoryId)
     }
-  }, [query])
+  }, [])
 
   const {
     categoryCompound,

@@ -18,18 +18,34 @@ export type BrxComponentWrapperProps = {
 const BrxComponentWrapper = (Component: any): any => {
   return function BrxComponent({ component, page, children }: BrxComponentProps) {
     if (!component || !page) return null
+    console.group('BrxComponentWrapper', component.getLabel())
 
     // Component Parameters
     const parameters = component.getParameters()
+    console.log('parameters', parameters)
 
     // Document Reference
     const { document: documentRef } = component.getModels()
     const document = documentRef && page.getContent(documentRef)
 
+    console.groupEnd();
+
     // In Experience Manager Preview Mode, if a document has not been selected, still show the Manage Content Button
+    if (component.isHidden() && page.isPreview()) {
+      return (
+        <Container maxWidth={false} disableGutters className='has-edit-button'>
+          <Container maxWidth={'xl'}>
+            <Alert severity='warning'>
+              {component.getLabel()}: This component is hidden for the current variant
+            </Alert>
+          </Container>
+        </Container>
+      )
+    }
+
     if (!document || document === '') {
-      return page.isPreview()
-        && <Container maxWidth={false} disableGutters className='has-edit-button'>
+      return page.isPreview() &&
+        <Container maxWidth={false} disableGutters className='has-edit-button'>
           <BrManageContentButton
             documentTemplateQuery={parameters['documentTemplateQuery'] ?? 'new-document'}
             folderTemplateQuery={parameters['folderTemplateQuery'] ?? 'new-translate-folder'}
@@ -43,7 +59,7 @@ const BrxComponentWrapper = (Component: any): any => {
               {component.getLabel()}: Please Select a Document
             </Alert>
           </Container>
-          </Container>
+        </Container>
     }
 
     return (

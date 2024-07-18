@@ -6,34 +6,47 @@ import {
   StyledHeroContainer,
   StyledTextContainer,
 } from './styles'
-import { ShoppableImagePopover } from '@/components'
+
+import { UnsplashImage } from '@/components/atoms'
+import { ShoppableImagePopover } from '@/components/molecules'
 
 export const Hero = ({ document, component, page, isStorybook, ...args }: any) => {
-  // if (!document || !component) return null
-  // console.log('Hero document=', document)
+  if (!document || !component) return null
+  console.group('Hero Component')
+  console.log('Document:', document)
 
   // Component Parameters
   // const { maxWidth = false } = component?.getParameters() || {}
 
   // Document Fields
-  // const { imageCompound } = document?.getData() || {}
+  const {
+    image: {
+      altText,
+      mobileImageUrl,
+      tabletImageUrl,
+      desktopImageUrl,
+      unsplashImage,
+    }
+  } = document?.getData() || {}
+
+  console.log('unsplashImage:', unsplashImage && JSON.parse(unsplashImage))
+
   // const {
   //   image: imageRef,
   //   altText,
   // } = imageCompound || {}
   // const image: ImageType = imageRef && page?.getContent<ImageSet>(imageRef)?.getOriginal();
 
-  const {
-    altText = '',
-    fullWidth = true,
-    heading = 'Hero Heading',
-    buttonText = 'Shop Now',
-    buttonColor = 'secondary',
-    buttonVariant = 'contained',
-    textColor = '#ffffff',
-    backgroundColor = '#002840',
-    backgroundOpacity = 0.9,
-  } = args
+  // const {
+  //   fullWidth = true,
+  //   heading = 'Hero Heading',
+  //   buttonText = 'Shop Now',
+  //   buttonColor = 'secondary',
+  //   buttonVariant = 'contained',
+  //   textColor = '#ffffff',
+  //   backgroundColor = '#002840',
+  //   backgroundOpacity = 0.9,
+  // } = args
 
   const shoppableProducts = [
     {
@@ -48,21 +61,18 @@ export const Hero = ({ document, component, page, isStorybook, ...args }: any) =
     }
   ]
 
-  return (
-    <StyledHeroContainer maxWidth={fullWidth ? false : 'xl'} disableGutters sx={{ mb: 6 }}>
-      <picture>
-        <img
-          src={'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80'}
-          alt={altText}
-        />
-      </picture>
 
-      {shoppableProducts?.map((product) => (
+  console.groupEnd()
+  return (
+    <StyledHeroContainer maxWidth={false} disableGutters sx={{ mb: 6 }}>
+      {unsplashImage && <UnsplashImage unsplashImage={unsplashImage} />}
+
+      {/* {shoppableProducts?.map((product) => (
         <ShoppableImagePopover
           key={product.productId}
           product={product}
         />
-      ))}
+      ))} */}
 
       {/* <StyledTextContainer
         sx={{
