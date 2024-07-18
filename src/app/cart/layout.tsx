@@ -6,7 +6,7 @@ export default function DashboardLayout({
   children: React.ReactNode
 }) {
   return (
-    <section className="dashboard-layout">
+    <section className="cart-layout">
       {/* Include shared UI here e.g. a header or sidebar */}
       <nav></nav>
 

@@ -1,3 +1,8 @@
+'use client'
+
+import ThemeProvider from "@/themes/ThemeProvider"
+import { Container, CssBaseline } from "@mui/material"
+
 export default function RootLayout({
   children,
 }: {
@@ -6,8 +11,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {/* Layout UI */}
-        <main className="layout">{children}</main>
+        <Container id='appRoot' className="app-root" maxWidth={false} disableGutters>
+          <ThemeProvider theme='BloomreachNucleusLight'>
+            <CssBaseline />
+            {children}
+          </ThemeProvider>
+        </Container>
       </body>
     </html>
   )
