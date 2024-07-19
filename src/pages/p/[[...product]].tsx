@@ -88,12 +88,11 @@ ProductDetailPage.getInitialProps = async ({
     pageJson = page.toJSON();
   } catch(err) {
     if ((err as AxiosError).isAxiosError) {
-      const axiosError = err as AxiosError;
       configuration.path = '/404'
       const fallbackPage = await initialize({ ...configuration, request, httpClient: axios as any });
       pageJson = fallbackPage.toJSON();
     } else {
-      // console.error('err', err)
+      console.error('err', err)
     }
   } finally {
     props.page = pageJson
@@ -108,7 +107,7 @@ ProductDetailPage.getInitialProps = async ({
   const cookies = cookie.parse(request.headers.cookie ?? '');
   props.cookies = cookies;
 
-  const { graphqlServiceUrl, connector, brAccountName: accountEnvId } = commerceConfig;
+  const { graphqlServiceUrl, connector } = commerceConfig;
   const defaultRequestHeaders = undefined;
   const defaultAnonymousCredentials = undefined;
 

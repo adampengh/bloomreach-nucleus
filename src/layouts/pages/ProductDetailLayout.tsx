@@ -7,18 +7,15 @@ import { useCookies } from 'react-cookie'
 
 import {
   Backdrop,
-  Box,
   CircularProgress,
   Container,
   Grid,
-  Tabs,
-  Tab,
   Typography,
 } from '@mui/material'
-import { ProductPrice, TabPanel } from '@/components'
 import { getCustomAttributeByName } from '@/lib/utils/Discovery'
 import { parseBrxEndpoint, resolve } from '@/lib/utils/Content'
 import { ContentDeliveryAPI } from '@/lib/utils/DeliveryApi'
+import ProductDetailModule from '@/modules/product-detail'
 
 
 export const ProductDetailLayout = ({
@@ -27,7 +24,7 @@ export const ProductDetailLayout = ({
 }: any) => {
   const page = useContext(BrPageContext);
   const [productId, setProductId] = useState<string>('');
-  const [value, setValue] = useState<number>(0);
+
   const [banner, setBanner] = useState<any>(null);
 
   useMemo(() => {
@@ -100,11 +97,6 @@ export const ProductDetailLayout = ({
     page?.sync()
   }
 
-  const handleTabChange = (event: any, newValue: number) => {
-    setValue(newValue);
-    page?.sync()
-  };
-
   if (loading) {
     <Backdrop
       sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
@@ -114,12 +106,15 @@ export const ProductDetailLayout = ({
     </Backdrop>
   }
 
-
   useMemo(() => {
     if (item) {
       (async () => {
         // Check if there is a preview token
-        const { token } = query
+        const {
+          token,
+          "server-id": serverId,
+        } = query
+        console.log('TOKEN', token)
 
         // Get the product_type product attribute from the item object
         const productType = getCustomAttributeByName(item, 'product_type')?.toLowerCase().split(' ').join('-')
@@ -133,7 +128,7 @@ export const ProductDetailLayout = ({
         }
 
         // Fetch the banner document using the Document Delivery API V1
-        const documentFetcher = new ContentDeliveryAPI(environment, channel, token)
+        const documentFetcher = new ContentDeliveryAPI(environment, channel, token, serverId)
         await documentFetcher.getV1DocumentById(`page-content/pdp/product_type/${productType}`)
           .then(res => setBanner(res.data))
           .catch(err => console.log('err', err))
@@ -151,78 +146,29 @@ export const ProductDetailLayout = ({
             {item?.description && <meta key="description" name="description" content={item?.description} />}
           </Head>
           <Container maxWidth={false} disableGutters sx={{ pb: 10 }}>
-            {/* Top - All PDPs */}
+            {/* Top - All PDPs (Global) */}
             <BrComponent path="top">
               <Grid item xs={12}>
                 <BrComponent />
               </Grid>
             </BrComponent>
+
+            {/* PDP Top - For specific PDPs by Product ID */}
             <BrComponent path="pdp-top">
               <Grid item xs={12}>
                 <BrComponent />
               </Grid>
             </BrComponent>
 
-            <Container maxWidth='xl' sx={{ my: 6 }}>
-              <Grid container spacing={6}>
-                {/* Product Image */}
-                <Grid item xs={12} md={6}>
-                  <img
-                    src={item?.imageSet?.original?.link?.href || ''}
-                    alt={item?.displayName || ''}
-                    style={{width: "100%"}}
-                  />
-                </Grid>
-
-                {/* Product Details */}
-                <Grid item xs={12} md={6}>
-                  {getCustomAttributeByName(item, 'brand') &&
-                    <Typography variant="h6" component="h2" color="textSecondary">{getCustomAttributeByName(item, 'brand')}</Typography>
-                  }
-                  <Typography variant="h3" component="h1" marginBottom={2}>{item?.displayName}</Typography>
-                  <ProductPrice
-                    listPrice={item?.listPrice?.moneyAmounts?.[0]?.amount}
-                    purchasePrice={item?.purchasePrice?.moneyAmounts?.[0]?.amount}
-                  />
-                  <Typography variant="body1" marginTop={2}>{item?.description}</Typography>
-                  <Typography variant="body1" marginTop={2}>Product ID: {productId}</Typography>
-                </Grid>
-
-                {/* Product Tabs */}
-                <Grid item xs={12}>
-                  <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                    <Tabs value={value} onChange={handleTabChange}>
-                      <Tab label='Details' />
-                      <Tab label='Shipping' />
-                      <Tab label='Reviews' />
-                    </Tabs>
-                  </Box>
-                  <TabPanel value={value} index={0}>
-                    <Typography variant="body1" marginTop={2}>{item?.description}</Typography>
-                    <BrComponent path="details">
-                      <Grid item xs={12}>
-                        <BrComponent />
-                      </Grid>
-                    </BrComponent>
-                  </TabPanel>
-                  <TabPanel value={value} index={1}>
-                    <BrComponent path="shipping-tab">
-                      <Grid item xs={12}>
-                        <BrComponent />
-                      </Grid>
-                    </BrComponent>
-                  </TabPanel>
-                  <TabPanel value={value} index={2}>
-                    <Typography variant='h3'>Reviews</Typography>
-                  </TabPanel>
-                </Grid>
-              </Grid>
-            </Container>
+            <ProductDetailModule
+              item={item}
+              productId={productId}
+            />
 
             {/* PDPBanner */}
             {banner && <PdpBanner banner={banner} />}
 
-            {/* Bottom - All PDPs */}
+            {/* Bottom - All PDPs (Global) */}
             <BrComponent path="bottom">
               <Grid item xs={12}>
                 <BrComponent />
@@ -236,12 +182,8 @@ export const ProductDetailLayout = ({
 }
 
 const PdpBanner = ({ banner }: any) => {
-  console.log('banner', banner)
-
   const { document: documentRef } = banner
-  console.log('documentRef', documentRef)
   const document: any = resolve(banner, documentRef)
-  console.log('document', document)
   if (!document) return null
 
   const {
@@ -251,13 +193,11 @@ const PdpBanner = ({ banner }: any) => {
     link,
     title,
   } = document?.data
-  console.log('title', title)
 
   const image: any = resolve(banner, imageRef)
-  console.log('image', image)
 
   return (
-    <Container maxWidth='xl' sx={{ my: 2 }}>
+    <Container maxWidth='xl' sx={{ my: 2, border: '1px solid blue' }}>
       <Grid item xs={12}>
         {title && <Typography variant='h4'>{title}</Typography>}
         {image && <img src={image?.data?.original?.links?.site?.href} alt={''} style={{ width: '100%' }} />}
