@@ -3,9 +3,9 @@ import Head from 'next/head'
 import axios, { AxiosError } from 'axios'
 import { initialize } from '@bloomreach/spa-sdk'
 import { Montserrat } from 'next/font/google'
-import { loadCommerceConfig } from '@/lib/utils'
-import { NEXT_PUBLIC_BRX_ENDPOINT } from '@/lib/constants'
-import App from '../components/App';
+import { loadCommerceConfig } from 'app/lib/utils'
+import { NEXT_PUBLIC_BRX_ENDPOINT } from 'app/lib/constants'
+import App from 'app/components/App';
 
 const montserrat = Montserrat({ subsets: ['latin'] })
 

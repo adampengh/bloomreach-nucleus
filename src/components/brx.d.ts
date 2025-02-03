@@ -77,13 +77,13 @@ interface PageDocument {
   ogCompound: OpenGraphCompound;
 }
 
-interface PageProps {
-  configuration: Omit<Configuration, 'httpClient'>;
-  page?: PageModel;
-  commerceConfig?: CommerceConfig;
-  [APOLLO_STATE_PROP_NAME]?: any;
-  cookies?: Record<string, string>;
-}
+// interface PageProps {
+//   configuration: Omit<Configuration, 'httpClient'>;
+//   page?: PageModel;
+//   commerceConfig?: CommerceConfig;
+//   [APOLLO_STATE_PROP_NAME]?: any;
+//   cookies?: Record<string, string>;
+// }
 
 interface ProductListingPageProps {
   configuration: Omit<Configuration, 'httpClient'>;

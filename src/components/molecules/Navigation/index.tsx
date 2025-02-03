@@ -5,13 +5,11 @@ import { Box, ClickAwayListener, Grid, Link, List, ListItem, Typography } from '
 
 import styles from './Navigation.module.scss'
 import { parseBrxEndpoint } from '@/lib/utils/Content';
-import { useRouter } from 'next/router';
 import { ContentDeliveryAPI } from '@/lib/utils/DeliveryApi';
 
 const MEGA_MENU_BANNERS_PATH = 'configuration/mega-menu-banners/mega-menu-banners'
 
 export const Navigation = ({ top }: any) => {
-  const { query } = useRouter();
 
   const [showMegaMenu, setShowMegaMenu] = useState<boolean>(false);
   const [activeMenu, setActiveMenu] = useState<number>(-1);
@@ -49,10 +47,10 @@ export const Navigation = ({ top }: any) => {
       }
 
       // Fetch the Mega Menu Banners document using the Document Delivery API V1
-      const documentFetcher = new ContentDeliveryAPI(environment, channel)
-      await documentFetcher.getV1DocumentById(MEGA_MENU_BANNERS_PATH)
-        .then(res => console.log('Mega Menu Banners Doc:', res.data))
-        .catch(err => console.log('err', err))
+      // const documentFetcher = new ContentDeliveryAPI(environment, channel)
+      // await documentFetcher.getV1DocumentById(MEGA_MENU_BANNERS_PATH)
+      //   .then(res => console.log('Mega Menu Banners Doc:', res.data))
+      //   .catch(err => console.log('err', err))
     })();
   }, [menu])
 

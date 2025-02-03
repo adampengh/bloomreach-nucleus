@@ -1,4 +1,4 @@
-import { NextRequest } from "next/server";
+import { NextRequest } from 'next/server';
 
 export default function DashboardLayout({
   children, // will be a page or nested layout
@@ -6,7 +6,7 @@ export default function DashboardLayout({
   children: React.ReactNode
 }) {
   return (
-    <section className="cart-layout">
+    <section className='cart-layout'>
       {/* Include shared UI here e.g. a header or sidebar */}
       <nav></nav>
 

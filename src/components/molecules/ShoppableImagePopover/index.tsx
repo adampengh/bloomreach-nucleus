@@ -1,6 +1,6 @@
 import { useContext, useMemo, useState } from 'react';
 import { ClickAwayListener, Typography } from '@mui/material';
-import { CommerceContext } from '@/context/CommerceContext';
+// import { CommerceContext } from '@/app/context/CommerceContext';
 import { useCookies } from 'react-cookie';
 import { ProductDetailInputProps, useProductDetail } from '@bloomreach/connector-components-react';
 
@@ -15,61 +15,61 @@ export const ShoppableImagePopover = ({ product }: any): React.ReactElement | nu
 
   const [showPopover, setShowPopover] = useState(false);
 
-  const {
-    discoveryAccountId,
-    discoveryAuthKey,
-    discoveryConnector,
-    discoveryCustomAttrFields,
-    discoveryCustomVarAttrFields,
-    discoveryCustomVarListPriceField,
-    discoveryCustomVarPurchasePriceField,
-    discoveryDomainKey,
-    discoveryViewId,
-    brEnvType,
-  } = useContext(CommerceContext);
+  // const {
+  //   discoveryAccountId,
+  //   discoveryAuthKey,
+  //   discoveryConnector,
+  //   discoveryCustomAttrFields,
+  //   discoveryCustomVarAttrFields,
+  //   discoveryCustomVarListPriceField,
+  //   discoveryCustomVarPurchasePriceField,
+  //   discoveryDomainKey,
+  //   discoveryViewId,
+  //   brEnvType,
+  // } = useContext(CommerceContext);
 
   const [cookies] = useCookies(['_br_uid_2']);
 
-  const params: ProductDetailInputProps = useMemo(
-    () => ({
-      itemId: productId,
-      brUid2: cookies._br_uid_2,
-      connector: discoveryConnector,
-      customAttrFields: discoveryCustomAttrFields,
-      customVariantAttrFields: discoveryCustomVarAttrFields,
-      customVariantListPriceField: discoveryCustomVarListPriceField,
-      customVariantPurchasePriceField: discoveryCustomVarPurchasePriceField,
-      discoveryAccountId,
-      discoveryAuthKey,
-      discoveryDomainKey,
-      discoveryViewId,
-      brEnvType,
-    }),
-    [
-      cookies._br_uid_2,
-      productId,
-      discoveryAccountId,
-      discoveryAuthKey,
-      discoveryConnector,
-      discoveryCustomAttrFields,
-      discoveryCustomVarAttrFields,
-      discoveryCustomVarListPriceField,
-      discoveryCustomVarPurchasePriceField,
-      discoveryDomainKey,
-      discoveryViewId,
-      brEnvType,
-    ],
-  );
+  // const params: ProductDetailInputProps = useMemo(
+  //   () => ({
+  //     itemId: productId,
+  //     brUid2: cookies._br_uid_2,
+  //     connector: discoveryConnector,
+  //     customAttrFields: discoveryCustomAttrFields,
+  //     customVariantAttrFields: discoveryCustomVarAttrFields,
+  //     customVariantListPriceField: discoveryCustomVarListPriceField,
+  //     customVariantPurchasePriceField: discoveryCustomVarPurchasePriceField,
+  //     discoveryAccountId,
+  //     discoveryAuthKey,
+  //     discoveryDomainKey,
+  //     discoveryViewId,
+  //     brEnvType,
+  //   }),
+  //   [
+  //     cookies._br_uid_2,
+  //     productId,
+  //     discoveryAccountId,
+  //     discoveryAuthKey,
+  //     discoveryConnector,
+  //     discoveryCustomAttrFields,
+  //     discoveryCustomVarAttrFields,
+  //     discoveryCustomVarListPriceField,
+  //     discoveryCustomVarPurchasePriceField,
+  //     discoveryDomainKey,
+  //     discoveryViewId,
+  //     brEnvType,
+  //   ],
+  // );
 
-  const [item, loading, error] = useProductDetail(params);
+  // const [item, loading, error] = useProductDetail(params);
 
-  if (error) {
-    return null;
-  }
+  // if (error) {
+  //   return null;
+  // }
 
-  if (loading) {
-    return null;
-  }
+  // if (loading) {
+  //   return null;
+  // }
 
   return (
     <ClickAwayListener onClickAway={() => setShowPopover(false)}>
@@ -90,7 +90,7 @@ export const ShoppableImagePopover = ({ product }: any): React.ReactElement | nu
             href={`/p/${productId}`}
             underline='none'
           >
-            <StyledShoppableImageDetailsImage>
+            {/* <StyledShoppableImageDetailsImage>
               { item && <img src={item?.imageSet?.original?.link?.href || ''} alt='placeholder' /> }
             </StyledShoppableImageDetailsImage>
             <StyledShoppableImageDetailsContent>
@@ -100,7 +100,7 @@ export const ShoppableImagePopover = ({ product }: any): React.ReactElement | nu
               <Typography variant='body1' sx={{ mt: 1 }}>
                 ${ item?.purchasePrice?.moneyAmounts?.[0]?.amount}
               </Typography>
-            </StyledShoppableImageDetailsContent>
+            </StyledShoppableImageDetailsContent> */}
           </StyledShoppableImageLink>
         </StyledShoppableImageDetails>
       </StyledShoppableImagePopoverContainer>

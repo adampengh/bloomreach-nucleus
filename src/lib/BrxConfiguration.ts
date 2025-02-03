@@ -38,7 +38,7 @@ export const buildConfiguration = (
 
   const endpointParameter = query[CONSTANTS.PREVIEW_ENDPOINT_PARAM];
   if (multiTenantSupport && endpointParameter) {
-    console.log('buildCongiguration [multiTenantSupport endpoint]', endpointParameter)
+    // console.log('buildCongiguration [multiTenantSupport endpoint]', endpointParameter)
     configuration.endpoint = endpointParameter;
   }
 
@@ -47,7 +47,7 @@ export const buildConfiguration = (
 
 export const buildAppRouterConfiguration = (
   path: string,
-  searchParams: { [key: string]: string | string[] | undefined },
+  searchParams?: { [key: string]: string | string[] | undefined },
   endpoint: string = NEXT_PUBLIC_BRX_ENDPOINT,
   multiTenantSupport: boolean = Boolean(NEXT_PUBLIC_BRX_MULTI_TENANT_SUPPORT),
   debug: boolean = Boolean(NEXT_PUBLIC_BRX_DEBUG) || false,
@@ -55,18 +55,19 @@ export const buildAppRouterConfiguration = (
   // console.log('buildCongiguration [path]', path)
   // console.log('buildCongiguration [query]', query)
 
-  const {
-    token: authorizationToken,
-    'server-id': serverId,
-    endpoint: endpointQueryParam,
-  } = searchParams
+  // const {
+  //   token: authorizationToken,
+  //   'server-id': serverId,
+  //   endpoint: endpointQueryParam,
+  // } = searchParams
 
   const configuration: any = {
-    endpoint: endpointQueryParam ? endpointQueryParam: endpoint,
+    NBRMode: true,
+    endpoint: endpoint,
     path: path,
-    ...(authorizationToken ? { authorizationToken } : {}),
-    ...(serverId ? { serverId } : {}),
-    debug: true,
+    // ...(authorizationToken ? { authorizationToken } : {}),
+    // ...(serverId ? { serverId } : {}),
+    // debug: true,
   }
 
   return configuration

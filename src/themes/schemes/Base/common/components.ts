@@ -156,7 +156,6 @@ export const components: Components<Omit<Theme, 'components'>> = {
       // },
       // @ts-ignore
       serifxxxl: {
-        fontFamily: "Taviraj",
         fontSize: '24px',
         lineHeight: '44px',
         fontWeight: 400,

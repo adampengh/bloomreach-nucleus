@@ -25,7 +25,7 @@ export const HelpCenterSearchBar = ({ component }: BrProps) => {
   const [ term, setTerm ] = useState(searchTerm)
 
   // Component Parameters
-  console.log('HelpCenterSearchBar [component parameters]', component?.getParameters())
+  // console.log('HelpCenterSearchBar [component parameters]', component?.getParameters())
   const {
     label = 'Search',
     placeholder = 'Enter search term...'

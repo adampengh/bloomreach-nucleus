@@ -11,10 +11,10 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 export const HelpCenterTopicsList = ({ component, page }: BrProps) => {
   console.group('HelpCenterDocumentList')
-  console.log('HelpCenterDocumentList [component]:', component);
+  // console.log('HelpCenterDocumentList [component]:', component);
 
   const document: any = page?.getDocument()
-  console.log('HelpCenterDocumentList [document]:', document?.getData())
+  // console.log('HelpCenterDocumentList [document]:', document?.getData())
 
   const {
     documents,

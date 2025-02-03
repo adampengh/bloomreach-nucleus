@@ -15,11 +15,11 @@ import {
 
 // Context
 import { CommerceApiClientFactory, CommerceConnectorProvider } from '@bloomreach/connector-components-react';
-import { CommerceContextProvider } from '../context/CommerceContext';
+import { CommerceContextProvider } from 'src/context/CommerceContext';
 import ThemeProvider from '../themes/ThemeProvider';
 
 // Layouts
-import PageLayout from '../layouts';
+import PageLayout from 'src/layouts';
 
 // Utils
 import { BrxComponentMapping } from '../lib/BrxComponentMapping';

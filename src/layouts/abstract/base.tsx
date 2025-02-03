@@ -1,21 +1,21 @@
 import axios from "axios";
 import React from "react";
-import ThemeProvider from "@/themes/ThemeProvider";
+import ThemeProvider from "app/themes/ThemeProvider";
 import { CommerceConnectorProvider, APOLLO_STATE_PROP_NAME, CommerceApiClientFactory } from '@bloomreach/connector-components-react';
 import { BrComponent, BrPage, BrPageContext } from "@bloomreach/react-sdk";
-import { CommerceContextProvider } from "@/context/CommerceContext";
+import { CommerceContextProvider } from "src/context/CommerceContext";
 import { Container, CssBaseline } from "@mui/material";
 import { CookiesProvider } from "react-cookie";
 
-import { BrxComponentMapping } from "@/lib/BrxComponentMapping";
-import { Footer, Header, ScrollToTopButton } from "@/components";
-import { BrPixel } from "@/components/BrPixel";
+import { BrxComponentMapping } from "app/lib/BrxComponentMapping";
+import { Footer, Header, ScrollToTopButton } from "app/components";
+import { BrPixel } from "app/components/BrPixel";
 
 // Redux
 import { Provider } from "react-redux";
-import { store } from "@/redux/store";
+import { store } from "src/redux/store";
 import { Configuration, Page, PageModel } from "@bloomreach/spa-sdk";
-import { CommerceConfig } from "@/lib/utils";
+import { CommerceConfig } from "app/lib/utils";
 
 type BaseLayoutProps = {
   configuration: Omit<Configuration, 'httpClient'>;

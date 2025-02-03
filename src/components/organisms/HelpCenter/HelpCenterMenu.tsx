@@ -31,8 +31,8 @@ export const HelpCenterMenu = ({ component, page }: BrProps) => {
 
   // const component = useContext(BrComponentContext);
   // const page = useContext(BrPageContext);
-  console.log('HelpCenterMenu [component]', component)
-  console.log('HelpCenterMenu [page]', page?.getTitle())
+  // console.log('HelpCenterMenu [component]', component)
+  // console.log('HelpCenterMenu [page]', page?.getTitle())
 
   if (!component || !page) {
     console.groupEnd()

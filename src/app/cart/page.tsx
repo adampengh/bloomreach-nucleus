@@ -12,7 +12,7 @@ const Cart = async ({
   console.group('Cart Page')
 
   const configuration: any = buildAppRouterConfiguration('/cart', searchParams)
-  console.log('configuration', configuration)
+  // console.log('configuration', configuration)
 
   const page = await initialize({ ...configuration, httpClient: axios as any });
 

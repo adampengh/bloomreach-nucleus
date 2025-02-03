@@ -11,43 +11,37 @@ export interface ExtendedTypographyOptions extends TypographyOptions {
 }
 
 export const typography: ExtendedTypographyOptions = {
-  fontFamily:
-    '"Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"',
+  // fontFamily: '"Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"',
   fontWeightLight: 300,
   fontWeightRegular: 400,
   fontWeightMedium: 500,
   fontWeightBold: 700,
   htmlFontSize: 14,
   h1: {
-    // fontFamily: "Taviraj",
     fontWeight: 500,
     fontSize: "3rem",
     lineHeight: 1,
     margin: "0 0 2rem 0",
   },
   h2: {
-    // fontFamily: "Taviraj",
     fontWeight: 500,
     fontSize: "2.5rem",
     lineHeight: 1,
     margin: "0 0 1.5rem 0",
   },
   h3: {
-    // fontFamily: "Taviraj",
     fontWeight: 500,
     fontSize: "2rem",
     lineHeight: 1,
     margin: "0 0 1.25rem 0",
   },
   h4: {
-    // fontFamily: "Taviraj",
     fontWeight: 500,
     fontSize: "1.5rem",
   },
   h5: {
     fontWeight: 500,
     fontSize: "1.25rem",
-    // fontFamily: "Taviraj",
   },
   h6: {
     fontSize: "1rem",

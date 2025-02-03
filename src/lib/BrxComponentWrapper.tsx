@@ -18,11 +18,11 @@ export type BrxComponentWrapperProps = {
 const BrxComponentWrapper = (Component: any): any => {
   return function BrxComponent({ component, page, children }: BrxComponentProps) {
     if (!component || !page) return null
-    console.group('BrxComponentWrapper', component.getLabel())
+    // console.group('BrxComponentWrapper', component.getLabel())
 
     // Component Parameters
     const parameters = component.getParameters()
-    console.log('parameters', parameters)
+    // console.log('parameters', parameters)
 
     // Document Reference
     const { document: documentRef } = component.getModels()

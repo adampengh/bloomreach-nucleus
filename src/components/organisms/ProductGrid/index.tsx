@@ -6,7 +6,7 @@ import { BrComponent, BrComponentContext, BrPageContext } from '@bloomreach/reac
 import { ContainerItem } from '@bloomreach/spa-sdk';
 import { useProductGridCategory } from '@bloomreach/connector-components-react';
 
-import { CommerceContext } from '@/context/CommerceContext';
+// import { CommerceContext } from '@/app/context/CommerceContext';
 import { Backdrop, Button, CircularProgress, Divider, FormControl, Grid, InputLabel, MenuItem, Pagination, Select } from '@mui/material'
 
 import { PLP_SORT_OPTIONS } from '@/lib/constants';
@@ -40,19 +40,19 @@ export const ProductGrid = ({
   // CONTEXT
   const component = useContext(BrComponentContext)
   const page = useContext(BrPageContext)
-  const {
-    connector,
-    discoveryAccountId,
-    discoveryAuthKey,
-    discoveryConnector,
-    discoveryCustomAttrFields,
-    discoveryCustomVarAttrFields,
-    discoveryCustomVarListPriceField,
-    discoveryCustomVarPurchasePriceField,
-    discoveryDomainKey,
-    discoveryViewId,
-    brEnvType,
-  } = useContext(CommerceContext);
+  // const {
+  //   connector,
+  //   discoveryAccountId,
+  //   discoveryAuthKey,
+  //   discoveryConnector,
+  //   discoveryCustomAttrFields,
+  //   discoveryCustomVarAttrFields,
+  //   discoveryCustomVarListPriceField,
+  //   discoveryCustomVarPurchasePriceField,
+  //   discoveryDomainKey,
+  //   discoveryViewId,
+  //   brEnvType,
+  // } = useContext(CommerceContext);
   const [cookies] = useCookies(['_br_uid_2']);
   const { push } = useRouter();
 
@@ -84,85 +84,85 @@ export const ProductGrid = ({
     setCurrentPageNumber(pageNumber)
   }, [query]);
 
-  const params: any = useMemo(() => {
-    // console.log('currentPageNumber', currentPageNumber)
-    const itemsToReduce = inGridBannerDetails?.reduce((accumulator: any, currentValue: any) => accumulator + Number(currentValue?.columnSpan), 0) || 0;
-    // console.log('itemsToReduce', itemsToReduce)
-    const pageSize = currentPageNumber === 1 ? LIMIT - itemsToReduce : LIMIT
-    // console.log('pageSize', pageSize)
-    const offset = (LIMIT - itemsToReduce) * (currentPageNumber - 1)
-    // console.log('offset', offset)
-    const defaults: any = {
-      discoveryAccountId,
-      discoveryAuthKey,
-      discoveryDomainKey,
-      customAttrFields: discoveryCustomAttrFields,
-      customVariantAttrFields: discoveryCustomVarAttrFields,
-      customVariantListPriceField: discoveryCustomVarListPriceField,
-      customVariantPurchasePriceField: discoveryCustomVarPurchasePriceField,
-      // facetFieldFilters: filters,
-      sortFields: selectedSortOrder,
-      pageSize: pageSize,
-      connector: discoveryConnector,
-      offset: offset,
-      brUid2: cookies._br_uid_2,
-      // discoveryViewId: view || discoveryViewId,
-      brEnvType,
-    };
-    if (SEARCH_TYPE === 'category') {
-      return {
-        ...defaults,
-        categoryId: categoryId || ' ', // workaround for "All categories"
-      };
-    }
+  // const params: any = useMemo(() => {
+  //   // console.log('currentPageNumber', currentPageNumber)
+  //   const itemsToReduce = inGridBannerDetails?.reduce((accumulator: any, currentValue: any) => accumulator + Number(currentValue?.columnSpan), 0) || 0;
+  //   // console.log('itemsToReduce', itemsToReduce)
+  //   const pageSize = currentPageNumber === 1 ? LIMIT - itemsToReduce : LIMIT
+  //   // console.log('pageSize', pageSize)
+  //   const offset = (LIMIT - itemsToReduce) * (currentPageNumber - 1)
+  //   // console.log('offset', offset)
+  //   const defaults: any = {
+  //     discoveryAccountId,
+  //     discoveryAuthKey,
+  //     discoveryDomainKey,
+  //     customAttrFields: discoveryCustomAttrFields,
+  //     customVariantAttrFields: discoveryCustomVarAttrFields,
+  //     customVariantListPriceField: discoveryCustomVarListPriceField,
+  //     customVariantPurchasePriceField: discoveryCustomVarPurchasePriceField,
+  //     // facetFieldFilters: filters,
+  //     sortFields: selectedSortOrder,
+  //     pageSize: pageSize,
+  //     connector: discoveryConnector,
+  //     offset: offset,
+  //     brUid2: cookies._br_uid_2,
+  //     // discoveryViewId: view || discoveryViewId,
+  //     brEnvType,
+  //   };
+  //   if (SEARCH_TYPE === 'category') {
+  //     return {
+  //       ...defaults,
+  //       categoryId: categoryId || ' ', // workaround for "All categories"
+  //     };
+  //   }
 
-    return {
-      ...defaults,
-      searchText: query,
-    };
-  }, [
-    discoveryAccountId,
-    discoveryAuthKey,
-    discoveryDomainKey,
-    // sortFields,
-    discoveryCustomAttrFields,
-    discoveryCustomVarAttrFields,
-    discoveryCustomVarListPriceField,
-    discoveryCustomVarPurchasePriceField,
-    // filters,
-    // limit,
-    discoveryConnector,
-    // page,
-    cookies._br_uid_2,
-    // view,
-    // discoveryViewId,
-    SEARCH_TYPE,
-    query,
-    categoryId,
-    brEnvType,
-    currentPageNumber,
-    selectedSortOrder,
-    inGridBannerDetails,
-  ]);
+  //   return {
+  //     ...defaults,
+  //     searchText: query,
+  //   };
+  // }, [
+  //   discoveryAccountId,
+  //   discoveryAuthKey,
+  //   discoveryDomainKey,
+  //   // sortFields,
+  //   discoveryCustomAttrFields,
+  //   discoveryCustomVarAttrFields,
+  //   discoveryCustomVarListPriceField,
+  //   discoveryCustomVarPurchasePriceField,
+  //   // filters,
+  //   // limit,
+  //   discoveryConnector,
+  //   // page,
+  //   cookies._br_uid_2,
+  //   // view,
+  //   // discoveryViewId,
+  //   SEARCH_TYPE,
+  //   query,
+  //   categoryId,
+  //   brEnvType,
+  //   currentPageNumber,
+  //   selectedSortOrder,
+  //   inGridBannerDetails,
+  // ]);
 
   // Fetch Product Details via GraphQL
-  const [onLoadMore, results, loading, searchError] = useProductGridCategory(params as any);
+  // const [onLoadMore, results, loading, searchError] = useProductGridCategory(params as any);
   // console.log('results', results)
 
-  useMemo(() => {
-    if (currentPageNumber !== 1) return
-    inGridBannersContainerItems?.forEach((containerItem, index) => {
-      const banner = containerItem.getChildren()?.[0].getChildren()?.[0]
-      if (banner) {
-        const parameters = banner.getParameters() || {};
-        if (parameters?.document || page?.isPreview()) {
-          // @ts-ignore
-          results?.items.splice(parameters?.desktopPosition - 1, 0, containerItem)
-        }
-      }
-    })
-    page?.sync()
-  }, [currentPageNumber, inGridBanners, results, page])
+  // useMemo(() => {
+  //   if (currentPageNumber !== 1) return
+  //   inGridBannersContainerItems?.forEach((containerItem, index) => {
+  //     const banner = containerItem.getChildren()?.[0].getChildren()?.[0]
+  //     if (banner) {
+  //       const parameters = banner.getParameters() || {};
+  //       if (parameters?.document || page?.isPreview()) {
+  //         // @ts-ignore
+  //         results?.items.splice(parameters?.desktopPosition - 1, 0, containerItem)
+  //       }
+  //     }
+  //   })
+  //   page?.sync()
+  // }, [currentPageNumber, inGridBanners, results, page])
 
   const handlePaginationChange = (event: React.ChangeEvent<unknown>, value: number) => {
     setCurrentPageNumber(value)
@@ -170,20 +170,20 @@ export const ProductGrid = ({
     push({ query: { ...query, page: value } }, undefined, { shallow: true });
   }
 
-  if (searchError) {
-    console.error('searchError', searchError)
-  }
+  // if (searchError) {
+  //   console.error('searchError', searchError)
+  // }
 
-  if (loading) {
-    return (
-      <Backdrop
-        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-        open={loading}
-      >
-        <CircularProgress color="inherit" />
-      </Backdrop>
-    )
-  }
+  // if (loading) {
+  //   return (
+  //     <Backdrop
+  //       sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+  //       open={loading}
+  //     >
+  //       <CircularProgress color="inherit" />
+  //     </Backdrop>
+  //   )
+  // }
 
   return (
     <>
@@ -223,7 +223,7 @@ export const ProductGrid = ({
           sx={{ display: showFacets ? '' : 'none' }}
           zeroMinWidth
         >
-          <Facets facetResult={results?.facetResult} />
+          {/* <Facets facetResult={results?.facetResult} /> */}
         </Grid>
         <Grid item lg={showFacets ? 9 : 12} zeroMinWidth>
 
@@ -257,7 +257,7 @@ export const ProductGrid = ({
           </Grid>
 
           <Grid container columnSpacing={columnSpacing} rowSpacing={rowSpacing}>
-            {results?.items?.map((item: any, index: number) => {
+            {/* {results?.items?.map((item: any, index: number) => {
               // Render Product Card
               if (item?.__typename === 'Item') {
                 return (
@@ -293,7 +293,7 @@ export const ProductGrid = ({
                   </Fragment>
                 )
               }
-            })}
+            })} */}
           </Grid>
         </Grid>
 

@@ -11,9 +11,9 @@ const init = async () => {
     .then(response => response.data)
     .catch(error => console.error(error))
 
-  console.log('channels', channels)
+  // console.log('channels', channels)
   channels.forEach(channel => {
-    console.log(`Channel: ${channel.name}`)
+    // console.log(`Channel: ${channel.name}`)
   })
 
 };

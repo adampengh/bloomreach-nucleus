@@ -14,11 +14,11 @@ import {
 import { BrxComponentUndefined } from './BrxComponentUndefined';
 
 // Help Center
-import { HelpCenterSearchBar } from '@/components/HelpCenterSearchBar';
-import { HelpCenterMenu } from '@/components/HelpCenterMenu';
-import { HelpCenterArticle } from '@/components/HelpCenterArticle';
-import { HelpCenterSearchResults } from '@/components/HelpCenterSearchResults';
-import { HelpCenterTopicsList } from '@/components/HelpCenterTopicsList';
+import { HelpCenterSearchBar } from '@/components/organisms/HelpCenter/HelpCenterSearchBar';
+import { HelpCenterMenu } from '@/components/organisms/HelpCenter/HelpCenterMenu';
+import { HelpCenterArticle } from '@/components/organisms/HelpCenter/HelpCenterArticle';
+import { HelpCenterSearchResults } from '@/components/organisms/HelpCenter/HelpCenterSearchResults';
+import { HelpCenterTopicsList } from '@/components/organisms/HelpCenter/HelpCenterTopicsList';
 
 export const BrxComponentMapping = {
   Banner: BrxComponentWrapper(Banner),
@@ -39,5 +39,5 @@ export const BrxComponentMapping = {
   HelpCenterArticle,
 
   // Undefined components
-  [TYPE_CONTAINER_ITEM_UNDEFINED]: BrxComponentUndefined,
+  // [TYPE_CONTAINER_ITEM_UNDEFINED]: BrxComponentUndefined,
 }

@@ -15,7 +15,7 @@ import {
 } from '@mui/material'
 
 // Contexts
-import { CommerceContext } from '@/context/CommerceContext'
+// import { CommerceContext } from '@/context/CommerceContext'
 
 // Icons
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew'
@@ -106,91 +106,91 @@ export const PathwaysRecommendations = ({ document, component, page }: BrxCompon
     widgetalgo: widgetAlgo
   } = widgetCompound ?? {}
 
-  const {
-    discoveryDomainKey,
-    discoveryViewId,
-    discoveryAccountId,
-    discoveryAuthKey,
-    discoveryCatalogViews,
-    discoveryCustomAttrFields,
-    discoveryCustomVarAttrFields,
-    discoveryCustomVarListPriceField,
-    discoveryCustomVarPurchasePriceField,
-    brEnvType,
-  } = useContext(CommerceContext)
+  // const {
+  //   discoveryDomainKey,
+  //   discoveryViewId,
+  //   discoveryAccountId,
+  //   discoveryAuthKey,
+  //   discoveryCatalogViews,
+  //   discoveryCustomAttrFields,
+  //   discoveryCustomVarAttrFields,
+  //   discoveryCustomVarListPriceField,
+  //   discoveryCustomVarPurchasePriceField,
+  //   brEnvType,
+  // } = useContext(CommerceContext)
   const [cookies] = useCookies(['_br_uid_2'])
   const brUid2 = cookies._br_uid_2 || (page?.isPreview() ? DUMMY_BR_UID_2_FOR_PREVIEW : undefined)
 
-  const params: ProductGridWidgetInputProps = useMemo(() => {
-    const widgetType = widgetAlgo?.selectionValues?.[0].key.split('.')[0] ?? ''
-    return {
-      discoveryAccountId,
-      discoveryAuthKey,
-      discoveryCatalogViews,
-      discoveryDomainKey,
-      discoveryViewId,
-      widgetId,
-      widgetType,
-      brUid2,
-      searchText: keyword,
-      categoryId: category,
-      pageSize: maxItems || LIMIT,
-      productIds: pids,
-      customAttrFields: discoveryCustomAttrFields,
-      customVariantAttrFields: discoveryCustomVarAttrFields,
-      customVariantListPriceField: discoveryCustomVarListPriceField,
-      customVariantPurchasePriceField: discoveryCustomVarPurchasePriceField,
-      brEnvType,
-    }
-  }, [
-    category,
-    maxItems || LIMIT,
-    brUid2,
-    keyword,
-    pids,
-    discoveryAccountId,
-    discoveryAuthKey,
-    discoveryCatalogViews,
-    discoveryCustomAttrFields,
-    discoveryCustomVarAttrFields,
-    discoveryCustomVarListPriceField,
-    discoveryCustomVarPurchasePriceField,
-    discoveryDomainKey,
-    discoveryViewId,
-    widgetAlgo,
-    widgetId,
-    brEnvType,
-  ])
+  // const params: ProductGridWidgetInputProps = useMemo(() => {
+  //   const widgetType = widgetAlgo?.selectionValues?.[0].key.split('.')[0] ?? ''
+  //   return {
+  //     discoveryAccountId,
+  //     discoveryAuthKey,
+  //     discoveryCatalogViews,
+  //     discoveryDomainKey,
+  //     discoveryViewId,
+  //     widgetId,
+  //     widgetType,
+  //     brUid2,
+  //     searchText: keyword,
+  //     categoryId: category,
+  //     pageSize: maxItems || LIMIT,
+  //     productIds: pids,
+  //     customAttrFields: discoveryCustomAttrFields,
+  //     customVariantAttrFields: discoveryCustomVarAttrFields,
+  //     customVariantListPriceField: discoveryCustomVarListPriceField,
+  //     customVariantPurchasePriceField: discoveryCustomVarPurchasePriceField,
+  //     brEnvType,
+  //   }
+  // }, [
+  //   category,
+  //   maxItems || LIMIT,
+  //   brUid2,
+  //   keyword,
+  //   pids,
+  //   discoveryAccountId,
+  //   discoveryAuthKey,
+  //   discoveryCatalogViews,
+  //   discoveryCustomAttrFields,
+  //   discoveryCustomVarAttrFields,
+  //   discoveryCustomVarListPriceField,
+  //   discoveryCustomVarPurchasePriceField,
+  //   discoveryDomainKey,
+  //   discoveryViewId,
+  //   widgetAlgo,
+  //   widgetId,
+  //   brEnvType,
+  // ])
 
-  const [onLoadMore, results, loading, apolloError] = useProductGridWidget(params)
+  // const [onLoadMore, results, loading, apolloError] = useProductGridWidget(params)
 
-  const error = useMemo(() => {
-    let message
-    if ((widgetId ?? 'undefined') !== 'undefined' && params.widgetType) {
-      switch (params.widgetType) {
-        case 'item':
-          message = !pids ? 'Widget configured incorrectly: please add Product IDs' : undefined
-          break
-        case 'category':
-          message = !category ? 'Widget configured incorrectly: please add a Category ID' : undefined
-          break
-        case 'keyword':
-        case 'personalized':
-          message = !keyword ? 'Widget configured incorrectly: please add a Keyword' : undefined
-          break
-        default:
-          message = undefined
-      }
+  // const error = useMemo(() => {
+  //   let message
+  //   if ((widgetId ?? 'undefined') !== 'undefined' && params.widgetType) {
+  //     switch (params.widgetType) {
+  //       case 'item':
+  //         message = !pids ? 'Widget configured incorrectly: please add Product IDs' : undefined
+  //         break
+  //       case 'category':
+  //         message = !category ? 'Widget configured incorrectly: please add a Category ID' : undefined
+  //         break
+  //       case 'keyword':
+  //       case 'personalized':
+  //         message = !keyword ? 'Widget configured incorrectly: please add a Keyword' : undefined
+  //         break
+  //       default:
+  //         message = undefined
+  //     }
 
-      if (!message && !results && apolloError) {
-        message = 'This widget is not working properly. Try again later.'
-      }
-    } else {
-      message = 'Please configure Widget ID and Widget Type first'
-    }
+  //     if (!message && !results && apolloError) {
+  //       message = 'This widget is not working properly. Try again later.'
+  //     }
+  //   } else {
+  //     message = 'Please configure Widget ID and Widget Type first'
+  //   }
 
-    return message
-  }, [widgetId, params.widgetType, results, apolloError, pids, category, keyword])
+  //   return message
+  // }, [widgetId, params.widgetType, results, apolloError, pids, category, keyword])
 
   const PreviousArrow = ({ className, onClick}: any) => {
     return (
@@ -238,28 +238,28 @@ export const PathwaysRecommendations = ({ document, component, page }: BrxCompon
   }
 
   // Loading State
-  if (loading) {
-    return (
-      <Container maxWidth={fullWidth ? false : 'xl'} sx={{ pb: 6 }}>
-        <CircularProgress color="inherit" />
-      </Container>
-    )
-  }
+  // if (loading) {
+  //   return (
+  //     <Container maxWidth={fullWidth ? false : 'xl'} sx={{ pb: 6 }}>
+  //       <CircularProgress color="inherit" />
+  //     </Container>
+  //   )
+  // }
 
   // Error State
-  if (error) {
-    return page?.isPreview() ? (
-      <Container maxWidth={'xl'}>
-        <Alert severity='error'>
-          {error}
-        </Alert>
-      </Container>
-    ) : null
-  }
+  // if (error) {
+  //   return page?.isPreview() ? (
+  //     <Container maxWidth={'xl'}>
+  //       <Alert severity='error'>
+  //         {error}
+  //       </Alert>
+  //     </Container>
+  //   ) : null
+  // }
 
   return (
     <Container maxWidth={fullWidth ? false : 'xl'} sx={{ p: 6 }}>
-      {!loading && results?.items &&
+      {/* {!loading && results?.items &&
         <>
           {heading && <Typography variant="h4" gutterBottom>{heading}</Typography>}
           <Slider {...settings}>
@@ -270,7 +270,7 @@ export const PathwaysRecommendations = ({ document, component, page }: BrxCompon
             ))}
           </Slider>
         </>
-      }
+      } */}
     </Container>
   )
 }

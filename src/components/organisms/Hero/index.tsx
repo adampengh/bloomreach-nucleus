@@ -13,7 +13,7 @@ import { ShoppableImagePopover } from '@/components/molecules'
 export const Hero = ({ document, component, page, isStorybook, ...args }: any) => {
   if (!document || !component) return null
   console.group('Hero Component')
-  console.log('Document:', document)
+  // console.log('Document:', document)
 
   // Component Parameters
   // const { maxWidth = false } = component?.getParameters() || {}
@@ -29,7 +29,7 @@ export const Hero = ({ document, component, page, isStorybook, ...args }: any) =
     }
   } = document?.getData() || {}
 
-  console.log('unsplashImage:', unsplashImage && JSON.parse(unsplashImage))
+  // console.log('unsplashImage:', unsplashImage && JSON.parse(unsplashImage))
 
   // const {
   //   image: imageRef,

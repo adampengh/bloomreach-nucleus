@@ -3,8 +3,8 @@ import Head from 'next/head';
 import { AppTreeType } from 'next/dist/shared/lib/utils';
 import { ReactElement } from 'react';
 
-import '@/styles/styles.scss'
-import '@/styles/fonts.scss'
+import 'app/styles/styles.scss'
+import 'app/styles/fonts.scss'
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 

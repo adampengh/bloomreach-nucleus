@@ -22,7 +22,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 export const HelpCenterSearchResults = ({ component, page }: BrProps) => {
   console.group('HelpCenterSearchResults')
-  console.log('component.getId()', component?.getId())
+  // console.log('component.getId()', component?.getId())
   const [currentPage, setCurrentPage] = useState(1)
 
   // Get the search term from the query string
@@ -55,7 +55,7 @@ export const HelpCenterSearchResults = ({ component, page }: BrProps) => {
   // Get the pagination model from the component
   const { pagination: paginationModel } = component?.getModels() || {}
   const pagination = paginationModel && page?.getContent<Pagination>(paginationModel)
-  console.log('pagination', pagination)
+  // console.log('pagination', pagination)
 
   console.groupEnd()
 

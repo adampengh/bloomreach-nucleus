@@ -5,11 +5,11 @@ import sanitizeHTML from 'sanitize-html';
 export const parseBrxEndpoint = (endpoint: string) => {
   const regexp = /https?\:\/\/([a-zA-Z0-9\-]+)\.(?:.*)\/channels\/([a-zA-Z0-9\-]+)\/pages/g
   const match = [...endpoint.matchAll(regexp)];
-  console.log('buildCongiguration [match]', match)
+  // console.log('buildCongiguration [match]', match)
   const environment = match?.[0]?.[1]
   const channel = match?.[0]?.[2]
-  console.log('buildCongiguration [environment]', environment)
-  console.log('buildCongiguration [channel]', channel)
+  // console.log('buildCongiguration [environment]', environment)
+  // console.log('buildCongiguration [channel]', channel)
 
   return { environment, channel}
 }

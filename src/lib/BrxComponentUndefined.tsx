@@ -2,9 +2,9 @@ import { BrProps } from '@bloomreach/react-sdk'
 import { Alert } from '@mui/material'
 
 export const BrxComponentUndefined = ({ component, page}: BrProps) => {
-  console.group('BrxComponentUndefined')
-  console.log('component', component)
-  console.groupEnd()
+  // console.group('BrxComponentUndefined')
+  // console.log('component', component)
+  // console.groupEnd()
 
   return page?.isPreview() ? (
     // @ts-ignore

@@ -5,7 +5,7 @@ export const UnsplashImage = ({
 }) => {
   console.group('UnsplashImage Component')
 
-  console.log('unsplashImage', JSON.parse(unsplashImage))
+  // console.log('unsplashImage', JSON.parse(unsplashImage))
   const {
     alt_description,
     height,

@@ -7,7 +7,7 @@ export const ThemeContext = createContext((_themeName: string) => {});
 
 const ThemeProviderWrapper = (props: any) => {
   const themeFromChannel = props.theme;
-  console.log('themeFromChannel', themeFromChannel);
+  // console.log('themeFromChannel', themeFromChannel);
 
   const [themeName, _setThemeName] = useState(props.theme ?? 'BaseLight');
 
